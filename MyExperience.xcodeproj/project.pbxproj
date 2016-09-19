@@ -15,6 +15,18 @@
 		922927F81D7FB465007E38A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922927F61D7FB465007E38A9 /* LaunchScreen.storyboard */; };
 		922928031D7FB465007E38A9 /* MyExperienceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 922928021D7FB465007E38A9 /* MyExperienceTests.m */; };
 		9229280E1D7FB465007E38A9 /* MyExperienceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9229280D1D7FB465007E38A9 /* MyExperienceUITests.m */; };
+		9238D78D1D825F02001D2919 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9238D78C1D825F02001D2919 /* libsqlite3.0.tbd */; };
+		9238D7901D82777C001D2919 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238D78F1D82777C001D2919 /* DBManager.m */; };
+		923DB9911D868A770093EC7F /* SqliteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923DB98F1D868A770093EC7F /* SqliteViewController.m */; };
+		923DB9921D868A770093EC7F /* SqliteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923DB9901D868A770093EC7F /* SqliteViewController.xib */; };
+		923DB9951D8693A40093EC7F /* LSPShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 923DB9941D8693A40093EC7F /* LSPShop.m */; };
+		92485F681D7FE0B50010B545 /* twoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92485F671D7FE0B50010B545 /* twoViewController.m */; };
+		92485F6B1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 92485F6A1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m */; };
+		925F5DB51D85386E00C0B699 /* QQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925F5DB41D85386E00C0B699 /* QQViewController.m */; };
+		925F5DB71D8538CC00C0B699 /* QQViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925F5DB61D8538CC00C0B699 /* QQViewController.xib */; };
+		925F5DBB1D855C7800C0B699 /* QQViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 925F5DB91D855C7800C0B699 /* QQViewTableViewCell.m */; };
+		925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925F5DBA1D855C7800C0B699 /* QQViewTableViewCell.xib */; };
+		9EC571120D3EB6DF31A1A54E /* libPods-MyExperience.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07974E7DFC55A4E87EBD24E0 /* libPods-MyExperience.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07974E7DFC55A4E87EBD24E0 /* libPods-MyExperience.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyExperience.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14BEA95645461DA10B7C3742 /* Pods-MyExperience.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExperience.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyExperience/Pods-MyExperience.release.xcconfig"; sourceTree = "<group>"; };
+		694A7693437C673C5134AB39 /* Pods-MyExperience.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExperience.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyExperience/Pods-MyExperience.debug.xcconfig"; sourceTree = "<group>"; };
 		922927E51D7FB465007E38A9 /* MyExperience.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExperience.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922927E91D7FB465007E38A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		922927EB1D7FB465007E38A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +66,24 @@
 		922928091D7FB465007E38A9 /* MyExperienceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyExperienceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9229280D1D7FB465007E38A9 /* MyExperienceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyExperienceUITests.m; sourceTree = "<group>"; };
 		9229280F1D7FB465007E38A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9238D78C1D825F02001D2919 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		9238D78E1D82777C001D2919 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		9238D78F1D82777C001D2919 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		923DB98E1D868A770093EC7F /* SqliteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteViewController.h; sourceTree = "<group>"; };
+		923DB98F1D868A770093EC7F /* SqliteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteViewController.m; sourceTree = "<group>"; };
+		923DB9901D868A770093EC7F /* SqliteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SqliteViewController.xib; sourceTree = "<group>"; };
+		923DB9931D8693A40093EC7F /* LSPShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPShop.h; sourceTree = "<group>"; };
+		923DB9941D8693A40093EC7F /* LSPShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPShop.m; sourceTree = "<group>"; };
+		92485F661D7FE0B50010B545 /* twoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twoViewController.h; sourceTree = "<group>"; };
+		92485F671D7FE0B50010B545 /* twoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twoViewController.m; sourceTree = "<group>"; };
+		92485F691D8055970010B545 /* UIScrollView+MyExperienceRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MyExperienceRefresh.h"; sourceTree = "<group>"; };
+		92485F6A1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MyExperienceRefresh.m"; sourceTree = "<group>"; };
+		925F5DB31D85386E00C0B699 /* QQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQViewController.h; sourceTree = "<group>"; };
+		925F5DB41D85386E00C0B699 /* QQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQViewController.m; sourceTree = "<group>"; };
+		925F5DB61D8538CC00C0B699 /* QQViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQViewController.xib; sourceTree = "<group>"; };
+		925F5DB81D855C7800C0B699 /* QQViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQViewTableViewCell.h; sourceTree = "<group>"; };
+		925F5DB91D855C7800C0B699 /* QQViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQViewTableViewCell.m; sourceTree = "<group>"; };
+		925F5DBA1D855C7800C0B699 /* QQViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQViewTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9238D78D1D825F02001D2919 /* libsqlite3.0.tbd in Frameworks */,
+				9EC571120D3EB6DF31A1A54E /* libPods-MyExperience.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +113,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6519211FC2E9BC9CEABCCCAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				694A7693437C673C5134AB39 /* Pods-MyExperience.debug.xcconfig */,
+				14BEA95645461DA10B7C3742 /* Pods-MyExperience.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7539C0C37E6437E00BDFA5BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9238D78C1D825F02001D2919 /* libsqlite3.0.tbd */,
+				07974E7DFC55A4E87EBD24E0 /* libPods-MyExperience.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		922927DC1D7FB465007E38A9 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +138,8 @@
 				922928011D7FB465007E38A9 /* MyExperienceTests */,
 				9229280C1D7FB465007E38A9 /* MyExperienceUITests */,
 				922927E61D7FB465007E38A9 /* Products */,
+				6519211FC2E9BC9CEABCCCAA /* Pods */,
+				7539C0C37E6437E00BDFA5BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +156,19 @@
 		922927E71D7FB465007E38A9 /* MyExperience */ = {
 			isa = PBXGroup;
 			children = (
+				923DB98D1D868A350093EC7F /* Sqlite3 */,
 				922927EB1D7FB465007E38A9 /* AppDelegate.h */,
 				922927EC1D7FB465007E38A9 /* AppDelegate.m */,
 				922927EE1D7FB465007E38A9 /* ViewController.h */,
 				922927EF1D7FB465007E38A9 /* ViewController.m */,
 				922927F11D7FB465007E38A9 /* Main.storyboard */,
+				9238D78E1D82777C001D2919 /* DBManager.h */,
+				9238D78F1D82777C001D2919 /* DBManager.m */,
+				92485F661D7FE0B50010B545 /* twoViewController.h */,
+				92485F671D7FE0B50010B545 /* twoViewController.m */,
+				92485F691D8055970010B545 /* UIScrollView+MyExperienceRefresh.h */,
+				92485F6A1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m */,
+				92F1DB2B1D853660008B42E8 /* SimilarQQ */,
 				922927F41D7FB465007E38A9 /* Assets.xcassets */,
 				922927F61D7FB465007E38A9 /* LaunchScreen.storyboard */,
 				922927F91D7FB465007E38A9 /* Info.plist */,
@@ -140,6 +203,31 @@
 			path = MyExperienceUITests;
 			sourceTree = "<group>";
 		};
+		923DB98D1D868A350093EC7F /* Sqlite3 */ = {
+			isa = PBXGroup;
+			children = (
+				923DB98E1D868A770093EC7F /* SqliteViewController.h */,
+				923DB98F1D868A770093EC7F /* SqliteViewController.m */,
+				923DB9901D868A770093EC7F /* SqliteViewController.xib */,
+				923DB9931D8693A40093EC7F /* LSPShop.h */,
+				923DB9941D8693A40093EC7F /* LSPShop.m */,
+			);
+			name = Sqlite3;
+			sourceTree = "<group>";
+		};
+		92F1DB2B1D853660008B42E8 /* SimilarQQ */ = {
+			isa = PBXGroup;
+			children = (
+				925F5DB31D85386E00C0B699 /* QQViewController.h */,
+				925F5DB41D85386E00C0B699 /* QQViewController.m */,
+				925F5DB61D8538CC00C0B699 /* QQViewController.xib */,
+				925F5DB81D855C7800C0B699 /* QQViewTableViewCell.h */,
+				925F5DB91D855C7800C0B699 /* QQViewTableViewCell.m */,
+				925F5DBA1D855C7800C0B699 /* QQViewTableViewCell.xib */,
+			);
+			name = SimilarQQ;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +235,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 922928121D7FB465007E38A9 /* Build configuration list for PBXNativeTarget "MyExperience" */;
 			buildPhases = (
+				84DCC17E907E6B51E84EE427 /* [CP] Check Pods Manifest.lock */,
 				922927E11D7FB465007E38A9 /* Sources */,
 				922927E21D7FB465007E38A9 /* Frameworks */,
 				922927E31D7FB465007E38A9 /* Resources */,
+				B50D8B214663FC9A7B738428 /* [CP] Embed Pods Frameworks */,
+				C94EAD832D7FCFC4A7C043F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,6 +339,9 @@
 			files = (
 				922927F81D7FB465007E38A9 /* LaunchScreen.storyboard in Resources */,
 				922927F51D7FB465007E38A9 /* Assets.xcassets in Resources */,
+				923DB9921D868A770093EC7F /* SqliteViewController.xib in Resources */,
+				925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */,
+				925F5DB71D8538CC00C0B699 /* QQViewController.xib in Resources */,
 				922927F31D7FB465007E38A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,14 +362,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		84DCC17E907E6B51E84EE427 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B50D8B214663FC9A7B738428 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyExperience/Pods-MyExperience-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C94EAD832D7FCFC4A7C043F3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyExperience/Pods-MyExperience-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		922927E11D7FB465007E38A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925F5DBB1D855C7800C0B699 /* QQViewTableViewCell.m in Sources */,
+				9238D7901D82777C001D2919 /* DBManager.m in Sources */,
 				922927F01D7FB465007E38A9 /* ViewController.m in Sources */,
+				92485F6B1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m in Sources */,
 				922927ED1D7FB465007E38A9 /* AppDelegate.m in Sources */,
+				923DB9951D8693A40093EC7F /* LSPShop.m in Sources */,
+				925F5DB51D85386E00C0B699 /* QQViewController.m in Sources */,
+				923DB9911D868A770093EC7F /* SqliteViewController.m in Sources */,
 				922927EA1D7FB465007E38A9 /* main.m in Sources */,
+				92485F681D7FE0B50010B545 /* twoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +565,7 @@
 		};
 		922928131D7FB465007E38A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 694A7693437C673C5134AB39 /* Pods-MyExperience.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyExperience/Info.plist;
@@ -427,6 +577,7 @@
 		};
 		922928141D7FB465007E38A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14BEA95645461DA10B7C3742 /* Pods-MyExperience.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyExperience/Info.plist;
@@ -501,6 +652,7 @@
 				922928141D7FB465007E38A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		922928151D7FB465007E38A9 /* Build configuration list for PBXNativeTarget "MyExperienceTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +661,7 @@
 				922928171D7FB465007E38A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		922928181D7FB465007E38A9 /* Build configuration list for PBXNativeTarget "MyExperienceUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +670,7 @@
 				9229281A1D7FB465007E38A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

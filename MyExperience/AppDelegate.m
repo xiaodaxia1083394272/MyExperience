@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import <RongIMKit/RongIMKit.h>
+#import "twoViewController.h"
 
-@interface AppDelegate ()
+
+@interface AppDelegate ()                                                                                                                                                                              
 
 @end
 
@@ -17,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[RCIM sharedRCIM] initWithAppKey:@"uwd1c0sxdu5e1"];
+    
     return YES;
 }
 
