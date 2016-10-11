@@ -85,6 +85,66 @@
     });
 }
 
+//weather
++ (void)queryJuheWeatherDataWithDelegate:(id<JuHeServiceDelegate>)delegate
+                             cityName:(NSString *)cityName
+                             dtype:(NSString *)dtype
+                           appKey:(NSString *)appKey{
+    
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        NSMutableDictionary *inputDic = [NSMutableDictionary dictionary];
+        [inputDic setValue:[cityName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]] forKey:@"cityname"];
+        [inputDic setValue:dtype forKey:@"page"];
+        [inputDic setValue:appKey forKey:@"key"];
+        
+        //创建HTTP连接管理对象
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+
+        
+        [manager GET:@"http://op.juhe.cn/onebox/weather/query" parameters:inputDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"下载成功");
+            NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            NSString *reason = nil;
+            reason = [content objectForKey:@"reason"];
+            NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
+            resultDic = [content objectForKey:@"result"];
+            NSMutableArray *dataArray = [NSMutableArray array];
+            dataArray = [resultDic objectForKey:@"data"];
+            NSMutableArray *contentArray = [NSMutableArray array];
+            for (NSDictionary *one in dataArray) {
+                
+                [contentArray addObject:[one objectForKey:@"content"]];
+            }
+            
+            
+            dispatch_async(dispatch_get_main_queue(),^{
+//                
+//                if (delegate && [delegate respondsToSelector:@selector(getDataWithReson:dataList:)]){
+//                    
+//                    [delegate getDataWithReson:reason dataList:contentArray];
+//                }
+                
+                
+            });
+            
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError *_Nonnull error){
+            NSLog(@"下载失败");
+            NSLog(@"%@",error.domain);
+            NSLog(@"testError__%ld",(long)error.code);
+            NSLog(@"test______%@",error.localizedFailureReason);
+        }];
+        
+    });
+
+    
+}
+
+
 +(JuHeService *)shareManager{
     static JuHeService *jhs = nil;
     
