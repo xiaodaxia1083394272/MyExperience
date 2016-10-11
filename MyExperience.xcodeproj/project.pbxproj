@@ -47,6 +47,7 @@
 		92EF62711DABE28F00FDE5DE /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EF626F1DABE28F00FDE5DE /* NoteViewController.xib */; };
 		92F38CA81DAD203200C44549 /* JokeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F38CA61DAD203200C44549 /* JokeTableViewCell.m */; };
 		92F38CA91DAD203200C44549 /* JokeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F38CA71DAD203200C44549 /* JokeTableViewCell.xib */; };
+		92F38CAD1DAD4D2700C44549 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F38CAC1DAD4D2700C44549 /* UIScrollView+MJRefresh.m */; };
 		9EC571120D3EB6DF31A1A54E /* libPods-MyExperience.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07974E7DFC55A4E87EBD24E0 /* libPods-MyExperience.a */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +140,8 @@
 		92F38CA51DAD203200C44549 /* JokeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeTableViewCell.h; sourceTree = "<group>"; };
 		92F38CA61DAD203200C44549 /* JokeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeTableViewCell.m; sourceTree = "<group>"; };
 		92F38CA71DAD203200C44549 /* JokeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JokeTableViewCell.xib; sourceTree = "<group>"; };
+		92F38CAB1DAD4D2700C44549 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		92F38CAC1DAD4D2700C44549 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +214,7 @@
 		922927E71D7FB465007E38A9 /* MyExperience */ = {
 			isa = PBXGroup;
 			children = (
+				92F38CAA1DAD4CC500C44549 /* MJRefresh */,
 				92EF625D1DABE16500FDE5DE /* MainController */,
 				923AEE241D98F60A006CC483 /* GetNetworkData */,
 				92ED1FB91D9438DA00290D11 /* WeiXingShare */,
@@ -347,6 +351,15 @@
 				925F5DBA1D855C7800C0B699 /* QQViewTableViewCell.xib */,
 			);
 			name = SimilarQQ;
+			sourceTree = "<group>";
+		};
+		92F38CAA1DAD4CC500C44549 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				92F38CAB1DAD4D2700C44549 /* UIScrollView+MJRefresh.h */,
+				92F38CAC1DAD4D2700C44549 /* UIScrollView+MJRefresh.m */,
+			);
+			name = MJRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,6 +577,7 @@
 				92ED1FBF1D943AA400290D11 /* ShareContent.m in Sources */,
 				92EF626B1DABE26100FDE5DE /* WeatherViewController.m in Sources */,
 				924055CA1D91920500D77220 /* SQLManager.m in Sources */,
+				92F38CAD1DAD4D2700C44549 /* UIScrollView+MJRefresh.m in Sources */,
 				922927EA1D7FB465007E38A9 /* main.m in Sources */,
 				92485F681D7FE0B50010B545 /* twoViewController.m in Sources */,
 				923AEE301D98F731006CC483 /* JuHeTableViewCell.m in Sources */,

@@ -9,23 +9,47 @@
 #import "JokeViewController.h"
 #import "JokeTableViewCell.h"
 #import "JuHeService.h"
+#import "UIScrollView+MJRefresh.h"
 
-@interface JokeViewController ()<JuHeServiceDelegate,UITextViewDelegate>
+
+@interface JokeViewController ()<JuHeServiceDelegate,UITextViewDelegate,UIScrollViewDelegate>
 @property (strong, nonatomic) NSArray *dataList;
 @property (weak, nonatomic) IBOutlet UITableView *dataTableView;
 @property (strong, nonatomic) UITextView *textView;
+@property (assign,nonatomic) int page;
+
+
 
 @end
 
 @implementation JokeViewController
 
+#define PAGE_START  1
+#define COUNT_ONE_PAGE  20
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"轻松一刻";
-    [self queryData];
+    [self.dataTableView addPullDownReloadWithTarget:self action:@selector(loadNewData)];
+    [self.dataTableView addPullUpLoadMoreWithTarget:self action:@selector(loadMoreData)];
+    
+    //一开始就下拉刷新
+    [self.dataTableView beginReload];
     
     // Do any additional setup after loading the view from its nib.
 }
+
+-(void)loadNewData {
+    self.page = PAGE_START;
+    [self queryData];
+}
+
+-(void)loadMoreData {
+    self.page ++;
+    [self queryData];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -35,8 +59,8 @@
 - (void)queryData{
     [JuHeService queryJuheDataWithDelegate:self
                                       Sort:@"desc"
-                                      page:1
-                                  pageSize:20
+                                      page:_page
+                                  pageSize:COUNT_ONE_PAGE
                                       time:[NSDate date]
                                     appKey:@"e2f6edd4efbde4f44cb30b6f5874f4db"];
 }
@@ -46,9 +70,18 @@
     if ([reason isEqualToString:@"Success"]){
         
         _dataList = dataList;
+        [self.dataTableView reloadData];
+
+        if ([dataList count] < COUNT_ONE_PAGE){
+            
+            [self.dataTableView canNotLoadMore];
+        }else {
+            [self.dataTableView canLoadMore];
+            
+        }
     }
+    [self.dataTableView endLoad];
     
-    [self.dataTableView reloadData];
 }
 
 
