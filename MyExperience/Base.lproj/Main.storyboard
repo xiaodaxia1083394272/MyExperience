@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyV-TS-XW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-636" y="491"/>
+            <point key="canvasLocation" x="-624" y="-293"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mUI-K9-NeW">
@@ -29,10 +29,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="GMH-dZ-7Go" kind="relationship" relationship="viewControllers" id="7MF-1U-aTY"/>
                         <segue destination="fQB-Y6-9wQ" kind="relationship" relationship="viewControllers" id="45b-p7-Pv9"/>
                         <segue destination="pj9-CP-8wt" kind="relationship" relationship="viewControllers" id="K9P-rE-zNL"/>
-                        <segue destination="PhG-lH-hCM" kind="relationship" relationship="viewControllers" id="cHE-UR-vtB"/>
+                        <segue destination="GMH-dZ-7Go" kind="relationship" relationship="viewControllers" id="U2D-dH-JoV"/>
+                        <segue destination="PhG-lH-hCM" kind="relationship" relationship="viewControllers" id="sLt-op-YHV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSk-10-dCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -43,7 +43,7 @@
         <scene sceneID="TRg-Ns-7px">
             <objects>
                 <navigationController id="GMH-dZ-7Go" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" badgeValue="笑话大全" systemItem="bookmarks" id="Y3q-np-L2h"/>
+                    <tabBarItem key="tabBarItem" badgeValue="轻松一刻" systemItem="bookmarks" id="Y3q-np-L2h"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JZ0-ux-Ky5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -51,7 +51,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hkt-gT-ySW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-616" y="-1015"/>
+            <point key="canvasLocation" x="-596" y="397"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CqL-y5-NKv">
@@ -65,7 +65,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mhk-aQ-4gA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-636" y="1265"/>
+            <point key="canvasLocation" x="-536" y="1177"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FOT-Jr-1Z3">
@@ -79,7 +79,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0p-lE-k7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-616" y="-275"/>
+            <point key="canvasLocation" x="-644" y="-1031"/>
         </scene>
     </scenes>
 </document>

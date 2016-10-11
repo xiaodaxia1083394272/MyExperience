@@ -28,32 +28,34 @@
     // Override point for customization after application launch.
     [[RCIM sharedRCIM] initWithAppKey:@"uwd1c0sxdu5e1"];
     
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     if (storyboard) {
-        window.rootViewController = [storyboard instantiateInitialViewController];
-        [window makeKeyAndVisible];
+        self.window.rootViewController = [storyboard instantiateInitialViewController];
+        [self.window makeKeyAndVisible];
         
-        UITabBarController *tabBarController = (UITabBarController *)window.rootViewController;
+        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+        tabBarController.tabBar.translucent = NO;
         tabBarController.delegate = self;
         
         //设置第一个Controller
-        UINavigationController *firstNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:0];//这个viewControllers里装的是NavigationController而不是viewController吗？略神奇 其实我觉得应该是类似于实例化
+        UINavigationController *firstNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:2];//这个viewControllers里装的是NavigationController而不是viewController吗？略神奇 其实我觉得应该是类似于实例化
         
         //游戏规则
         //做过才能理解
         JokeViewController *jvc = [[JokeViewController alloc] init];
+        
         firstNavigationController.viewControllers = @[jvc];
         //tabBarController里的viewcontrollers装的是navigationController；
         //navigationController里的viewControllers装的是viewcontroller
         
         //设置第二个Controller
-        UINavigationController *secondNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:1];
+        UINavigationController *secondNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:0];
         
         NewsViewController *nvc = [[NewsViewController alloc] init];
         secondNavigationController.viewControllers = @[nvc];
         //设置第三个Controller
-        UINavigationController *thirdNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:2];
+        UINavigationController *thirdNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:1];
         WeatherViewController *wvc = [[WeatherViewController alloc] init];
         thirdNavigationController.viewControllers = @[wvc];
         
