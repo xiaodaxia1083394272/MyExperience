@@ -10,10 +10,11 @@
 #import "twoViewController.h"
 #import "QQViewController.h"
 #import "SqliteViewController.h"
+#import "JuHeService.h"
 
 
-@interface ViewController ()
-
+@interface ViewController ()<JuHeServiceDelegate>
+@property (strong, nonatomic) NSArray *dataList;
 
 @end
 
@@ -21,9 +22,60 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"MyWorld";
     
+    [self setupRightTopButton];
+}
+- (IBAction)clickNetButton:(id)sender {
     
-    // Do any additional setup after loading the view, typically from a nib.
+    [JuHeService queryJuheDataWithDelegate:self
+                              Sort:@"desc"
+                              page:1
+                          pageSize:20
+                              time:[NSDate date]
+                            appKey:@"e2f6edd4efbde4f44cb30b6f5874f4db"];
+    
+}
+
+- (void)getDataWithReson:(NSString *)reason
+                dataList:(NSArray *)dataList{
+    if ([reason isEqualToString:@"Success"]){
+        
+        _dataList = dataList;
+    }
+}
+
+- (void)setupRightTopButton {
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    btn.frame = CGRectMake(0, 0, 100, 30);
+    
+    [btn setTitle:@"推荐奖励" forState:UIControlStateNormal];
+    
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    btn.titleLabel.font = [UIFont systemFontOfSize: 15.0];
+    
+    btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
+//    [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
+    
+    UIBarButtonItem *rewardItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    
+//    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//    
+//    spaceItem.width = -15;
+    
+    [btn addTarget:self action:@selector(shareButton) forControlEvents:UIControlEventTouchUpInside];
+    
+//    self.navigationItem.rightBarButtonItems = @[spaceItem,rewardItem];
+    self.navigationItem.rightBarButtonItems = @[rewardItem];
+    
+
+}
+
+- (void)shareButton{
+    
 }
 
 - (void)didReceiveMemoryWarning {

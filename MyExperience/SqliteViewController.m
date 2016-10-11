@@ -28,7 +28,6 @@
 
     [self addSearchBar];
     
-    UITableViewController
 
 }
 

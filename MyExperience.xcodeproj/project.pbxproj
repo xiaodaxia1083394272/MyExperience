@@ -17,15 +17,34 @@
 		9229280E1D7FB465007E38A9 /* MyExperienceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9229280D1D7FB465007E38A9 /* MyExperienceUITests.m */; };
 		9238D78D1D825F02001D2919 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9238D78C1D825F02001D2919 /* libsqlite3.0.tbd */; };
 		9238D7901D82777C001D2919 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238D78F1D82777C001D2919 /* DBManager.m */; };
+		923AEE281D98F662006CC483 /* JuHeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923AEE261D98F662006CC483 /* JuHeViewController.m */; };
+		923AEE291D98F662006CC483 /* JuHeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923AEE271D98F662006CC483 /* JuHeViewController.xib */; };
+		923AEE2C1D98F688006CC483 /* JuHeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 923AEE2B1D98F688006CC483 /* JuHeService.m */; };
+		923AEE301D98F731006CC483 /* JuHeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 923AEE2E1D98F731006CC483 /* JuHeTableViewCell.m */; };
+		923AEE311D98F731006CC483 /* JuHeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923AEE2F1D98F731006CC483 /* JuHeTableViewCell.xib */; };
 		923DB9911D868A770093EC7F /* SqliteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923DB98F1D868A770093EC7F /* SqliteViewController.m */; };
 		923DB9921D868A770093EC7F /* SqliteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923DB9901D868A770093EC7F /* SqliteViewController.xib */; };
 		923DB9951D8693A40093EC7F /* LSPShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 923DB9941D8693A40093EC7F /* LSPShop.m */; };
+		924055CA1D91920500D77220 /* SQLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 924055C91D91920500D77220 /* SQLManager.m */; };
+		924055CE1D91939B00D77220 /* TestSQLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924055CC1D91939B00D77220 /* TestSQLViewController.m */; };
+		924055CF1D91939B00D77220 /* TestSQLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924055CD1D91939B00D77220 /* TestSQLViewController.xib */; };
 		92485F681D7FE0B50010B545 /* twoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92485F671D7FE0B50010B545 /* twoViewController.m */; };
 		92485F6B1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 92485F6A1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m */; };
 		925F5DB51D85386E00C0B699 /* QQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925F5DB41D85386E00C0B699 /* QQViewController.m */; };
 		925F5DB71D8538CC00C0B699 /* QQViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925F5DB61D8538CC00C0B699 /* QQViewController.xib */; };
 		925F5DBB1D855C7800C0B699 /* QQViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 925F5DB91D855C7800C0B699 /* QQViewTableViewCell.m */; };
 		925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925F5DBA1D855C7800C0B699 /* QQViewTableViewCell.xib */; };
+		92E902F91D92793E00A07AC7 /* StudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E902F81D92793E00A07AC7 /* StudentModel.m */; };
+		92ED1FBF1D943AA400290D11 /* ShareContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED1FBE1D943AA400290D11 /* ShareContent.m */; };
+		92ED1FC21D943B0E00290D11 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED1FC11D943B0E00290D11 /* ShareView.m */; };
+		92EF62611DABE20200FDE5DE /* JokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EF625F1DABE20200FDE5DE /* JokeViewController.m */; };
+		92EF62621DABE20200FDE5DE /* JokeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EF62601DABE20200FDE5DE /* JokeViewController.xib */; };
+		92EF62661DABE21C00FDE5DE /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EF62641DABE21C00FDE5DE /* NewsViewController.m */; };
+		92EF62671DABE21C00FDE5DE /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EF62651DABE21C00FDE5DE /* NewsViewController.xib */; };
+		92EF626B1DABE26100FDE5DE /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EF62691DABE26100FDE5DE /* WeatherViewController.m */; };
+		92EF626C1DABE26100FDE5DE /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EF626A1DABE26100FDE5DE /* WeatherViewController.xib */; };
+		92EF62701DABE28F00FDE5DE /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EF626E1DABE28F00FDE5DE /* NoteViewController.m */; };
+		92EF62711DABE28F00FDE5DE /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EF626F1DABE28F00FDE5DE /* NoteViewController.xib */; };
 		9EC571120D3EB6DF31A1A54E /* libPods-MyExperience.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07974E7DFC55A4E87EBD24E0 /* libPods-MyExperience.a */; };
 /* End PBXBuildFile section */
 
@@ -69,11 +88,24 @@
 		9238D78C1D825F02001D2919 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		9238D78E1D82777C001D2919 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		9238D78F1D82777C001D2919 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		923AEE251D98F662006CC483 /* JuHeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuHeViewController.h; sourceTree = "<group>"; };
+		923AEE261D98F662006CC483 /* JuHeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuHeViewController.m; sourceTree = "<group>"; };
+		923AEE271D98F662006CC483 /* JuHeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JuHeViewController.xib; sourceTree = "<group>"; };
+		923AEE2A1D98F688006CC483 /* JuHeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuHeService.h; sourceTree = "<group>"; };
+		923AEE2B1D98F688006CC483 /* JuHeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuHeService.m; sourceTree = "<group>"; };
+		923AEE2D1D98F731006CC483 /* JuHeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuHeTableViewCell.h; sourceTree = "<group>"; };
+		923AEE2E1D98F731006CC483 /* JuHeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuHeTableViewCell.m; sourceTree = "<group>"; };
+		923AEE2F1D98F731006CC483 /* JuHeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JuHeTableViewCell.xib; sourceTree = "<group>"; };
 		923DB98E1D868A770093EC7F /* SqliteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteViewController.h; sourceTree = "<group>"; };
 		923DB98F1D868A770093EC7F /* SqliteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteViewController.m; sourceTree = "<group>"; };
 		923DB9901D868A770093EC7F /* SqliteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SqliteViewController.xib; sourceTree = "<group>"; };
 		923DB9931D8693A40093EC7F /* LSPShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPShop.h; sourceTree = "<group>"; };
 		923DB9941D8693A40093EC7F /* LSPShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPShop.m; sourceTree = "<group>"; };
+		924055C81D91920500D77220 /* SQLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLManager.h; sourceTree = "<group>"; };
+		924055C91D91920500D77220 /* SQLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLManager.m; sourceTree = "<group>"; };
+		924055CB1D91939B00D77220 /* TestSQLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSQLViewController.h; sourceTree = "<group>"; };
+		924055CC1D91939B00D77220 /* TestSQLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSQLViewController.m; sourceTree = "<group>"; };
+		924055CD1D91939B00D77220 /* TestSQLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestSQLViewController.xib; sourceTree = "<group>"; };
 		92485F661D7FE0B50010B545 /* twoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twoViewController.h; sourceTree = "<group>"; };
 		92485F671D7FE0B50010B545 /* twoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twoViewController.m; sourceTree = "<group>"; };
 		92485F691D8055970010B545 /* UIScrollView+MyExperienceRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MyExperienceRefresh.h"; sourceTree = "<group>"; };
@@ -84,6 +116,24 @@
 		925F5DB81D855C7800C0B699 /* QQViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQViewTableViewCell.h; sourceTree = "<group>"; };
 		925F5DB91D855C7800C0B699 /* QQViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQViewTableViewCell.m; sourceTree = "<group>"; };
 		925F5DBA1D855C7800C0B699 /* QQViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQViewTableViewCell.xib; sourceTree = "<group>"; };
+		92E902F71D92793E00A07AC7 /* StudentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentModel.h; sourceTree = "<group>"; };
+		92E902F81D92793E00A07AC7 /* StudentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentModel.m; sourceTree = "<group>"; };
+		92ED1FBD1D943AA400290D11 /* ShareContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareContent.h; sourceTree = "<group>"; };
+		92ED1FBE1D943AA400290D11 /* ShareContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareContent.m; sourceTree = "<group>"; };
+		92ED1FC01D943B0E00290D11 /* ShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareView.h; sourceTree = "<group>"; };
+		92ED1FC11D943B0E00290D11 /* ShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareView.m; sourceTree = "<group>"; };
+		92EF625E1DABE20200FDE5DE /* JokeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeViewController.h; sourceTree = "<group>"; };
+		92EF625F1DABE20200FDE5DE /* JokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeViewController.m; sourceTree = "<group>"; };
+		92EF62601DABE20200FDE5DE /* JokeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JokeViewController.xib; sourceTree = "<group>"; };
+		92EF62631DABE21C00FDE5DE /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		92EF62641DABE21C00FDE5DE /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		92EF62651DABE21C00FDE5DE /* NewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
+		92EF62681DABE26100FDE5DE /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
+		92EF62691DABE26100FDE5DE /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
+		92EF626A1DABE26100FDE5DE /* WeatherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
+		92EF626D1DABE28F00FDE5DE /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
+		92EF626E1DABE28F00FDE5DE /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
+		92EF626F1DABE28F00FDE5DE /* NoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +206,10 @@
 		922927E71D7FB465007E38A9 /* MyExperience */ = {
 			isa = PBXGroup;
 			children = (
+				92EF625D1DABE16500FDE5DE /* MainController */,
+				923AEE241D98F60A006CC483 /* GetNetworkData */,
+				92ED1FB91D9438DA00290D11 /* WeiXingShare */,
+				924055C71D9191B400D77220 /* SqliteVideo */,
 				923DB98D1D868A350093EC7F /* Sqlite3 */,
 				922927EB1D7FB465007E38A9 /* AppDelegate.h */,
 				922927EC1D7FB465007E38A9 /* AppDelegate.m */,
@@ -203,16 +257,75 @@
 			path = MyExperienceUITests;
 			sourceTree = "<group>";
 		};
+		923AEE241D98F60A006CC483 /* GetNetworkData */ = {
+			isa = PBXGroup;
+			children = (
+				923AEE251D98F662006CC483 /* JuHeViewController.h */,
+				923AEE261D98F662006CC483 /* JuHeViewController.m */,
+				923AEE271D98F662006CC483 /* JuHeViewController.xib */,
+				923AEE2A1D98F688006CC483 /* JuHeService.h */,
+				923AEE2B1D98F688006CC483 /* JuHeService.m */,
+				923AEE2D1D98F731006CC483 /* JuHeTableViewCell.h */,
+				923AEE2E1D98F731006CC483 /* JuHeTableViewCell.m */,
+				923AEE2F1D98F731006CC483 /* JuHeTableViewCell.xib */,
+			);
+			name = GetNetworkData;
+			sourceTree = "<group>";
+		};
 		923DB98D1D868A350093EC7F /* Sqlite3 */ = {
 			isa = PBXGroup;
 			children = (
 				923DB98E1D868A770093EC7F /* SqliteViewController.h */,
 				923DB98F1D868A770093EC7F /* SqliteViewController.m */,
 				923DB9901D868A770093EC7F /* SqliteViewController.xib */,
+				924055C81D91920500D77220 /* SQLManager.h */,
+				924055C91D91920500D77220 /* SQLManager.m */,
+				92E902F71D92793E00A07AC7 /* StudentModel.h */,
+				92E902F81D92793E00A07AC7 /* StudentModel.m */,
 				923DB9931D8693A40093EC7F /* LSPShop.h */,
 				923DB9941D8693A40093EC7F /* LSPShop.m */,
 			);
 			name = Sqlite3;
+			sourceTree = "<group>";
+		};
+		924055C71D9191B400D77220 /* SqliteVideo */ = {
+			isa = PBXGroup;
+			children = (
+				924055CB1D91939B00D77220 /* TestSQLViewController.h */,
+				924055CC1D91939B00D77220 /* TestSQLViewController.m */,
+				924055CD1D91939B00D77220 /* TestSQLViewController.xib */,
+			);
+			name = SqliteVideo;
+			sourceTree = "<group>";
+		};
+		92ED1FB91D9438DA00290D11 /* WeiXingShare */ = {
+			isa = PBXGroup;
+			children = (
+				92ED1FBD1D943AA400290D11 /* ShareContent.h */,
+				92ED1FBE1D943AA400290D11 /* ShareContent.m */,
+				92ED1FC01D943B0E00290D11 /* ShareView.h */,
+				92ED1FC11D943B0E00290D11 /* ShareView.m */,
+			);
+			name = WeiXingShare;
+			sourceTree = "<group>";
+		};
+		92EF625D1DABE16500FDE5DE /* MainController */ = {
+			isa = PBXGroup;
+			children = (
+				92EF625E1DABE20200FDE5DE /* JokeViewController.h */,
+				92EF625F1DABE20200FDE5DE /* JokeViewController.m */,
+				92EF62601DABE20200FDE5DE /* JokeViewController.xib */,
+				92EF62631DABE21C00FDE5DE /* NewsViewController.h */,
+				92EF62641DABE21C00FDE5DE /* NewsViewController.m */,
+				92EF62651DABE21C00FDE5DE /* NewsViewController.xib */,
+				92EF62681DABE26100FDE5DE /* WeatherViewController.h */,
+				92EF62691DABE26100FDE5DE /* WeatherViewController.m */,
+				92EF626A1DABE26100FDE5DE /* WeatherViewController.xib */,
+				92EF626D1DABE28F00FDE5DE /* NoteViewController.h */,
+				92EF626E1DABE28F00FDE5DE /* NoteViewController.m */,
+				92EF626F1DABE28F00FDE5DE /* NoteViewController.xib */,
+			);
+			name = MainController;
 			sourceTree = "<group>";
 		};
 		92F1DB2B1D853660008B42E8 /* SimilarQQ */ = {
@@ -338,10 +451,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				922927F81D7FB465007E38A9 /* LaunchScreen.storyboard in Resources */,
+				92EF626C1DABE26100FDE5DE /* WeatherViewController.xib in Resources */,
 				922927F51D7FB465007E38A9 /* Assets.xcassets in Resources */,
+				92EF62671DABE21C00FDE5DE /* NewsViewController.xib in Resources */,
+				923AEE291D98F662006CC483 /* JuHeViewController.xib in Resources */,
+				92EF62621DABE20200FDE5DE /* JokeViewController.xib in Resources */,
+				92EF62711DABE28F00FDE5DE /* NoteViewController.xib in Resources */,
 				923DB9921D868A770093EC7F /* SqliteViewController.xib in Resources */,
 				925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */,
+				924055CF1D91939B00D77220 /* TestSQLViewController.xib in Resources */,
 				925F5DB71D8538CC00C0B699 /* QQViewController.xib in Resources */,
+				923AEE311D98F731006CC483 /* JuHeTableViewCell.xib in Resources */,
 				922927F31D7FB465007E38A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,15 +536,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				925F5DBB1D855C7800C0B699 /* QQViewTableViewCell.m in Sources */,
+				924055CE1D91939B00D77220 /* TestSQLViewController.m in Sources */,
 				9238D7901D82777C001D2919 /* DBManager.m in Sources */,
+				92E902F91D92793E00A07AC7 /* StudentModel.m in Sources */,
 				922927F01D7FB465007E38A9 /* ViewController.m in Sources */,
 				92485F6B1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m in Sources */,
 				922927ED1D7FB465007E38A9 /* AppDelegate.m in Sources */,
+				92EF62661DABE21C00FDE5DE /* NewsViewController.m in Sources */,
+				92ED1FC21D943B0E00290D11 /* ShareView.m in Sources */,
+				923AEE2C1D98F688006CC483 /* JuHeService.m in Sources */,
+				92EF62701DABE28F00FDE5DE /* NoteViewController.m in Sources */,
 				923DB9951D8693A40093EC7F /* LSPShop.m in Sources */,
 				925F5DB51D85386E00C0B699 /* QQViewController.m in Sources */,
+				923AEE281D98F662006CC483 /* JuHeViewController.m in Sources */,
 				923DB9911D868A770093EC7F /* SqliteViewController.m in Sources */,
+				92EF62611DABE20200FDE5DE /* JokeViewController.m in Sources */,
+				92ED1FBF1D943AA400290D11 /* ShareContent.m in Sources */,
+				92EF626B1DABE26100FDE5DE /* WeatherViewController.m in Sources */,
+				924055CA1D91920500D77220 /* SQLManager.m in Sources */,
 				922927EA1D7FB465007E38A9 /* main.m in Sources */,
 				92485F681D7FE0B50010B545 /* twoViewController.m in Sources */,
+				923AEE301D98F731006CC483 /* JuHeTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
