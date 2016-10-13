@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JuHeService.h"
+#import "UIScrollView+MJRefresh.h"
+#import "NewsTableViewCell.h"
+#import "NewsDetailViewController.h"
+#import "NewsUrlDetailViewController.h"
 
 @interface NewsViewController : UIViewController
 
+- (instancetype)initWithStyle:(NSString *)style;
 @end

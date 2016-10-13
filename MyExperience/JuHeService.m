@@ -7,6 +7,7 @@
 //
 
 #import "JuHeService.h"
+#import "realTime.h"
 
 @interface JuHeService()
 
@@ -95,8 +96,12 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
         NSMutableDictionary *inputDic = [NSMutableDictionary dictionary];
-        [inputDic setValue:[cityName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]] forKey:@"cityname"];
-        [inputDic setValue:dtype forKey:@"page"];
+        
+//        [inputDic setValue:[cityName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]] forKey:@"cityname"];
+        [inputDic setValue:cityName forKey:@"cityname"];
+        
+//        [inputDic setValue:@"%E6%B8%A9%E5%B7%9E" forKey:@"cityname"];
+        [inputDic setValue:dtype forKey:@"dtype"];
         [inputDic setValue:appKey forKey:@"key"];
         
         //创建HTTP连接管理对象
@@ -110,23 +115,82 @@
             NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             NSString *reason = nil;
             reason = [content objectForKey:@"reason"];
+            
             NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
             resultDic = [content objectForKey:@"result"];
-            NSMutableArray *dataArray = [NSMutableArray array];
-            dataArray = [resultDic objectForKey:@"data"];
-            NSMutableArray *contentArray = [NSMutableArray array];
-            for (NSDictionary *one in dataArray) {
+            
+            NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionary];
+            dataDictionary = [resultDic objectForKey:@"data"];
+            
+            //realtime
+            NSMutableDictionary *realTimeDictionary = [NSMutableDictionary dictionary];
+            realTimeDictionary = [dataDictionary objectForKey:@"realtime"];
+            
+            realTime *rTime = [[realTime alloc] init];
+            rTime.cityName = [realTimeDictionary objectForKey:@"city_name"];
+            rTime.dateString = [realTimeDictionary objectForKey:@"date"];
+            rTime.updateTime = [realTimeDictionary objectForKey:@"time"];
+            rTime.week = [realTimeDictionary objectForKey:@"week"];
+            rTime.moon = [realTimeDictionary objectForKey:@"moon"];
+            
+            NSDictionary *weather =[NSDictionary dictionary];
+            weather = [realTimeDictionary objectForKey:@"weather"];
+            rTime.temperature = [weather objectForKey:@"temperature"];
+            rTime.humidity = [weather objectForKey:@"humidity"];
+            rTime.generalInfo = [weather objectForKey:@"info"];
+            
+            //life
+            Life *life = [[Life alloc] init];
+            NSDictionary *infoDictionary = [NSDictionary dictionary];
+            infoDictionary = [dataDictionary objectForKey:@"info"];
+            life.chuanyi = [NSArray array];
+            life.chuanyi = [infoDictionary objectForKey:@"chuanyi"];
+            life.ganmao = [NSArray array];
+            life.ganmao = [infoDictionary objectForKey:@"ganmao"];
+            life.kongtiao = [NSArray array];
+            life.kongtiao = [infoDictionary objectForKey:@"kongtiao"];
+            life.wuran = [NSArray array];
+            life.wuran = [infoDictionary objectForKey:@"wuran"];
+            life.yudong = [NSArray array];
+            life.yudong = [infoDictionary objectForKey:@"yundong"];
+            
+            //weatherFuture
+            NSArray *weatherArray = [NSArray array];
+            weatherArray = [dataDictionary objectForKey:@"weather"];
+            
+            //解析结果数组
+            NSMutableArray *weatherFutureList = [NSMutableArray array];
+           
+
+            for (NSDictionary *one in weatherArray) {
                 
-                [contentArray addObject:[one objectForKey:@"content"]];
+                weatherFuture *wFuture = [[weatherFuture alloc] init];
+
+                wFuture.dateString = [one objectForKey:@"date"];
+                
+                NSDictionary *infoDictionary = [NSDictionary dictionary];
+                infoDictionary = [one objectForKey:@"info"];
+                NSArray *dayArray = [NSArray array];
+                dayArray = [infoDictionary objectForKey:@"day"];
+                NSArray *nightArray = [NSArray array];
+                nightArray = [infoDictionary objectForKey:@"night"];
+                wFuture.dayTemperator = dayArray[2];
+                wFuture.dayGeneralInfo = dayArray[1];
+                wFuture.nightTemperator = nightArray[2];
+                wFuture.nightGeneralInfo = nightArray[1];
+                
+                [weatherFutureList addObject:wFuture];
             }
+            
+
             
             
             dispatch_async(dispatch_get_main_queue(),^{
-//                
-//                if (delegate && [delegate respondsToSelector:@selector(getDataWithReson:dataList:)]){
-//                    
-//                    [delegate getDataWithReson:reason dataList:contentArray];
-//                }
+                
+                if (delegate && [delegate respondsToSelector:@selector(getDataWithReson:realTime:life:weatherFutureList:)]){
+                    
+                    [delegate getDataWithReson:reason realTime:rTime life:life weatherFutureList:weatherFutureList];
+                }
                 
                 
             });
@@ -143,6 +207,85 @@
 
     
 }
+
+//News
++ (void)queryJuheNewsDataWithDelegate:(id<JuHeServiceDelegate>)delegate
+                               appkey:(NSString *)appKey
+                                 type:(NSString *)type{
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        NSMutableDictionary *inputDic = [NSMutableDictionary dictionary];
+        [inputDic setValue:type forKey:@"type"];
+        [inputDic setValue:appKey forKey:@"key"];
+        
+        //        [[JuHeService shareManager]aFGetDataWithParameters:inputDic];
+        //创建HTTP连接管理对象
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        //
+        //    manager.responseSerializer = [AFHTTPResponse serializer];
+        
+        
+        
+        //GET 方法获取服务器的数据
+        //GET 通过get方法
+        //p1: 参数传入一个URL对象
+        
+        [manager GET:@"http://v.juhe.cn/toutiao/index" parameters:inputDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"下载成功");
+            
+            //       NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            //       NSDictionary *a = (NSDictionary *)responseObject;
+            NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            NSString *reason = nil;
+            reason = [content objectForKey:@"reason"];
+            NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
+            resultDic = [content objectForKey:@"result"];
+            
+            NSMutableArray *dataArray = [NSMutableArray array];
+            dataArray = [resultDic objectForKey:@"data"];
+            
+            
+            NSMutableArray *contentList = [NSMutableArray array];
+            
+            for (NSDictionary *one in dataArray) {
+                
+                NewObject *newsObject = [[NewObject alloc] init];
+
+                newsObject.title = [one objectForKey:@"title"];
+                newsObject.date = [one objectForKey:@"date"];
+                newsObject.pictrueOneUrl = [one objectForKey:@"thumbnail_pic_s"];
+                newsObject.pictrueTwoUrl = [one objectForKey:@"thumbnail_pic_s02"];
+                newsObject.pictrueThreeUrl = [one objectForKey:@"thumbnail_pic_s03"];
+                newsObject.newsUrl = [one objectForKey:@"url"];
+                
+                [contentList addObject:newsObject];
+            }
+            
+            
+            dispatch_async(dispatch_get_main_queue(),^{
+                
+                if (delegate && [delegate respondsToSelector:@selector(getDataWithReason:newsObjectList:)]){
+                    
+                    [delegate getDataWithReason:reason newsObjectList:contentList];
+                }
+                
+                
+            });
+            
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError *_Nonnull error){
+            NSLog(@"下载失败");
+            NSLog(@"%@",error.domain);
+            NSLog(@"testError__%ld",(long)error.code);
+            NSLog(@"test______%@",error.localizedFailureReason);
+        }];
+        
+    });
+}
+
 
 
 +(JuHeService *)shareManager{

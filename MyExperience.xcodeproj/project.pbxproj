@@ -15,6 +15,20 @@
 		922927F81D7FB465007E38A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922927F61D7FB465007E38A9 /* LaunchScreen.storyboard */; };
 		922928031D7FB465007E38A9 /* MyExperienceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 922928021D7FB465007E38A9 /* MyExperienceTests.m */; };
 		9229280E1D7FB465007E38A9 /* MyExperienceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9229280D1D7FB465007E38A9 /* MyExperienceUITests.m */; };
+		922AB6C11DAF1D820051DF7D /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 922AB6BF1DAF1D820051DF7D /* NewsTableViewCell.m */; };
+		922AB6C21DAF1D820051DF7D /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922AB6C01DAF1D820051DF7D /* NewsTableViewCell.xib */; };
+		922AB6CB1DAF321A0051DF7D /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922AB6C91DAF321A0051DF7D /* NewsDetailViewController.m */; };
+		922AB6CC1DAF321A0051DF7D /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922AB6CA1DAF321A0051DF7D /* NewsDetailViewController.xib */; };
+		922AB6D01DAF43FB0051DF7D /* NewsUrlDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922AB6CE1DAF43FB0051DF7D /* NewsUrlDetailViewController.m */; };
+		922AB6D11DAF43FB0051DF7D /* NewsUrlDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922AB6CF1DAF43FB0051DF7D /* NewsUrlDetailViewController.xib */; };
+		922AB6D51DAF96780051DF7D /* WeatherDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 922AB6D31DAF96780051DF7D /* WeatherDateView.m */; };
+		922AB6D61DAF96780051DF7D /* WeatherDateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922AB6D41DAF96780051DF7D /* WeatherDateView.xib */; };
+		922E4D201DADDC6100D6E718 /* WeatherObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 922E4D1F1DADDC6100D6E718 /* WeatherObject.m */; };
+		922E4D231DADDEE600D6E718 /* realTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 922E4D221DADDEE600D6E718 /* realTime.m */; };
+		922E4D261DADDEFE00D6E718 /* Life.m in Sources */ = {isa = PBXBuildFile; fileRef = 922E4D251DADDEFE00D6E718 /* Life.m */; };
+		922E4D291DADDF1900D6E718 /* weatherFuture.m in Sources */ = {isa = PBXBuildFile; fileRef = 922E4D281DADDF1900D6E718 /* weatherFuture.m */; };
+		922E4D2C1DADE09300D6E718 /* PAndM.m in Sources */ = {isa = PBXBuildFile; fileRef = 922E4D2B1DADE09300D6E718 /* PAndM.m */; };
+		922E4D331DAE6A6A00D6E718 /* NewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 922E4D321DAE6A6A00D6E718 /* NewObject.m */; };
 		9238D78D1D825F02001D2919 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9238D78C1D825F02001D2919 /* libsqlite3.0.tbd */; };
 		9238D7901D82777C001D2919 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238D78F1D82777C001D2919 /* DBManager.m */; };
 		923AEE281D98F662006CC483 /* JuHeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923AEE261D98F662006CC483 /* JuHeViewController.m */; };
@@ -88,6 +102,30 @@
 		922928091D7FB465007E38A9 /* MyExperienceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyExperienceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9229280D1D7FB465007E38A9 /* MyExperienceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyExperienceUITests.m; sourceTree = "<group>"; };
 		9229280F1D7FB465007E38A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		922AB6BE1DAF1D820051DF7D /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
+		922AB6BF1DAF1D820051DF7D /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
+		922AB6C01DAF1D820051DF7D /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		922AB6C81DAF321A0051DF7D /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
+		922AB6C91DAF321A0051DF7D /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
+		922AB6CA1DAF321A0051DF7D /* NewsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailViewController.xib; sourceTree = "<group>"; };
+		922AB6CD1DAF43FB0051DF7D /* NewsUrlDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsUrlDetailViewController.h; sourceTree = "<group>"; };
+		922AB6CE1DAF43FB0051DF7D /* NewsUrlDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsUrlDetailViewController.m; sourceTree = "<group>"; };
+		922AB6CF1DAF43FB0051DF7D /* NewsUrlDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsUrlDetailViewController.xib; sourceTree = "<group>"; };
+		922AB6D21DAF96780051DF7D /* WeatherDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDateView.h; sourceTree = "<group>"; };
+		922AB6D31DAF96780051DF7D /* WeatherDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDateView.m; sourceTree = "<group>"; };
+		922AB6D41DAF96780051DF7D /* WeatherDateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherDateView.xib; sourceTree = "<group>"; };
+		922E4D1E1DADDC6100D6E718 /* WeatherObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherObject.h; sourceTree = "<group>"; };
+		922E4D1F1DADDC6100D6E718 /* WeatherObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherObject.m; sourceTree = "<group>"; };
+		922E4D211DADDEE600D6E718 /* realTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = realTime.h; sourceTree = "<group>"; };
+		922E4D221DADDEE600D6E718 /* realTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = realTime.m; sourceTree = "<group>"; };
+		922E4D241DADDEFE00D6E718 /* Life.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Life.h; sourceTree = "<group>"; };
+		922E4D251DADDEFE00D6E718 /* Life.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Life.m; sourceTree = "<group>"; };
+		922E4D271DADDF1900D6E718 /* weatherFuture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weatherFuture.h; sourceTree = "<group>"; };
+		922E4D281DADDF1900D6E718 /* weatherFuture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weatherFuture.m; sourceTree = "<group>"; };
+		922E4D2A1DADE09300D6E718 /* PAndM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAndM.h; sourceTree = "<group>"; };
+		922E4D2B1DADE09300D6E718 /* PAndM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAndM.m; sourceTree = "<group>"; };
+		922E4D311DAE6A6A00D6E718 /* NewObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewObject.h; sourceTree = "<group>"; };
+		922E4D321DAE6A6A00D6E718 /* NewObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewObject.m; sourceTree = "<group>"; };
 		9238D78C1D825F02001D2919 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		9238D78E1D82777C001D2919 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		9238D78F1D82777C001D2919 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
@@ -266,6 +304,32 @@
 			path = MyExperienceUITests;
 			sourceTree = "<group>";
 		};
+		922E4D1D1DADDA8400D6E718 /* WeatherNSObject */ = {
+			isa = PBXGroup;
+			children = (
+				922E4D1E1DADDC6100D6E718 /* WeatherObject.h */,
+				922E4D1F1DADDC6100D6E718 /* WeatherObject.m */,
+				922E4D211DADDEE600D6E718 /* realTime.h */,
+				922E4D221DADDEE600D6E718 /* realTime.m */,
+				922E4D241DADDEFE00D6E718 /* Life.h */,
+				922E4D251DADDEFE00D6E718 /* Life.m */,
+				922E4D271DADDF1900D6E718 /* weatherFuture.h */,
+				922E4D281DADDF1900D6E718 /* weatherFuture.m */,
+				922E4D2A1DADE09300D6E718 /* PAndM.h */,
+				922E4D2B1DADE09300D6E718 /* PAndM.m */,
+			);
+			name = WeatherNSObject;
+			sourceTree = "<group>";
+		};
+		922E4D301DAE6A4F00D6E718 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				922E4D311DAE6A6A00D6E718 /* NewObject.h */,
+				922E4D321DAE6A6A00D6E718 /* NewObject.m */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		923AEE241D98F60A006CC483 /* GetNetworkData */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,12 +394,26 @@
 				92EF62631DABE21C00FDE5DE /* NewsViewController.h */,
 				92EF62641DABE21C00FDE5DE /* NewsViewController.m */,
 				92EF62651DABE21C00FDE5DE /* NewsViewController.xib */,
+				922AB6BE1DAF1D820051DF7D /* NewsTableViewCell.h */,
+				922AB6BF1DAF1D820051DF7D /* NewsTableViewCell.m */,
+				922AB6C01DAF1D820051DF7D /* NewsTableViewCell.xib */,
+				922AB6C81DAF321A0051DF7D /* NewsDetailViewController.h */,
+				922AB6C91DAF321A0051DF7D /* NewsDetailViewController.m */,
+				922AB6CA1DAF321A0051DF7D /* NewsDetailViewController.xib */,
+				922AB6CD1DAF43FB0051DF7D /* NewsUrlDetailViewController.h */,
+				922AB6CE1DAF43FB0051DF7D /* NewsUrlDetailViewController.m */,
+				922AB6CF1DAF43FB0051DF7D /* NewsUrlDetailViewController.xib */,
 				92EF62681DABE26100FDE5DE /* WeatherViewController.h */,
 				92EF62691DABE26100FDE5DE /* WeatherViewController.m */,
 				92EF626A1DABE26100FDE5DE /* WeatherViewController.xib */,
+				922AB6D21DAF96780051DF7D /* WeatherDateView.h */,
+				922AB6D31DAF96780051DF7D /* WeatherDateView.m */,
+				922AB6D41DAF96780051DF7D /* WeatherDateView.xib */,
 				92EF626D1DABE28F00FDE5DE /* NoteViewController.h */,
 				92EF626E1DABE28F00FDE5DE /* NoteViewController.m */,
 				92EF626F1DABE28F00FDE5DE /* NoteViewController.xib */,
+				922E4D1D1DADDA8400D6E718 /* WeatherNSObject */,
+				922E4D301DAE6A4F00D6E718 /* New Group */,
 			);
 			name = MainController;
 			sourceTree = "<group>";
@@ -472,18 +550,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				92F38CA91DAD203200C44549 /* JokeTableViewCell.xib in Resources */,
+				922AB6CC1DAF321A0051DF7D /* NewsDetailViewController.xib in Resources */,
 				922927F81D7FB465007E38A9 /* LaunchScreen.storyboard in Resources */,
 				92EF626C1DABE26100FDE5DE /* WeatherViewController.xib in Resources */,
 				922927F51D7FB465007E38A9 /* Assets.xcassets in Resources */,
+				922AB6C21DAF1D820051DF7D /* NewsTableViewCell.xib in Resources */,
 				92EF62671DABE21C00FDE5DE /* NewsViewController.xib in Resources */,
 				923AEE291D98F662006CC483 /* JuHeViewController.xib in Resources */,
 				92EF62621DABE20200FDE5DE /* JokeViewController.xib in Resources */,
+				922AB6D61DAF96780051DF7D /* WeatherDateView.xib in Resources */,
 				92EF62711DABE28F00FDE5DE /* NoteViewController.xib in Resources */,
 				923DB9921D868A770093EC7F /* SqliteViewController.xib in Resources */,
 				925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */,
 				924055CF1D91939B00D77220 /* TestSQLViewController.xib in Resources */,
 				925F5DB71D8538CC00C0B699 /* QQViewController.xib in Resources */,
 				923AEE311D98F731006CC483 /* JuHeTableViewCell.xib in Resources */,
+				922AB6D11DAF43FB0051DF7D /* NewsUrlDetailViewController.xib in Resources */,
 				922927F31D7FB465007E38A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,13 +640,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				925F5DBB1D855C7800C0B699 /* QQViewTableViewCell.m in Sources */,
+				922AB6CB1DAF321A0051DF7D /* NewsDetailViewController.m in Sources */,
 				924055CE1D91939B00D77220 /* TestSQLViewController.m in Sources */,
 				9238D7901D82777C001D2919 /* DBManager.m in Sources */,
 				92F38CA81DAD203200C44549 /* JokeTableViewCell.m in Sources */,
 				92E902F91D92793E00A07AC7 /* StudentModel.m in Sources */,
 				922927F01D7FB465007E38A9 /* ViewController.m in Sources */,
 				92485F6B1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m in Sources */,
+				922AB6D01DAF43FB0051DF7D /* NewsUrlDetailViewController.m in Sources */,
 				922927ED1D7FB465007E38A9 /* AppDelegate.m in Sources */,
+				922E4D201DADDC6100D6E718 /* WeatherObject.m in Sources */,
+				922E4D2C1DADE09300D6E718 /* PAndM.m in Sources */,
 				92EF62661DABE21C00FDE5DE /* NewsViewController.m in Sources */,
 				92ED1FC21D943B0E00290D11 /* ShareView.m in Sources */,
 				923AEE2C1D98F688006CC483 /* JuHeService.m in Sources */,
@@ -572,15 +658,21 @@
 				923DB9951D8693A40093EC7F /* LSPShop.m in Sources */,
 				925F5DB51D85386E00C0B699 /* QQViewController.m in Sources */,
 				923AEE281D98F662006CC483 /* JuHeViewController.m in Sources */,
+				922AB6D51DAF96780051DF7D /* WeatherDateView.m in Sources */,
 				923DB9911D868A770093EC7F /* SqliteViewController.m in Sources */,
+				922E4D291DADDF1900D6E718 /* weatherFuture.m in Sources */,
 				92EF62611DABE20200FDE5DE /* JokeViewController.m in Sources */,
 				92ED1FBF1D943AA400290D11 /* ShareContent.m in Sources */,
 				92EF626B1DABE26100FDE5DE /* WeatherViewController.m in Sources */,
+				922AB6C11DAF1D820051DF7D /* NewsTableViewCell.m in Sources */,
 				924055CA1D91920500D77220 /* SQLManager.m in Sources */,
+				922E4D331DAE6A6A00D6E718 /* NewObject.m in Sources */,
 				92F38CAD1DAD4D2700C44549 /* UIScrollView+MJRefresh.m in Sources */,
+				922E4D231DADDEE600D6E718 /* realTime.m in Sources */,
 				922927EA1D7FB465007E38A9 /* main.m in Sources */,
 				92485F681D7FE0B50010B545 /* twoViewController.m in Sources */,
 				923AEE301D98F731006CC483 /* JuHeTableViewCell.m in Sources */,
+				922E4D261DADDEFE00D6E718 /* Life.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,7 +745,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 1083394272@qq.com (VT3293R4K3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 1083394272@qq.com (VT3293R4K3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -675,6 +768,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "81244ec7-49e5-4928-8264-134a563951ba";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -698,7 +792,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 1083394272@qq.com (VT3293R4K3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 1083394272@qq.com (VT3293R4K3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -713,6 +808,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "81244ec7-49e5-4928-8264-134a563951ba";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -724,10 +820,13 @@
 			baseConfigurationReference = 694A7693437C673C5134AB39 /* Pods-MyExperience.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyExperience/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xiaoyangyang.MyExperience;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -736,10 +835,13 @@
 			baseConfigurationReference = 14BEA95645461DA10B7C3742 /* Pods-MyExperience.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyExperience/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xiaoyangyang.MyExperience;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

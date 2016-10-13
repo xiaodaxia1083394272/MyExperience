@@ -8,11 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
+#import "realTime.h"
+#import "Life.h"
+#import "weatherFuture.h"
+#import "PAndM.h"
+#import "NewObject.h"
+
 
 @protocol JuHeServiceDelegate <NSObject>
 
+@optional
 - (void)getDataWithReson:(NSString *)reason
                 dataList:(NSArray *)dataList;
+
+- (void)getDataWithReson:(NSString *)reason
+                realTime:(realTime *)realTime
+                    life:(Life *)life
+       weatherFutureList:(NSArray *)weatherFutureList;
+
+- (void)getDataWithReason:(NSString *)reason
+           newsObjectList:(NSMutableArray *)newsObjectList;
 
 @end
 
@@ -28,4 +43,13 @@
                      pageSize:(int)pageSize
                          time:(NSDate *)queryTime
                        appKey:(NSString *)appKey;
+
++ (void)queryJuheWeatherDataWithDelegate:(id<JuHeServiceDelegate>)delegate
+                                cityName:(NSString *)cityName
+                                   dtype:(NSString *)dtype
+                                  appKey:(NSString *)appKey;
+
++ (void)queryJuheNewsDataWithDelegate:(id<JuHeServiceDelegate>)delegate
+                               appkey:(NSString *)appKey
+                                 type:(NSString *)type;
 @end
