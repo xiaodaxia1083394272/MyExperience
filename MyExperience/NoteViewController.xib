@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteViewController">
             <connections>
+                <outlet property="contentTextView" destination="OfJ-5u-oYW" id="5X5-o7-tIP"/>
+                <outlet property="titlleTextField" destination="KVR-AE-FPK" id="6cN-eE-mOk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,6 +51,13 @@
                         <outlet property="delegate" destination="-1" id="IGL-GY-odg"/>
                     </connections>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBo-Qf-edc">
+                    <rect key="frame" x="57" y="68" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="testButton:" destination="-1" eventType="touchUpInside" id="nPH-24-tmJ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
