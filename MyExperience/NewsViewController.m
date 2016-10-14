@@ -13,15 +13,17 @@
 @property (strong, nonatomic) NSArray *dataList;
 @property (weak, nonatomic) IBOutlet UITableView *dataTableView;
 @property (copy, nonatomic) NSString *styleString;
+@property (strong, nonatomic) NSArray *notelist;
 @end
 
 @implementation NewsViewController
 
-- (instancetype)initWithStyle:(NSString *)style {
+- (instancetype)initWithStyle:(NSString *)style noteList:(NSArray *)noteList {
     self = [super init];
     if (self) {
         
         self.styleString = style;
+        self.notelist = noteList;
         
     }
     

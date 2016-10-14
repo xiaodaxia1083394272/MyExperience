@@ -15,5 +15,5 @@
 
 @interface NewsViewController : UIViewController
 
-- (instancetype)initWithStyle:(NSString *)style;
+- (instancetype)initWithStyle:(NSString *)style noteList:(NSArray *)noteList;
 @end

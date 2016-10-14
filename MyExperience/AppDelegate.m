@@ -52,7 +52,7 @@
         //设置第二个Controller
         UINavigationController *secondNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:1];
         
-        NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"新闻"];
+        NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"新闻" noteList:nil];
         secondNavigationController.viewControllers = @[nvc];
         //设置第三个Controller
         UINavigationController *thirdNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:0];

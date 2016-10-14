@@ -11,12 +11,15 @@
 //公用新闻那个Viewcontroller
 #import "NewsViewController.h"
 #import "FMDatabase.h"
+#import "NoteObject.h"
+
 
 @interface NoteViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *titlleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (strong, nonatomic) FMDatabase *fmDatabase;
 @property (assign, nonatomic) NSInteger dataID;
+@property (strong, nonatomic) NSMutableArray *noteList;
 
 @end
 
@@ -33,6 +36,8 @@
     
     self.dataID = 1;
     [self openDataBase];
+    
+    self.noteList = [NSMutableArray array];
                                                                    
     // Do any additional setup after loading the view from its nib.
 }
@@ -65,10 +70,13 @@
 }
 
 - (void)clickDocument{
-    
+    //1，添加，或者说是保存数据先
     [self addDataToDatabaseWithDataId:self.dataID];
     _dataID++;
-    NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note"];
+    //2，查询数据，并把查询到的数据传过去
+    [self searchDatabaseData];
+    
+    NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note" noteList:_noteList];
     [self.navigationController pushViewController:nvc animated:YES];
     
     
@@ -152,7 +160,10 @@
             
 //            BOOL isAdd = [_fmDatabase executeUpdate:strInset];
             
-            BOOL isAdd = [_fmDatabase executeUpdate:@"INSERT INTO note VALUES(?,?,?)",[NSNumber numberWithInteger:dataId],_titlleTextField.text,_contentTextView.text];
+//            BOOL isAdd = [_fmDatabase executeUpdate:@"INSERT INTO note VALUES(?,?,?)",[NSNumber numberWithInteger:dataId],_titlleTextField.text,_contentTextView.text];
+            
+            BOOL isAdd = [_fmDatabase executeUpdateWithFormat:@"INSERT INTO note VALUES(%ld,%@,%@)",(long)dataId,_titlleTextField.text,_contentTextView.text];
+
 
             
             // 转换成字符串示例
@@ -173,10 +184,10 @@
     //好多操作的第一步
     [self shareDatabase];
     
-    NSString *searchQuery = @"select *from stu";
+//    NSString *searchQuery = @"select *from stu";
     //也可以只查一个，比如@"select name *from stu" 但是遍历结果的时候就要注意了，不能解析出其他字段的内容了，因为没有
     
-//    NSString *searchQuery = @"select *from note";
+    NSString *searchQuery = @"select *from note";
     BOOL isOpen = [_fmDatabase open];
     
     if (isOpen) {
@@ -187,11 +198,14 @@
         
         //遍历所有结果
         //2，或许可以考虑用个类来接这些数据 ,并且最好用数组来接
+        
         while ([result next]) {
             
+            NoteObject *noteObject = [[NoteObject alloc] init];
+
             //获取id字段内容
-            NSInteger stuID = [result intForColumn:@"id"];
-//            NSInteger noteID = [result intForColumn:@"id"];
+//            NSInteger stuID = [result intForColumn:@"id"];
+            noteObject.dataID = [result intForColumn:@"id"];
             
            //也可以通过索引来取值,比如下面，但是要记住，行是预定的了，这个index也就针对这组数据来说
 //            NSInteger stuID = [result intForColumnIndex:0];
@@ -199,11 +213,15 @@
 //            NSInteger stuAge = [result ForColumnIndex:0];
             
             //获取表中内容了
-            NSString * stuName = [result stringForColumn:@"name"];
-            NSInteger stuAge = [result intForColumn:@"age"];
+//            NSString * stuName = [result stringForColumn:@"name"];
+//            NSInteger stuAge = [result intForColumn:@"age"];
             
-//            NSString * title = [result stringForColumn:@"title"];
-//            NSString *content = [result stringForColumn:@"content"];
+            noteObject.title = [result stringForColumn:@"title"];
+            noteObject.content = [result stringForColumn:@"content"];
+            
+            
+            [self.noteList addObject:noteObject];
+            
             
         }
     }
@@ -220,6 +238,11 @@
     
     [_fmDatabase executeUpdate:strDelete];
     
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_contentTextView resignFirstResponder];
+    [_titlleTextField resignFirstResponder];
 }
 
 
