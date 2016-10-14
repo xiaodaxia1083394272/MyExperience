@@ -24,20 +24,20 @@
     
     view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, holdViewWidth/ 4, view.frame.size.height);
     
-    
+    NSLog(@"xde juli %f",view.frame.origin.x);
     return view;
 }
 
 + (CGSize)defaultSize
 {
-    return CGSizeMake([UIScreen mainScreen].bounds.size.width / 4, 58);
+    return CGSizeMake([UIScreen mainScreen].bounds.size.width / 4, 66);
 }
 
-- (void)updatView:(NSString *)dateString
+- (void)updatView:(weatherFuture *)wf
        isSelected:(BOOL)isSelected
             index:(int)index
 {
-    self.dateString = dateString;
+    self.dateString = wf.dateString;
     
 //    if (index == 0 && [date isToday]) {
 //        self.weekLabel.text = @"今天";
@@ -48,7 +48,9 @@
 //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init] ;
 //    [dateFormatter setDateFormat:@"M月dd日"];
 //    NSString *dateString = [dateFormatter stringFromDate:date];
-    self.dateLabel.text = dateString;
+    self.weekLabel.text = wf.dateString;
+    self.dateLabel.text = wf.dayGeneralInfo;
+    self.temperatorLabel.text = [NSString stringWithFormat:@"%@~%@",wf.dayTemperator,wf.nightTemperator];
     
     [self updateSelected:isSelected];
 }

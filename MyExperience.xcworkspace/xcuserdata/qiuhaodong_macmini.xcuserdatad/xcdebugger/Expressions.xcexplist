@@ -3,23 +3,18 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[NewsDetailViewController initWithNewObject:]:NewsDetailViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[WeatherViewController getDataWithReson:realTime:life:weatherFutureList:]:WeatherViewController.m">
+      </ContextState>
+      <ContextState
          contextName = "__57+[JuHeService queryJuheNewsDataWithDelegate:appkey:type:]_block_invoke_2:JuHeService.m">
          <PersistentStrings>
             <PersistentString
                value = "title">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "__26-[ViewController ClickIM:]_block_invoke:ViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.navigationController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[NewsViewController getDataWithReason:newsObjectList:]:NewsViewController.m">
       </ContextState>
       <ContextState
          contextName = "__70+[JuHeService queryJuheWeatherDataWithDelegate:cityName:dtype:appKey:]_block_invoke_2:JuHeService.m">
@@ -30,10 +25,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[NewsDetailViewController initWithNewObject:]:NewsDetailViewController.m">
+         contextName = "-[WeatherDateView updatView:isSelected:index:]:WeatherDateView.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[WeatherDateView createWeatherDateViewWithHoldViewWidth:]:WeatherDateView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "origin.x">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[NewsViewController getDataWithReason:newsObjectList:]:NewsViewController.m">
       </ContextState>
       <ContextState
          contextName = "__70+[JuHeService queryJuheWeatherDataWithDelegate:cityName:dtype:appKey:]_block_invoke_3:JuHeService.m">
+      </ContextState>
+      <ContextState
+         contextName = "__26-[ViewController ClickIM:]_block_invoke:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

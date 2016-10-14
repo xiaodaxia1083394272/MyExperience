@@ -50,12 +50,12 @@
         //navigationController里的viewControllers装的是viewcontroller
         
         //设置第二个Controller
-        UINavigationController *secondNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:0];
+        UINavigationController *secondNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:1];
         
         NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"新闻"];
         secondNavigationController.viewControllers = @[nvc];
         //设置第三个Controller
-        UINavigationController *thirdNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:1];
+        UINavigationController *thirdNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:0];
         WeatherViewController *wvc = [[WeatherViewController alloc] init];
         thirdNavigationController.viewControllers = @[wvc];
         

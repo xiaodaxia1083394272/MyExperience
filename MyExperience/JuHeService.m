@@ -141,8 +141,12 @@
             
             //life
             Life *life = [[Life alloc] init];
+            NSDictionary *lifeDictionary = [NSDictionary dictionary];
+            lifeDictionary = [dataDictionary objectForKey:@"life"];
+            
             NSDictionary *infoDictionary = [NSDictionary dictionary];
-            infoDictionary = [dataDictionary objectForKey:@"info"];
+            infoDictionary = [lifeDictionary objectForKey:@"info"];
+            
             life.chuanyi = [NSArray array];
             life.chuanyi = [infoDictionary objectForKey:@"chuanyi"];
             life.ganmao = [NSArray array];

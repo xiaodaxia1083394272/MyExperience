@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "weatherFuture.h"
 
 @protocol WeatherDateViewDelegate <NSObject>
 @optional
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIButton *selectButton;
+@property (weak, nonatomic) IBOutlet UILabel *temperatorLabel;
 
 @property (strong, nonatomic) NSString *dateString;
 @property (assign, nonatomic) BOOL isSelected;
@@ -26,7 +28,7 @@
 
 +(WeatherDateView *)createWeatherDateViewWithHoldViewWidth:(CGFloat)holdViewWidth;
 
-- (void)updatView:(NSString *)dateString
+- (void)updatView:(weatherFuture *)wf
        isSelected:(BOOL)isSelected
             index:(int)index;
 
