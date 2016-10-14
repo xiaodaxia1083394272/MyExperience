@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *titlleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (strong, nonatomic) FMDatabase *fmDatabase;
+@property (assign, nonatomic) NSInteger dataID;
 
 @end
 
@@ -29,6 +30,9 @@
 //    self.navigationController.navigationBar.barTintColor= [UIColor yellowColor];
     self.navigationController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"目录" style:UIBarButtonItemStylePlain target:self action:@selector(clickDocument)];
     [self setRightBarButton];
+    
+    self.dataID = 1;
+    [self openDataBase];
                                                                    
     // Do any additional setup after loading the view from its nib.
 }
@@ -62,8 +66,11 @@
 
 - (void)clickDocument{
     
+    [self addDataToDatabaseWithDataId:self.dataID];
+    _dataID++;
     NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note"];
     [self.navigationController pushViewController:nvc animated:YES];
+    
     
 }
 - (IBAction)testButton:(id)sender {
@@ -101,9 +108,9 @@
     }
     //将SQL创建语句写到字符串中
     //()是表的id 和类型，还有、、、
-    NSString *strCreateTable = @"create table if not exists stu(id integer primary key,age integer name varchar(20));";
+//    NSString *strCreateTable = @"create table if not exists stu(id integer primary key,age integer name varchar(20));";
     
-//    NSString *strCreateTable = @"create table if not exists note(id integer primary key,title varchar(100), content varchar(1000));";
+    NSString *strCreateTable = @"create table if not exists note(id integer primary key,title varchar(100), content varchar(1000));";
     
     //执行SQL语句,语句要有效
     //执行，返回一个布尔值
@@ -120,7 +127,7 @@
 }
 
 //添加或者叫插入数据库数据
-- (void)addDataToDatabase{
+- (void)addDataToDatabaseWithDataId:(NSInteger)dataId{
     
     //特别要注意的是，这里的插入数据是不会覆盖掉的，所有，执行一次就会加入一组新的数据，而且前面的id，不是表的id，而是这组数据的id，所以，插一次数据，id也是要新的喔
     
@@ -137,11 +144,21 @@
             //2.（）这组数据的id，后两个数据直接就是内容来的
             //3.如果把参数直接写死在SQL语句里面的话，而不是以传参的方式，可能用起来很不方便！
             
-            NSString *strInset = @"insert into stu values(1,19,'Jack');";
+//            NSString *strInset = @"insert into stu values(1,19,'Jack');";
+            
+            
             //1. 这里存字符串的貌似是用c来做的，所以，oc里的字符串可能要转成c的格式才能执行啊
 //            NSString *strInset = @"insert into note values(1,'self.textfield.text','self.textView.text');";
             
-            BOOL isAdd = [_fmDatabase executeUpdate:strInset];
+//            BOOL isAdd = [_fmDatabase executeUpdate:strInset];
+            
+            BOOL isAdd = [_fmDatabase executeUpdate:@"INSERT INTO note VALUES(?,?,?)",[NSNumber numberWithInteger:dataId],_titlleTextField.text,_contentTextView.text];
+
+            
+            // 转换成字符串示例
+//            [db executeUpdateWithFormat:@"INSERT INTO myTable VALUES (@d)", 42];
+//            -execute*WithFormat: 这些方法后面都可以接格式字符串参数，以下 % 百分号格式符都是可以识别的：%@, %c, %s, %d, %D, %i, %u, %U, %hi, %hu, %qi, %qu, %f, %g, %ld, %lu, %lld, %llu。使用其他格式符可能会出现不可预知的问题。出于某种原因，可能需要在你的 SQL 语句中使用 % 字符，应该使用百分号转义一下 %%。
+
             if (isAdd == YES) {
                 NSLog(@"添加数据成功");
             }
