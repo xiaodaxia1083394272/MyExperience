@@ -142,21 +142,26 @@
             //life
             Life *life = [[Life alloc] init];
             NSDictionary *lifeDictionary = [NSDictionary dictionary];
-            lifeDictionary = [dataDictionary objectForKey:@"life"];
-            
-            NSDictionary *infoDictionary = [NSDictionary dictionary];
-            infoDictionary = [lifeDictionary objectForKey:@"info"];
-            
-            life.chuanyi = [NSArray array];
-            life.chuanyi = [infoDictionary objectForKey:@"chuanyi"];
-            life.ganmao = [NSArray array];
-            life.ganmao = [infoDictionary objectForKey:@"ganmao"];
-            life.kongtiao = [NSArray array];
-            life.kongtiao = [infoDictionary objectForKey:@"kongtiao"];
-            life.wuran = [NSArray array];
-            life.wuran = [infoDictionary objectForKey:@"wuran"];
-            life.yudong = [NSArray array];
-            life.yudong = [infoDictionary objectForKey:@"yundong"];
+            //接口那货，变数据类型，所以我只好稍作保护
+            if ([[dataDictionary objectForKey:@"life"] isKindOfClass:[NSDictionary class]]){
+              
+                lifeDictionary = [dataDictionary objectForKey:@"life"];
+                
+                NSDictionary *infoDictionary = [NSDictionary dictionary];
+                infoDictionary = [lifeDictionary objectForKey:@"info"];
+                
+                life.chuanyi = [NSArray array];
+                life.chuanyi = [infoDictionary objectForKey:@"chuanyi"];
+                life.ganmao = [NSArray array];
+                life.ganmao = [infoDictionary objectForKey:@"ganmao"];
+                life.kongtiao = [NSArray array];
+                life.kongtiao = [infoDictionary objectForKey:@"kongtiao"];
+                life.wuran = [NSArray array];
+                life.wuran = [infoDictionary objectForKey:@"wuran"];
+                life.yudong = [NSArray array];
+                life.yudong = [infoDictionary objectForKey:@"yundong"];
+            }
+
             
             //weatherFuture
             NSArray *weatherArray = [NSArray array];

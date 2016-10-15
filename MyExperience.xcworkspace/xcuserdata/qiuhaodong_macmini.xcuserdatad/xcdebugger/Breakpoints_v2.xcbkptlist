@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyExperience/NoteViewController.m"
-            timestampString = "498153437.500201"
+            filePath = "MyExperience/NewsViewController.m"
+            timestampString = "498202542.448478"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-clickDocument"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-initWithStyle:noteList:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

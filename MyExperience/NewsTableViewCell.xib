@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,8 +15,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="374" height="81"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GF4-4g-USc">
+                        <rect key="frame" x="14" y="18" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="GF4-4g-USc" secondAttribute="height" multiplier="1:1" id="11r-9B-Gdg"/>
+                            <constraint firstAttribute="width" constant="45" id="LlA-oS-B6q"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="defaultTitle" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uZ-lX-OLI">
-                        <rect key="frame" x="15" y="5" width="77" height="72"/>
+                        <rect key="frame" x="57" y="5" width="77" height="72"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
@@ -32,8 +40,10 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="hyY-p1-ida" secondAttribute="bottom" id="844-ya-Js2"/>
-                    <constraint firstItem="6uZ-lX-OLI" firstAttribute="leading" secondItem="C16-Bb-kY6" secondAttribute="leading" constant="15" id="Mt1-bF-Q7O"/>
+                    <constraint firstItem="GF4-4g-USc" firstAttribute="leading" secondItem="C16-Bb-kY6" secondAttribute="leading" constant="14" id="BEf-f3-fqe"/>
+                    <constraint firstItem="GF4-4g-USc" firstAttribute="centerY" secondItem="C16-Bb-kY6" secondAttribute="centerY" id="SnK-gr-tc0"/>
                     <constraint firstItem="6uZ-lX-OLI" firstAttribute="centerY" secondItem="C16-Bb-kY6" secondAttribute="centerY" id="Zm2-VV-9gv"/>
+                    <constraint firstItem="GF4-4g-USc" firstAttribute="trailing" secondItem="6uZ-lX-OLI" secondAttribute="leading" constant="2" id="eag-SL-ssF"/>
                     <constraint firstItem="6uZ-lX-OLI" firstAttribute="top" secondItem="C16-Bb-kY6" secondAttribute="top" constant="20" id="iW4-m3-su4"/>
                     <constraint firstItem="6uZ-lX-OLI" firstAttribute="centerY" secondItem="C16-Bb-kY6" secondAttribute="centerY" id="kqw-5P-OVU"/>
                     <constraint firstAttribute="trailing" secondItem="hyY-p1-ida" secondAttribute="trailing" id="lOX-zg-36O"/>
@@ -51,6 +61,9 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="contentLabel" destination="6uZ-lX-OLI" id="88h-J1-sFx"/>
+                <outlet property="imageAndTitleWidthConstraint" destination="eag-SL-ssF" id="5yF-pH-p4m"/>
+                <outlet property="imageWidthConstraint" destination="LlA-oS-B6q" id="cRE-3C-Ji2"/>
+                <outlet property="titleImage" destination="GF4-4g-USc" id="brd-pW-mmG"/>
             </connections>
             <point key="canvasLocation" x="322" y="145"/>
         </tableViewCell>

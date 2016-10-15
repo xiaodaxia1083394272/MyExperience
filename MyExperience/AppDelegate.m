@@ -61,7 +61,7 @@
         
         //设置第四个Controller
         UINavigationController *fourNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:3];
-        NoteViewController *novc = [[NoteViewController alloc] init];
+        NoteViewController *novc = [[NoteViewController alloc] initWithHistoryObject:nil isShowHistoryObject:NO];
         
         fourNavigationController.viewControllers = @[novc];
 

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class NoteObject;
+
 @interface NoteViewController : UIViewController
+@property (assign, nonatomic) BOOL isShowHistoryObject;
+
+- (instancetype)initWithHistoryObject:(NoteObject *)historyObject isShowHistoryObject:(BOOL)isShowHistoryObject;
 
 @end

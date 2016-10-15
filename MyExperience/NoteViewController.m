@@ -20,6 +20,7 @@
 @property (strong, nonatomic) FMDatabase *fmDatabase;
 @property (assign, nonatomic) NSInteger dataID;
 @property (strong, nonatomic) NSMutableArray *noteList;
+@property (strong, nonatomic) NoteObject *historyObject;
 
 @end
 
@@ -27,17 +28,37 @@
 
 //0.好啦上面放归纳，明了突出。顺便给自己点个赞，么么哒！
 
+
+ static int saveId = 1;
+
+- (instancetype)initWithHistoryObject:(NoteObject *)historyObject isShowHistoryObject:(BOOL)isShowHistoryObject{
+    self = [super init];
+    if (self) {
+        self.isShowHistoryObject = isShowHistoryObject;
+        self.historyObject = historyObject;
+        
+    }
+    
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =@"笔记";
 //    self.navigationController.navigationBar.barTintColor= [UIColor yellowColor];
-    self.navigationController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"目录" style:UIBarButtonItemStylePlain target:self action:@selector(clickDocument)];
+//    self.navigationController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"目录" style:UIBarButtonItemStylePlain target:self action:@selector(clickNoteHistoryButton)];
     [self setRightBarButton];
     
-    self.dataID = 1;
+    self.dataID = saveId;
+
+    
     [self openDataBase];
     
     self.noteList = [NSMutableArray array];
+    
+    if(self.isShowHistoryObject) {
+        self.titlleTextField.text = self.historyObject.title;
+        self.contentTextView.text = self.historyObject.content;
+    }
                                                                    
     // Do any additional setup after loading the view from its nib.
 }
@@ -64,23 +85,62 @@
     
     spaceItem.width = -15;
     
-    [btn addTarget:self action:@selector(clickDocument) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(clickNoteHistoryButton) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItems = @[spaceItem,rewardItem];
 }
 
-- (void)clickDocument{
-    //1，添加，或者说是保存数据先
-    [self addDataToDatabaseWithDataId:self.dataID];
-    _dataID++;
-    //2，查询数据，并把查询到的数据传过去
-    [self searchDatabaseData];
+- (void)clickNoteHistoryButton{
     
-    NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note" noteList:_noteList];
-    [self.navigationController pushViewController:nvc animated:YES];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"是否保存当前的笔记呢？"preferredStyle:UIAlertControllerStyleAlert];
+    //块的写法也比较特别，你说它是参数嘛，我们平时给参数也就单一 ，一种参数，但是用块传参，感觉就像把类型和内容一起传过去，怪？
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        
+        
+        //    //2，查询数据，并把查询到的数据传过去
+        [self searchDatabaseData];
+        
+        //加这句的意思是，感觉块里面好像都是子线程执行的，并且直接在子线程里面执行，反正跳转的时候，动画不起作用，所以加了个回归主线程才执行操作的GCD，这样跳转能自然一点
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note" noteList:_noteList];
+            [self.navigationController pushViewController:nvc animated:YES];
+        });
+
+    }];
+    
+    UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"保存"style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        //    //1，添加，或者说是保存数据先
+            [self addDataToDatabaseWithDataId:self.dataID];
+            _dataID++;
+        //    //2，查询数据，并把查询到的数据传过去
+            [self searchDatabaseData];
+        dispatch_async(dispatch_get_main_queue(),^{
+
+            NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note" noteList:_noteList];
+            [self.navigationController pushViewController:nvc animated:YES];
+            
+        });
+    }];
+    
+    [alertController addAction:cancelAction];
+    
+    [alertController addAction:saveAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    //    //1，添加，或者说是保存数据先
+//    [self addDataToDatabaseWithDataId:self.dataID];
+//    _dataID++;
+//    //2，查询数据，并把查询到的数据传过去
+//    [self searchDatabaseData];
+//    
+//    NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note" noteList:_noteList];
+//    [self.navigationController pushViewController:nvc animated:YES];
     
     
 }
+
+
 - (IBAction)testButton:(id)sender {
     [self openDataBase];
 }
@@ -137,6 +197,19 @@
 //添加或者叫插入数据库数据
 - (void)addDataToDatabaseWithDataId:(NSInteger)dataId{
     
+    //先查,判断与原有数据组的id是否重复，重复的话先删除旧数据，然后再保留新的数据
+
+    NSArray *checkResult = [self searchDatabaseData];
+    for (NoteObject *one in checkResult){
+        
+        if (one.dataID == self.historyObject.dataID){
+            //一样的话，就用原来的id存储，并删掉久的数据
+            [self deleteDataWiteDataId:one.dataID];
+            //确保无重复后再添加
+            dataId = _historyObject.dataID;
+        }
+    }
+    
     //特别要注意的是，这里的插入数据是不会覆盖掉的，所有，执行一次就会加入一组新的数据，而且前面的id，不是表的id，而是这组数据的id，所以，插一次数据，id也是要新的喔
     
     
@@ -179,7 +252,7 @@
 }
 
 //查找数据
-- (void)searchDatabaseData{
+- (NSArray *)searchDatabaseData{
     
     //好多操作的第一步
     [self shareDatabase];
@@ -225,18 +298,24 @@
             
         }
     }
+    
+    return self.noteList;
 
 }
 
 //删除数据
-- (void)deleteData{
+- (void)deleteDataWiteDataId:(NSInteger)dataId{
     
     //好多操作的第一步
     [self shareDatabase];
     
-    NSString *strDelete = @"delete from stu where id = 1";//参可变啊！
+//    NSString *strDelete = @"delete from stu where id = 1";//参可变啊！
     
-    [_fmDatabase executeUpdate:strDelete];
+//    [_fmDatabase executeUpdateWithFormat:@"INSERT INTO note VALUES(%ld,%@,%@)",(long)dataId,_titlleTextField.text,_contentTextView.text]];
+    BOOL isDelete = [_fmDatabase executeUpdateWithFormat:@"delete from stu where id = %ld",(long)dataId];
+    if (isDelete){
+        NSLog(@"删除成功");
+    }
     
 }
 

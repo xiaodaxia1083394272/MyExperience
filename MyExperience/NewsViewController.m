@@ -7,6 +7,7 @@
 //
 
 #import "NewsViewController.h"
+#import "NoteViewController.h"
 
 @interface NewsViewController ()<JuHeServiceDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
@@ -54,6 +55,8 @@
         uiv.image = [UIImage imageNamed:@"tree"];
         self.dataTableView.backgroundView = uiv;
         
+        [self.dataTableView reloadData];
+        
     }
 }
 
@@ -88,6 +91,8 @@
         
         return [self.dataList count];
 
+    }else if ([self.styleString isEqualToString:@"note"]) {
+        return [self.notelist count];
     }
     
     return 1;
@@ -109,8 +114,23 @@
     if ([self.styleString isEqualToString:@"新闻"]) {
         
         [cell updateCellWithNewObject:newsObject];
+        
+        cell.imageWidthConstraint.constant = 45;
+        cell.imageAndTitleWidthConstraint.constant = -15;
+        
+        NSURL *imageUrl = [NSURL URLWithString:newsObject.pictrueTwoUrl];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
+        cell.titleImage.image = image;
+
+
+    }else if ([self.styleString isEqualToString:@"note"]){
+        
+        cell.imageWidthConstraint.constant = 0;
+        cell.imageAndTitleWidthConstraint.constant = 0;
+        [cell updateCellWithNoteObject:[self.notelist objectAtIndex:indexPath.row]];
 
     }
+    
     
     
     return cell;
@@ -129,6 +149,8 @@
         
     }else if ([self.styleString isEqualToString:@"note"]){
         
+        NoteViewController *nvc = [[NoteViewController alloc]initWithHistoryObject:[self.notelist objectAtIndex:indexPath.row]isShowHistoryObject:YES];
+        [self.navigationController pushViewController:nvc animated:YES];
     }
 
     

@@ -39,6 +39,11 @@
         cell.contentView.bounds = CGRectMake(0, 0, 99999, 99999);
     }
     
+    //图片变圆
+    cell.titleImage.layer.cornerRadius = 22.5;
+    cell.titleImage.layer.masksToBounds = YES;
+    [cell.titleImage setContentMode:UIViewContentModeScaleAspectFill];
+    
     return cell;
 }
 
@@ -47,5 +52,10 @@
     self.contentLabel.text = newsObject.title;
 }
 
+- (void)updateCellWithNoteObject:(NoteObject *)noteObject{
+    
+    self.contentLabel.text = noteObject.title;
 
+
+}
 @end

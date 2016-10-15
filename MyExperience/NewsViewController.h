@@ -12,6 +12,7 @@
 #import "NewsTableViewCell.h"
 #import "NewsDetailViewController.h"
 #import "NewsUrlDetailViewController.h"
+#import "NoteObject.h"
 
 @interface NewsViewController : UIViewController
 
