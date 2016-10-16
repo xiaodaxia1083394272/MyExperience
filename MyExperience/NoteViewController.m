@@ -141,9 +141,6 @@
 }
 
 
-- (IBAction)testButton:(id)sender {
-    [self openDataBase];
-}
 //数据库公用路径
 - (void)shareDatabase{
     //因为数据库一关闭，路径，数据库需重新加载，直接是打不开的，所以要公用这个方法
@@ -319,9 +316,30 @@
     
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [_contentTextView resignFirstResponder];
-    [_titlleTextField resignFirstResponder];
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    [_contentTextView resignFirstResponder];
+//    [_titlleTextField resignFirstResponder];
+//}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField == _titlleTextField){
+        [textField resignFirstResponder];
+    }
+    return YES;
+}
+
+//UITextFieldDelegate代理里面响应return键的回调:textFieldShouldReturn:。
+//但是 UITextView的代理UITextViewDelegate 里面并没有这样的回调。
+//但是有别的方法可以实现：
+//这个函数的最后一个参数text代表你每次输入的的那个字，所以：
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]){ //判断输入的字是否是回车，即按下return
+        //在这里做你响应return键的代码
+        [_contentTextView resignFirstResponder];
+        return NO; //这里返回NO，就代表return键值失效，即页面上按下return，不会出现换行，如果为yes，则输入页面会换行
+    }
+    
+    return YES;
 }
 
 

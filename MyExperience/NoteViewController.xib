@@ -36,36 +36,37 @@
                         <constraint firstAttribute="height" constant="30" id="Ue6-eN-iyL"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="41C-yB-Bwf"/>
                     </connections>
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OfJ-5u-oYW">
-                    <rect key="frame" x="10" y="141" width="290" height="273"/>
+                    <rect key="frame" x="53" y="141" width="247" height="273"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="IGL-GY-odg"/>
                     </connections>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBo-Qf-edc">
-                    <rect key="frame" x="57" y="68" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="testButton:" destination="-1" eventType="touchUpInside" id="nPH-24-tmJ"/>
-                    </connections>
-                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZ0-ax-ySh">
+                    <rect key="frame" x="10" y="149" width="42" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="qZ0-ax-ySh" firstAttribute="top" secondItem="9Sv-0W-Bvp" secondAttribute="bottom" constant="21" id="3oo-gR-At4"/>
                 <constraint firstItem="KVR-AE-FPK" firstAttribute="top" secondItem="9Sv-0W-Bvp" secondAttribute="top" id="BgA-9R-ipi"/>
                 <constraint firstItem="eGM-bG-nCG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HoQ-8p-HAh"/>
                 <constraint firstAttribute="trailing" secondItem="eGM-bG-nCG" secondAttribute="trailing" id="VQL-LU-RwK"/>
                 <constraint firstItem="OfJ-5u-oYW" firstAttribute="top" secondItem="9Sv-0W-Bvp" secondAttribute="bottom" constant="13" id="Xl4-OI-z8o"/>
                 <constraint firstAttribute="trailing" secondItem="KVR-AE-FPK" secondAttribute="trailing" constant="10" id="gC5-5Y-R03"/>
-                <constraint firstItem="OfJ-5u-oYW" firstAttribute="leading" secondItem="9Sv-0W-Bvp" secondAttribute="leading" id="jWH-To-flj"/>
+                <constraint firstItem="qZ0-ax-ySh" firstAttribute="leading" secondItem="9Sv-0W-Bvp" secondAttribute="leading" id="gJT-gT-L6U"/>
+                <constraint firstItem="OfJ-5u-oYW" firstAttribute="leading" secondItem="9Sv-0W-Bvp" secondAttribute="leading" constant="43" id="jWH-To-flj"/>
                 <constraint firstItem="9Sv-0W-Bvp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="oHv-N2-hrO"/>
                 <constraint firstAttribute="bottom" secondItem="OfJ-5u-oYW" secondAttribute="bottom" id="qOF-D3-VBV"/>
                 <constraint firstItem="eGM-bG-nCG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qnF-RQ-45A"/>
