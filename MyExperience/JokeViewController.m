@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *dataTableView;
 @property (strong, nonatomic) UITextView *textView;
 @property (assign,nonatomic) int page;
+@property (strong, nonatomic) UIView *detailView;
 
 
 
@@ -114,6 +115,9 @@
     
 //    [self.navigationController pushViewController:controller animated:YES];
     
+    self.
+    detailView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.detailView.backgroundColor = [UIColor whiteColor];
     self.textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64-44)];
 
     
@@ -122,26 +126,32 @@
     _textView.text = [self.dataList objectAtIndex:indexPath.row];
     _textView.delegate = self;
     _textView.font =[UIFont systemFontOfSize:24];
+    _textView.backgroundColor = [UIColor clearColor];
     
 
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:[_textView bounds]];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     int random = arc4random()%7 +1;
     NSString *randomString = [NSString stringWithFormat:@"%d.jpg",random];
     
     imageView.image = [UIImage imageNamed:randomString];
     imageView.alpha = 0.4;
     
-    [_textView addSubview:imageView];
+    [_detailView addSubview:imageView];
+    [_detailView sendSubviewToBack:imageView];
     
-    [_textView sendSubviewToBack:imageView];
+    [_detailView addSubview:_textView];
+    [_detailView bringSubviewToFront:_textView];
+
     
-    [self.view addSubview:_textView];
+    [self.view addSubview:_detailView];
+    
     UIButton *textViewButton = [[UIButton alloc] initWithFrame:[UIScreen mainScreen].bounds];
     textViewButton.backgroundColor = [UIColor clearColor];
     [textViewButton addTarget:self action:@selector(clickTextView) forControlEvents:UIControlEventTouchUpInside];
     
     [_textView addSubview:textViewButton];
+    [_textView bringSubviewToFront:textViewButton];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:176.0/255.0 green:224.0/255.0 blue:230.0/255.0 alpha:1];
 //    self.tabBarController.tabBar.barTintColor = [UIColor colorWithRed:176.0/255.0 green:224.0/255.0 blue:230.0/255.0 alpha:1];
     
@@ -151,7 +161,7 @@
 
 - (void)clickTextView{
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    [self.textView removeFromSuperview];
+    [self.detailView removeFromSuperview];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

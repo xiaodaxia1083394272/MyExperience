@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="Hgi-o7-f50">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -15,9 +16,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="01J-lp-oVM" kind="relationship" relationship="rootViewController" id="Uo4-9p-CQ1"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQ6-tO-q2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -34,7 +32,18 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="rY5-Gk-UzQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rY5-Gk-UzQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="149-aK-Fze"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="rY5-Gk-UzQ" secondAttribute="bottom" id="4fF-t4-yZp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rY5-Gk-UzQ" secondAttribute="trailing" constant="-20" id="Iwh-h7-wb9"/>
+                            <constraint firstItem="rY5-Gk-UzQ" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="zCr-ea-Ddx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hag-FJ-foP"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -44,7 +53,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-919" y="-36"/>
+            <point key="canvasLocation" x="-1005" y="-215"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Default.png" width="123" height="220"/>
+    </resources>
 </document>

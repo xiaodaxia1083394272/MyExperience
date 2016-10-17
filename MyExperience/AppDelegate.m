@@ -18,13 +18,18 @@
 
 
 @interface AppDelegate ()                                                                                                                                                                              
-
+@property (strong, nonatomic) UIView *launchView;
 @end
 
 @implementation AppDelegate
 
-
+-(void)removeLun
+{
+    [self.launchView removeFromSuperview];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
     // Override point for customization after application launch.
     [[RCIM sharedRCIM] initWithAppKey:@"uwd1c0sxdu5e1"];
     
@@ -33,7 +38,19 @@
     if (storyboard) {
         self.window.rootViewController = [storyboard instantiateInitialViewController];
         [self.window makeKeyAndVisible];
-        
+//        self.launchView = [[NSBundle mainBundle ]loadNibNamed:@"LaunchScreen" owner:nil options:nil][0];
+//        _launchView.frame = CGRectMake(0, 0, self.window.screen.bounds.size.width, self.window.screen.bounds.size.height);
+//        [self.window addSubview:_launchView];
+//        
+//        UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 50, 320, 300)];
+////        NSString *str = @"http://www.jerehedu.com/images/temp/logo.gif";
+////        [imageV sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:[UIImage imageNamed:@"default1.jpg"]];
+//        imageV.image = [UIImage imageNamed:@"backLaunch.jpg"];
+//        [_launchView addSubview:imageV];
+//        
+//        [self.window bringSubviewToFront:_launchView];
+//        
+//        [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
         UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
         tabBarController.tabBar.translucent = NO;
         tabBarController.delegate = self;
