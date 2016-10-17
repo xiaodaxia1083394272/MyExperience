@@ -36,6 +36,8 @@
     if ([self.styleString isEqualToString:@"新闻"]) {
         self.title =@"头条新闻";
         
+        [self setRightBarButton];
+        
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.dataTableView.bounds];
         int random = arc4random()%7 +1;
         NSString *randomString = [NSString stringWithFormat:@"%d.jpg",random];
@@ -58,6 +60,38 @@
         [self.dataTableView reloadData];
         
     }
+}
+
+- (void)setRightBarButton{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    btn.frame = CGRectMake(0, 0, 100, 30);
+    
+    //    [btn setImage:[UIImage imageNamed:@"rightUp"] forState:UIControlStateNormal];
+    
+    [btn setTitle:@"分享" forState:UIControlStateNormal];
+    
+    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    
+    btn.titleLabel.font = [UIFont systemFontOfSize: 15.0];
+    
+    btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
+    [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
+    
+    UIBarButtonItem *rewardItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    
+    spaceItem.width = -15;
+    
+    [btn addTarget:self action:@selector(clickShareButton) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItems = @[spaceItem,rewardItem];
+}
+
+- (void)clickShareButton{
+    
 }
 
 - (void)didReceiveMemoryWarning {
