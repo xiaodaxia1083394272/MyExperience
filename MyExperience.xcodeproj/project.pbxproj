@@ -12,7 +12,6 @@
 		922927F01D7FB465007E38A9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927EF1D7FB465007E38A9 /* ViewController.m */; };
 		922927F31D7FB465007E38A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922927F11D7FB465007E38A9 /* Main.storyboard */; };
 		922927F51D7FB465007E38A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922927F41D7FB465007E38A9 /* Assets.xcassets */; };
-		922927F81D7FB465007E38A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922927F61D7FB465007E38A9 /* LaunchScreen.storyboard */; };
 		922928031D7FB465007E38A9 /* MyExperienceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 922928021D7FB465007E38A9 /* MyExperienceTests.m */; };
 		9229280E1D7FB465007E38A9 /* MyExperienceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9229280D1D7FB465007E38A9 /* MyExperienceUITests.m */; };
 		922AB6C11DAF1D820051DF7D /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 922AB6BF1DAF1D820051DF7D /* NewsTableViewCell.m */; };
@@ -49,6 +48,7 @@
 		925F5DBB1D855C7800C0B699 /* QQViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 925F5DB91D855C7800C0B699 /* QQViewTableViewCell.m */; };
 		925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925F5DBA1D855C7800C0B699 /* QQViewTableViewCell.xib */; };
 		92660D801DB121010023D1E2 /* NoteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 92660D7F1DB121010023D1E2 /* NoteObject.m */; };
+		92D5D0791DB50C7D000BF7BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92D5D0781DB50C7D000BF7BC /* LaunchScreen.storyboard */; };
 		92E902F91D92793E00A07AC7 /* StudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E902F81D92793E00A07AC7 /* StudentModel.m */; };
 		92ED1FBF1D943AA400290D11 /* ShareContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED1FBE1D943AA400290D11 /* ShareContent.m */; };
 		92ED1FC21D943B0E00290D11 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED1FC11D943B0E00290D11 /* ShareView.m */; };
@@ -95,7 +95,6 @@
 		922927EF1D7FB465007E38A9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		922927F21D7FB465007E38A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		922927F41D7FB465007E38A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		922927F71D7FB465007E38A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		922927F91D7FB465007E38A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		922927FE1D7FB465007E38A9 /* MyExperienceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyExperienceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		922928021D7FB465007E38A9 /* MyExperienceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyExperienceTests.m; sourceTree = "<group>"; };
@@ -161,6 +160,7 @@
 		925F5DBA1D855C7800C0B699 /* QQViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQViewTableViewCell.xib; sourceTree = "<group>"; };
 		92660D7E1DB121010023D1E2 /* NoteObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteObject.h; sourceTree = "<group>"; };
 		92660D7F1DB121010023D1E2 /* NoteObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteObject.m; sourceTree = "<group>"; };
+		92D5D0781DB50C7D000BF7BC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92E902F71D92793E00A07AC7 /* StudentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentModel.h; sourceTree = "<group>"; };
 		92E902F81D92793E00A07AC7 /* StudentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentModel.m; sourceTree = "<group>"; };
 		92ED1FBD1D943AA400290D11 /* ShareContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareContent.h; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 				92485F6A1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m */,
 				92F1DB2B1D853660008B42E8 /* SimilarQQ */,
 				922927F41D7FB465007E38A9 /* Assets.xcassets */,
-				922927F61D7FB465007E38A9 /* LaunchScreen.storyboard */,
+				92D5D0781DB50C7D000BF7BC /* LaunchScreen.storyboard */,
 				922927F91D7FB465007E38A9 /* Info.plist */,
 				922927E81D7FB465007E38A9 /* Supporting Files */,
 			);
@@ -558,7 +558,6 @@
 			files = (
 				92F38CA91DAD203200C44549 /* JokeTableViewCell.xib in Resources */,
 				922AB6CC1DAF321A0051DF7D /* NewsDetailViewController.xib in Resources */,
-				922927F81D7FB465007E38A9 /* LaunchScreen.storyboard in Resources */,
 				92EF626C1DABE26100FDE5DE /* WeatherViewController.xib in Resources */,
 				922927F51D7FB465007E38A9 /* Assets.xcassets in Resources */,
 				922AB6C21DAF1D820051DF7D /* NewsTableViewCell.xib in Resources */,
@@ -566,6 +565,7 @@
 				923AEE291D98F662006CC483 /* JuHeViewController.xib in Resources */,
 				92EF62621DABE20200FDE5DE /* JokeViewController.xib in Resources */,
 				922AB6D61DAF96780051DF7D /* WeatherDateView.xib in Resources */,
+				92D5D0791DB50C7D000BF7BC /* LaunchScreen.storyboard in Resources */,
 				92EF62711DABE28F00FDE5DE /* NoteViewController.xib in Resources */,
 				923DB9921D868A770093EC7F /* SqliteViewController.xib in Resources */,
 				925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */,
@@ -724,14 +724,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		922927F61D7FB465007E38A9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				922927F71D7FB465007E38A9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -828,7 +820,6 @@
 			baseConfigurationReference = 694A7693437C673C5134AB39 /* Pods-MyExperience.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyExperience/Info.plist;
@@ -844,7 +835,6 @@
 			baseConfigurationReference = 14BEA95645461DA10B7C3742 /* Pods-MyExperience.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyExperience/Info.plist;

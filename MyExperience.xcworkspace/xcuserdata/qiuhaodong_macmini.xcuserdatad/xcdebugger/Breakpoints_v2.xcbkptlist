@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyExperience/NewsViewController.m"
-            timestampString = "498202542.448478"
+            filePath = "MyExperience/JuHeService.m"
+            timestampString = "498390296.700833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-initWithStyle:noteList:"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "+queryJuheNewsDataWithDelegate:appkey:type:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyExperience/JuHeService.m"
+            timestampString = "498390348.6279"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "+queryJuheNewsDataWithDelegate:appkey:type:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

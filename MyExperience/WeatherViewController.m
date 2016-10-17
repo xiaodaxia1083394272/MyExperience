@@ -10,6 +10,7 @@
 #import "JuHeService.h"
 #import "WeatherDateView.h"
 #import "UIScrollView+MJRefresh.h"
+//#import <CoreLocation/CLLocationManager.h>
 
 
 @interface WeatherViewController ()<JuHeServiceDelegate,UIScrollViewDelegate,UITextViewDelegate>
@@ -22,11 +23,49 @@
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *updateTimeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *lifeTextView;
+
+//@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (copy, nonatomic) NSString *currentCity;
 @end
 
 @implementation WeatherViewController
 
-
+//- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+//{
+//    //将经度显示到label上
+//    self.longitude.text = [NSString stringWithFormat:@"%lf", newLocation.coordinate.longitude];
+//    //将纬度现实到label上
+//    self.latitude.text = [NSString stringWithFormat:@"%lf", newLocation.coordinate.latitude];
+//    // 获取当前所在的城市名
+//    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+//    //根据经纬度反向地理编译出地址信息
+//    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *array, NSError *error){
+//        if (array.count > 0){
+//            CLPlacemark *placemark = [array objectAtIndex:0];
+//            //将获得的所有信息显示到label上
+//            self.location.text = placemark.name;
+//            //获取城市
+//            NSString *city = placemark.locality;
+//            if (!city) {
+//                //四大直辖市的城市信息无法通过locality获得，只能通过获取省份的方法来获得（如果city为空，则可知为直辖市）
+//                city = placemark.administrativeArea;
+//            }
+//            NSLog(@"city = %@", city);
+//            _cityLable.text = city;
+//            [_cityButton setTitle:city forState:UIControlStateNormal];
+//        }
+//        else if (error == nil && [array count] == 0)
+//        {
+//            NSLog(@"No results were returned.");
+//        }
+//        else if (error != nil)
+//        {
+//            NSLog(@"An error occurred = %@", error);
+//        }
+//    }];
+//    //系统会一直更新数据，直到选择停止更新，因为我们只需要获得一次经纬度即可，所以获取之后就停止更新
+//    [manager stopUpdatingLocation];
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =@"天气";

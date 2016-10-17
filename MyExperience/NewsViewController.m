@@ -36,7 +36,8 @@
     if ([self.styleString isEqualToString:@"新闻"]) {
         self.title =@"头条新闻";
         
-        [self setRightBarButton];
+        //因没上线，用不了微信sdk故先注释
+//        [self setRightBarButton];
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.dataTableView.bounds];
         int random = arc4random()%7 +1;
