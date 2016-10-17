@@ -75,7 +75,8 @@
         
         self.dateList = weatherFutureList;
         [self initDataScrollView];
-        self.temperatureLabel.text = realTime.temperature;
+        //温度的那个小圆圈，直接打开输入法,从符号里面拖过来就可以了
+        self.temperatureLabel.text = [NSString stringWithFormat:@"%@˚",realTime.temperature]; ;
         self.updateTimeLabel.text = [NSString stringWithFormat:@"更新于:%@",realTime.updateTime];
         self.lifeTextView.text = [NSString stringWithFormat:@" 穿衣综合指数：%@。 \n穿衣指导：%@\n\n 感冒综合分析：%@。\n感冒预防：%@ \n\n 空调建议：%@。\n具体：%@。\n\n 运动指数：%@。\n建议：%@",life.chuanyi[0],life.chuanyi[1],life.ganmao[0],life.ganmao[1],life.kongtiao[0],life.kongtiao[1],life.yudong[0],life.yudong[1]];
         

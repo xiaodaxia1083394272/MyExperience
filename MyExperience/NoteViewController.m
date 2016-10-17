@@ -21,6 +21,7 @@
 @property (assign, nonatomic) NSInteger dataID;
 @property (strong, nonatomic) NSMutableArray *noteList;
 @property (strong, nonatomic) NoteObject *historyObject;
+@property (strong, nonatomic) UILabel *textViewPlaceholderLabel;
 
 @end
 
@@ -55,9 +56,20 @@
     
     self.noteList = [NSMutableArray array];
     
+    self.textViewPlaceholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.contentTextView.frame.origin.x, self.contentTextView.frame.origin.y, 60, 17)];
+    
+    //add上去貌似位置有bug，先不add
+//    [self.contentTextView addSubview:self.textViewPlaceholderLabel];
+    self.textViewPlaceholderLabel.backgroundColor = [UIColor clearColor];
+    
     if(self.isShowHistoryObject) {
         self.titlleTextField.text = self.historyObject.title;
         self.contentTextView.text = self.historyObject.content;
+        
+        self.textViewPlaceholderLabel.text = @"";
+    }else{
+        
+        self.textViewPlaceholderLabel.text = @"内容记录板";
     }
                                                                    
     // Do any additional setup after loading the view from its nib.
@@ -340,6 +352,22 @@
     }
     
     return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView{
+    if (_isShowHistoryObject){
+        
+         _textViewPlaceholderLabel.text = @"";
+        
+    }else{
+        
+        if (textView.text.length == 0){
+            _textViewPlaceholderLabel.text = @"内容记录板";
+        }else{
+            _textViewPlaceholderLabel.text = @"";
+        }
+    }
+    
 }
 
 

@@ -148,6 +148,7 @@
 		924055CB1D91939B00D77220 /* TestSQLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSQLViewController.h; sourceTree = "<group>"; };
 		924055CC1D91939B00D77220 /* TestSQLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSQLViewController.m; sourceTree = "<group>"; };
 		924055CD1D91939B00D77220 /* TestSQLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestSQLViewController.xib; sourceTree = "<group>"; };
+		92416B951DB4711D000AEBFE /* FailMark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FailMark.h; sourceTree = "<group>"; };
 		92485F661D7FE0B50010B545 /* twoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twoViewController.h; sourceTree = "<group>"; };
 		92485F671D7FE0B50010B545 /* twoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twoViewController.m; sourceTree = "<group>"; };
 		92485F691D8055970010B545 /* UIScrollView+MyExperienceRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MyExperienceRefresh.h"; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 		922927E71D7FB465007E38A9 /* MyExperience */ = {
 			isa = PBXGroup;
 			children = (
+				92416B951DB4711D000AEBFE /* FailMark.h */,
 				92F38CAA1DAD4CC500C44549 /* MJRefresh */,
 				92EF625D1DABE16500FDE5DE /* MainController */,
 				923AEE241D98F60A006CC483 /* GetNetworkData */,

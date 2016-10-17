@@ -137,7 +137,7 @@
     [_textView sendSubviewToBack:imageView];
     
     [self.view addSubview:_textView];
-    UIButton *textViewButton = [[UIButton alloc] initWithFrame:_textView.bounds];
+    UIButton *textViewButton = [[UIButton alloc] initWithFrame:[UIScreen mainScreen].bounds];
     textViewButton.backgroundColor = [UIColor clearColor];
     [textViewButton addTarget:self action:@selector(clickTextView) forControlEvents:UIControlEventTouchUpInside];
     
