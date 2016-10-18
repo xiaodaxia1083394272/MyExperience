@@ -9,14 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyExperience/JuHeService.m"
-            timestampString = "498390296.700833"
+            filePath = "MyExperience/WeatherViewController.m"
+            timestampString = "498469765.881136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
-            landmarkName = "+queryJuheNewsDataWithDelegate:appkey:type:"
-            landmarkType = "5">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "-locationManager:didUpdateLocations:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,14 +25,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyExperience/JuHeService.m"
-            timestampString = "498390348.6279"
+            filePath = "MyExperience/WeatherViewController.m"
+            timestampString = "498469470.799675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
-            landmarkName = "+queryJuheNewsDataWithDelegate:appkey:type:"
-            landmarkType = "5">
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

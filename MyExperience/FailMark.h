@@ -14,4 +14,10 @@
 
 //1.博客的话，有时只看大概的思路即可，因为内容的话可能是错的
 //2. 还原模拟器
-#pragma mark 
+//3. 在下面的info plist里可以用add row来加行
+/*4. 怎么知道这个是个旧的方法：- (void)locationManager:(CLLocationManager *)manager
+	didUpdateToLocation:(CLLocation *)newLocation
+ fromLocation:(CLLocation *)oldLocation __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6, __MAC_NA, __IPHONE_2_0, __IPHONE_6_0) __TVOS_PROHIBITED __WATCHOS_PROHIBITED; 
+ */
+//5. 懒加载和单例的区别
+#pragma mark
