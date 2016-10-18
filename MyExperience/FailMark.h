@@ -21,4 +21,5 @@
  fromLocation:(CLLocation *)oldLocation __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6, __MAC_NA, __IPHONE_2_0, __IPHONE_6_0) __TVOS_PROHIBITED __WATCHOS_PROHIBITED; 
  */
 //5. 懒加载和单例的区别
+//6. 有时图片写不进去，可能与缓存有关，建议清一下项目的缓存
 #pragma mark
