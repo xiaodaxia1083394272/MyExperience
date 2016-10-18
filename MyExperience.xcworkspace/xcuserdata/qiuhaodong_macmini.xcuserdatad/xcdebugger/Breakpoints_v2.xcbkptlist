@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyExperience/WeatherViewController.m"
-            timestampString = "498469765.881136"
+            timestampString = "498497047.603385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "-locationManager:didUpdateLocations:"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
+            landmarkName = "-locationManager:didFailWithError:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyExperience/WeatherViewController.m"
-            timestampString = "498469470.799675"
+            timestampString = "498497047.603385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>

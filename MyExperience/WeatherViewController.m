@@ -46,7 +46,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =@"天气";
-    //判断用户定位服务是否开启
+    
+    //判断设备是否可以用于定位
     if ([CLLocationManager locationServicesEnabled]){
         
         self.locationManager = [[CLLocationManager alloc] init];
@@ -57,7 +58,14 @@
         self.locationManager.distanceFilter=kCLDistanceFilterNone;
         //设置定位的精准度，一般精准度越高，越耗电（这里设置为精准度最高的，适用于导航应用）.定位服务是比较耗电的，如果是做定位服务（没必要实时更新的话），那么定位了用户位置后，应该停止更新位置。
         self.locationManager.desiredAccuracy=kCLLocationAccuracyBestForNavigation;
+        
+        //ios8之后要添加了，info plist里面配置只是请求时候的文案而已，还是要用代码来配置的呦
+        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [self.locationManager requestWhenInUseAuthorization];
+        }
+        
         //开启位置更新
+        //想定位比较准确的话，就用corelocation打开权限，再用地图去定位。这时可以不用startUpdatingLocation，即不用corelocation去定位。而我这里不用那么准确，所以就用startUpdatingLocation啦，啦啦啦
         [self.locationManager startUpdatingLocation];
         
     }else {
@@ -265,8 +273,9 @@
 
 //-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-//    [locationManager stopUpdatingLocation];
-
+    //停止更新位置（如果定位服务不需要实时更新的话，那么应该停止位置的更新）
+    [self.locationManager stopUpdatingLocation];
+    
     //locations数组里边存放的是CLLocation对象，一个CLLocation对象就代表着一个位置
     CLLocation *loc = [locations firstObject];
     
@@ -275,8 +284,7 @@
     NSLog(@"纬度=%f，经度=%f",loc.coordinate.latitude,loc.coordinate.longitude);
     NSLog(@"%d",locations.count);
     
-    //停止更新位置（如果定位服务不需要实时更新的话，那么应该停止位置的更新）
-    //    [self.locMgr stopUpdatingLocation];
+
     
     CLLocation *currentLocation = [locations lastObject];
     CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
