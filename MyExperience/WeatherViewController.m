@@ -56,7 +56,7 @@
         //每隔多少米定位一次（这里的设置为任何的移动）
         self.locationManager.distanceFilter=kCLDistanceFilterNone;
         //设置定位的精准度，一般精准度越高，越耗电（这里设置为精准度最高的，适用于导航应用）.定位服务是比较耗电的，如果是做定位服务（没必要实时更新的话），那么定位了用户位置后，应该停止更新位置。
-        self.locationManager.desiredAccuracy=kCLLocationAccuracyKilometer;
+        self.locationManager.desiredAccuracy=kCLLocationAccuracyBestForNavigation;
         //开启位置更新
         [self.locationManager startUpdatingLocation];
         
