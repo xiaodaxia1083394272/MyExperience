@@ -127,6 +127,8 @@
     _textView.delegate = self;
     _textView.font =[UIFont systemFontOfSize:24];
     _textView.backgroundColor = [UIColor clearColor];
+    _textView.editable = NO;
+    _textView.selectable = NO;
     
 
     
