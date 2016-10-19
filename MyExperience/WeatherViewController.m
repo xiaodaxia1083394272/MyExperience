@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *updateTimeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *lifeTextView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *locationActivity;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 //声明定位管理器，貌似很多成熟的API库，都有一个管理类
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -46,7 +48,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =@"天气";
-    
+    //定位前先以默认的“广州”请求一次网络，定位成功后，再按照定位的城市刷新一下网络请求
+    self.currentCity = @"广州";
+    [self queryData];
+    self.locationActivity.hidesWhenStopped = YES;
+   
+
     //判断设备是否可以用于定位
     if ([CLLocationManager locationServicesEnabled]){
         
@@ -126,7 +133,6 @@
     self.backgroundImage.alpha = 1;
   
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    [self queryData];
 
 
     // Do any additional setup after loading the view from its nib.
@@ -153,9 +159,10 @@
 }
 
 - (void)queryData{
-    
+     [self.locationActivity startAnimating];
+    self.locationLabel.hidden = NO;
     [JuHeService queryJuheWeatherDataWithDelegate:self
-                                         cityName:@"广州"
+                                         cityName:_currentCity
                                             dtype:nil
                                            appKey:@"60c6096ca706b901753cfc411fe95389"];
 }
@@ -166,6 +173,10 @@
     
     if ([reason isEqualToString:@"successed!"]){
         
+        self.locationLabel.text = @"定位完成";
+        [self performSelector:@selector(delayMethod) withObject:nil/*可传任意类型参数*/ afterDelay:1.0];
+
+        
         self.dateList = weatherFutureList;
         [self initDataScrollView];
         //温度的那个小圆圈，直接打开输入法,从符号里面拖过来就可以了
@@ -174,6 +185,10 @@
         self.lifeTextView.text = [NSString stringWithFormat:@" 穿衣综合指数：%@。 \n穿衣指导：%@\n\n 感冒综合分析：%@。\n感冒预防：%@ \n\n 空调建议：%@。\n具体：%@。\n\n 运动指数：%@。\n建议：%@",life.chuanyi[0],life.chuanyi[1],life.ganmao[0],life.ganmao[1],life.kongtiao[0],life.kongtiao[1],life.yudong[0],life.yudong[1]];
         
     }
+}
+- (void)delayMethod{
+    [self.locationActivity stopAnimating];
+    self.locationLabel.hidden = YES;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
@@ -291,13 +306,36 @@
     
     //反编码
     [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        //默认城市是广州
+        NSString *cutCurrentCityString = @"广州市";
+        
         if (placemarks.count > 0) {
             CLPlacemark *placeMark = placemarks[0];
-            _currentCity = placeMark.locality;
-            if (!_currentCity) {
-                _currentCity = @"无法定位当前城市";
+            cutCurrentCityString = placeMark.locality;
+            if (!cutCurrentCityString) {
+                cutCurrentCityString = @"无法定位当前城市";
             }
-            NSLog(@"%@",_currentCity); //这就是当前的城市
+            NSLog(@"%@",cutCurrentCityString); //这就是当前的城市
+            
+            //截市之前的字符
+//            NSString *string = @"abavavasdsvx,as.dsf/,.[abcdefghijklmn]dgdfg";
+//            
+//            　　　　　　NSRange start = [string rangeOfString:@"["];
+//            NSRange end = [string rangeOfString:@"]"];
+            //index 是从0开始，而range是从1开始的
+
+//            NSString *sub = [string substringWithRange:NSMakeRange(start.location, end.location-start.location+1)];
+//            
+//            　　　　　　　NSLog(@"sub=%@",sub);
+//            
+//            
+//            
+//            控制台就输出:[abcdefghijklmn]
+            NSRange end = [cutCurrentCityString rangeOfString:@"市"];
+             _currentCity = [cutCurrentCityString substringWithRange:NSMakeRange(0, end.location )];
+            NSLog(@"test change %@",_currentCity);
+            //定位成功，重刷一次网络
+            [self queryData];
             NSLog(@"%@",placeMark.name);//具体地址:  xx市xx区xx街道
         }
         else if (error == nil && placemarks.count == 0) {
@@ -311,6 +349,8 @@
     
     
 }
+
+
 
 //定位代理失败回调
 //定位失败弹出提示框,点击"打开定位"按钮,会打开系统的设置,提示打开定位服务

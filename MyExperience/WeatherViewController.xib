@@ -11,6 +11,8 @@
                 <outlet property="backgroundImage" destination="ZsY-FT-1U0" id="qda-2u-Bud"/>
                 <outlet property="dataScrollView" destination="2lo-AI-kDx" id="stO-8m-2hd"/>
                 <outlet property="lifeTextView" destination="T55-QY-f7p" id="jbZ-rw-xVn"/>
+                <outlet property="locationActivity" destination="xbb-s2-ywh" id="Bks-rx-Xrh"/>
+                <outlet property="locationLabel" destination="2z6-bi-M9g" id="SqM-NN-kiN"/>
                 <outlet property="temperatureLabel" destination="u7e-Oa-yLS" id="2vn-qN-eCV"/>
                 <outlet property="updateTimeLabel" destination="6zi-AC-9BS" id="nu7-50-fIE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,12 +37,28 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-s2-ywh">
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="5DB-ua-fNk"/>
+                                        <constraint firstAttribute="width" constant="15" id="SvZ-1B-uYp"/>
+                                    </constraints>
+                                    <color key="color" red="0.69019607839999997" green="0.87843137250000003" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                </activityIndicatorView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定位中..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2z6-bi-M9g">
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                    <color key="textColor" red="0.4414835571612441" green="1" blue="0.9555472093711429" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="KEy-vQ-4aX"/>
                                 <constraint firstAttribute="bottom" secondItem="j48-gg-2K2" secondAttribute="bottom" constant="8" id="LeA-Db-9ii"/>
                                 <constraint firstItem="j48-gg-2K2" firstAttribute="centerX" secondItem="tg8-69-1oM" secondAttribute="centerX" id="UUW-kg-ifs"/>
+                                <constraint firstItem="2z6-bi-M9g" firstAttribute="leading" secondItem="xbb-s2-ywh" secondAttribute="trailing" constant="6" id="bSy-tm-Ck3"/>
+                                <constraint firstItem="xbb-s2-ywh" firstAttribute="top" secondItem="j48-gg-2K2" secondAttribute="bottom" constant="9" id="gxe-h6-8b1"/>
+                                <constraint firstItem="2z6-bi-M9g" firstAttribute="top" secondItem="xbb-s2-ywh" secondAttribute="top" id="lcp-8U-aA6"/>
+                                <constraint firstItem="xbb-s2-ywh" firstAttribute="leading" secondItem="j48-gg-2K2" secondAttribute="leading" id="ohv-le-kQj"/>
                             </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lo-AI-kDx">
