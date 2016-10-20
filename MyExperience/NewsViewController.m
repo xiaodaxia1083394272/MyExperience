@@ -36,8 +36,7 @@
     if ([self.styleString isEqualToString:@"新闻"]) {
         self.title =@"头条新闻";
         
-        //因没上线，用不了微信sdk故先注释
-//        [self setRightBarButton];
+        [self setRightBarButton];
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.dataTableView.bounds];
         int random = arc4random()%7 +1;
@@ -70,7 +69,7 @@
     
     //    [btn setImage:[UIImage imageNamed:@"rightUp"] forState:UIControlStateNormal];
     
-    [btn setTitle:@"分享" forState:UIControlStateNormal];
+    [btn setTitle:@"清理缓存" forState:UIControlStateNormal];
     
     [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
@@ -86,14 +85,105 @@
     
     spaceItem.width = -15;
     
-    [btn addTarget:self action:@selector(clickShareButton) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(clickCleanButton) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItems = @[spaceItem,rewardItem];
 }
 
-- (void)clickShareButton{
+- (void)clickCleanButton{
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//                       
+//                       NSString *cachPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//                       
+//                       NSLog(@"%@", cachPath);
+//                       
+//                       
+//                       
+//                       NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachPath];
+//                       
+////                       NSLog(@"files :%d",[files count]);
+//        
+//                       for (NSString *p in files) {
+//                           
+//                           NSError *error;
+//                           
+//                           NSString *path = [cachPath stringByAppendingPathComponent:p];
+//                           
+//                           if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+//                               
+//                               [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+//                               
+//                           }
+//                           
+//                       }
+//                       
+//                       [self performSelectorOnMainThread:@selector(clearCacheSuccess) withObject:nil waitUntilDone:YES];});
+    // 清除缓存
     
+    CGFloat size = [self folderSizeAtPath:NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject]
+    + [self folderSizeAtPath:NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject] + [self folderSizeAtPath:NSTemporaryDirectory()];
+    
+    NSString *message = size > 1 ? [NSString stringWithFormat:@"缓存%.2fM, 删除缓存", size] : [NSString stringWithFormat:@"缓存%.2fK, 删除缓存", size * 1024.0];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+        [self cleanCaches];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:nil];
+    [alert addAction:action];
+    [alert addAction:cancel];
+    [self showDetailViewController:alert sender:nil];
 }
+
+// 计算目录大小
+- (CGFloat)folderSizeAtPath:(NSString *)path
+{
+    // 利用NSFileManager实现对文件的管理</span>
+    
+    NSFileManager *manager = [NSFileManager defaultManager]; CGFloat size = 0;
+    if ([manager fileExistsAtPath:path]) {
+        // 获取该目录下的文件，计算其大小
+        NSArray *childrenFile = [manager subpathsAtPath:path];
+        for (NSString *fileName in childrenFile) {
+            NSString *absolutePath = [path stringByAppendingPathComponent:fileName];
+            size += [manager attributesOfItemAtPath:absolutePath error:nil].fileSize;
+        }
+        // 将大小转化为M  
+        return size / 1024.0 / 1024.0;   
+    }   
+    return 0;
+}
+- (void)cleanCaches
+{
+    [self cleanCaches:NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject];//document
+    [self cleanCaches:NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).firstObject];//liabrary
+    [self cleanCaches:NSTemporaryDirectory()];
+}
+
+// 根据路径删除文件
+- (void)cleanCaches:(NSString *)path
+{
+    // 利用NSFileManager实现对文件的管理
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:path]) {
+        // 获取该路径下面的文件名
+        NSArray *childrenFiles = [fileManager subpathsAtPath:path];
+        for (NSString *fileName in childrenFiles) {
+            // 拼接路径
+            NSString *absolutePath = [path stringByAppendingPathComponent:fileName];
+            // 将文件删除
+            [fileManager removeItemAtPath:absolutePath error:nil];
+        }
+    }  
+}
+
+//-(void)clearCacheSuccess
+//
+//{
+//
+//    NSLog(@"清理成功");
+//
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

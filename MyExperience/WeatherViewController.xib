@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherViewController">
             <connections>
                 <outlet property="backgroundImage" destination="ZsY-FT-1U0" id="qda-2u-Bud"/>
+                <outlet property="cityShowLabel" destination="j48-gg-2K2" id="8bM-DX-WsB"/>
                 <outlet property="dataScrollView" destination="2lo-AI-kDx" id="stO-8m-2hd"/>
                 <outlet property="lifeTextView" destination="T55-QY-f7p" id="jbZ-rw-xVn"/>
                 <outlet property="locationActivity" destination="xbb-s2-ywh" id="Bks-rx-Xrh"/>

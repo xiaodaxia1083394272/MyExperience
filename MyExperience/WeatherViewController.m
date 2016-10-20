@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *lifeTextView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *locationActivity;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityShowLabel;
 
 //声明定位管理器，貌似很多成熟的API库，都有一个管理类
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -50,6 +51,7 @@
     self.title =@"天气";
     //定位前先以默认的“广州”请求一次网络，定位成功后，再按照定位的城市刷新一下网络请求
     self.currentCity = @"广州";
+    self.cityShowLabel.text = _currentCity;
     [self queryData];
     self.locationActivity.hidesWhenStopped = YES;
    
@@ -159,6 +161,8 @@
 }
 
 - (void)queryData{
+    
+    self.cityShowLabel.text = self.currentCity;
      [self.locationActivity startAnimating];
     self.locationLabel.hidden = NO;
     [JuHeService queryJuheWeatherDataWithDelegate:self

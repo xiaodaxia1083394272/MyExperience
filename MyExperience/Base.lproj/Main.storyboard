@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MPj-NT-y3x">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MPj-NT-y3x">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="IbJ-MG-8F3">
             <objects>
                 <navigationController id="pj9-CP-8wt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" badgeValue="天气" systemItem="search" id="zoB-tP-gS6"/>
+                    <tabBarItem key="tabBarItem" badgeValue="天气" systemItem="featured" id="zoB-tP-gS6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tMT-wK-q5H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -26,7 +27,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wiK-E1-qT1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="pj9-CP-8wt" kind="relationship" relationship="viewControllers" id="Rf1-8j-GU8"/>
@@ -43,7 +44,7 @@
         <scene sceneID="TRg-Ns-7px">
             <objects>
                 <navigationController id="GMH-dZ-7Go" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" badgeValue="轻松一刻" systemItem="bookmarks" id="Y3q-np-L2h"/>
+                    <tabBarItem key="tabBarItem" badgeValue="轻松一刻" systemItem="featured" id="Y3q-np-L2h"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JZ0-ux-Ky5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -57,7 +58,7 @@
         <scene sceneID="CqL-y5-NKv">
             <objects>
                 <navigationController id="PhG-lH-hCM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" badgeValue="笔记" systemItem="mostViewed" id="Vub-pa-98o"/>
+                    <tabBarItem key="tabBarItem" badgeValue="笔记" systemItem="featured" id="Vub-pa-98o"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LNu-fw-DRY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
