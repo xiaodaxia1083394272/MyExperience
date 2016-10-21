@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (strong, nonatomic) FMDatabase *fmDatabase;
 @property (assign, nonatomic) NSInteger dataID;
-@property (strong, nonatomic) NSMutableArray *noteList;
 @property (strong, nonatomic) NoteObject *historyObject;
 @property (strong, nonatomic) UILabel *textViewPlaceholderLabel;
 
@@ -53,8 +52,6 @@
 
     
     [self openDataBase];
-    
-    self.noteList = [NSMutableArray array];
     
     self.textViewPlaceholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.contentTextView.frame.origin.x, self.contentTextView.frame.origin.y, 60, 17)];
     
@@ -110,29 +107,36 @@
         
         
         //    //2，查询数据，并把查询到的数据传过去
-        [self searchDatabaseData];
+        //局部数组接收
+        NSArray *noteList = [NSArray array];
+        noteList = [self searchDatabaseData];
         
         //加这句的意思是，感觉块里面好像都是子线程执行的，并且直接在子线程里面执行，反正跳转的时候，动画不起作用，所以加了个回归主线程才执行操作的GCD，这样跳转能自然一点
-        dispatch_async(dispatch_get_main_queue(),^{
-            
-            NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note" noteList:_noteList];
+//        dispatch_async(dispatch_get_main_queue(),^{
+        
+            NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note" noteList:noteList];
             [self.navigationController pushViewController:nvc animated:YES];
-        });
+//        });
 
     }];
     
     UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"保存"style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        
+        _dataID++;
         //    //1，添加，或者说是保存数据先
             [self addDataToDatabaseWithDataId:self.dataID];
-            _dataID++;
-        //    //2，查询数据，并把查询到的数据传过去
-            [self searchDatabaseData];
-        dispatch_async(dispatch_get_main_queue(),^{
+        NSLog(@"test note %d",_dataID);
+        //局部数组接收
+        NSArray *noteList = [NSArray array];
+        noteList = [self searchDatabaseData];
+        
+//        dispatch_async(dispatch_get_main_queue(),^{
 
-            NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note" noteList:_noteList];
+            NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note" noteList:noteList];
+        NSLog(@"note cout %d",[noteList count]);
             [self.navigationController pushViewController:nvc animated:YES];
             
-        });
+//        });
     }];
     
     [alertController addAction:cancelAction];
@@ -208,16 +212,16 @@
     
     //先查,判断与原有数据组的id是否重复，重复的话先删除旧数据，然后再保留新的数据
 
-    NSArray *checkResult = [self searchDatabaseData];
-    for (NoteObject *one in checkResult){
-        
-        if (one.dataID == self.historyObject.dataID){
-            //一样的话，就用原来的id存储，并删掉久的数据
-            [self deleteDataWiteDataId:one.dataID];
-            //确保无重复后再添加
-            dataId = _historyObject.dataID;
-        }
-    }
+//    NSArray *checkResult = [self searchDatabaseData];
+//    for (NoteObject *one in checkResult){
+//        
+//        if (one.dataID == self.historyObject.dataID){
+//            //一样的话，就用原来的id存储，并删掉久的数据
+//            [self deleteDataWiteDataId:one.dataID];
+//            //确保无重复后再添加
+//            dataId = _historyObject.dataID;
+//        }
+//    }
     
     //特别要注意的是，这里的插入数据是不会覆盖掉的，所有，执行一次就会加入一组新的数据，而且前面的id，不是表的id，而是这组数据的id，所以，插一次数据，id也是要新的喔
     
@@ -268,6 +272,8 @@
     
 //    NSString *searchQuery = @"select *from stu";
     //也可以只查一个，比如@"select name *from stu" 但是遍历结果的时候就要注意了，不能解析出其他字段的内容了，因为没有
+    //避免重复叠加,故定义一个局部的数组
+    NSMutableArray *noteList = [NSMutableArray array];
     
     NSString *searchQuery = @"select *from note";
     BOOL isOpen = [_fmDatabase open];
@@ -302,13 +308,13 @@
             noteObject.content = [result stringForColumn:@"content"];
             
             
-            [self.noteList addObject:noteObject];
+            [noteList addObject:noteObject];
             
             
         }
     }
     
-    return self.noteList;
+    return noteList;
 
 }
 

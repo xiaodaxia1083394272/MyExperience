@@ -217,6 +217,9 @@
         return [self.dataList count];
 
     }else if ([self.styleString isEqualToString:@"note"]) {
+        
+        NSLog(@"note count  %d",[self.notelist count]);
+
         return [self.notelist count];
     }
     

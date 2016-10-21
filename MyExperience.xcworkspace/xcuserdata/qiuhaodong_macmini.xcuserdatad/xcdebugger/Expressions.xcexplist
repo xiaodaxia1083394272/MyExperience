@@ -25,7 +25,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[WeatherDateView updatView:isSelected:index:]:WeatherDateView.m">
+         contextName = "-[NewsViewController initWithStyle:]:NewsViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "notelist">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "+[WeatherDateView createWeatherDateViewWithHoldViewWidth:]:WeatherDateView.m">
@@ -36,15 +41,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[NewsViewController initWithStyle:]:NewsViewController.m">
+         contextName = "-[WeatherDateView updatView:isSelected:index:]:WeatherDateView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[NewsViewController getDataWithReason:newsObjectList:]:NewsViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[NewsViewController tableView:numberOfRowsInSection:]:NewsViewController.m">
          <PersistentStrings>
             <PersistentString
                value = "notelist">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[NewsViewController getDataWithReason:newsObjectList:]:NewsViewController.m">
       </ContextState>
       <ContextState
          contextName = "__70+[JuHeService queryJuheWeatherDataWithDelegate:cityName:dtype:appKey:]_block_invoke_3:JuHeService.m">
