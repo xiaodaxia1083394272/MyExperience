@@ -31,4 +31,6 @@
 //13.图片双击左键点开，然后选文件，导出哪里可以转格式
 //14.20pt * 2x = 40像素，记住了吗？
 //15. 一个小时就关屏幕吧，否则就要浪费时间了
+//16. TCP/IP 详解 http://www.cnblogs.com/fengzanfeng/articles/1339347.html
+//17. 不妨来点音乐
 #pragma mark
