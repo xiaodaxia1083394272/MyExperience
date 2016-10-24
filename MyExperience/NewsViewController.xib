@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsViewController">
@@ -17,17 +18,34 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Acq-ZA-rQX">
-                    <rect key="frame" x="0.0" y="0.0" width="308" height="442"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="BRt-p6-zfY"/>
                         <outlet property="delegate" destination="-1" id="dEd-1D-ge5"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6k-r8-Iqv">
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="该功能因内容涉及授权问题，暂不开放。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jU-N8-gQV">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="0jU-N8-gQV" firstAttribute="centerY" secondItem="Z6k-r8-Iqv" secondAttribute="centerY" id="D1f-QO-dB0"/>
+                        <constraint firstItem="0jU-N8-gQV" firstAttribute="centerX" secondItem="Z6k-r8-Iqv" secondAttribute="centerX" id="Uei-vv-Adh"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="Z6k-r8-Iqv" secondAttribute="bottom" id="5Hm-Pv-jKy"/>
+                <constraint firstItem="Z6k-r8-Iqv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FBm-Ss-hYM"/>
+                <constraint firstAttribute="trailing" secondItem="Z6k-r8-Iqv" secondAttribute="trailing" id="KfV-jq-lBq"/>
                 <constraint firstItem="Acq-ZA-rQX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dOG-f5-aH4"/>
+                <constraint firstItem="Z6k-r8-Iqv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qZ0-0L-Z7O"/>
                 <constraint firstAttribute="bottom" secondItem="Acq-ZA-rQX" secondAttribute="bottom" id="qoA-HC-YAi"/>
                 <constraint firstAttribute="trailing" secondItem="Acq-ZA-rQX" secondAttribute="trailing" id="rhC-Rt-MpE"/>
                 <constraint firstItem="Acq-ZA-rQX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="urZ-3W-uSh"/>
