@@ -133,7 +133,7 @@
 
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    int random = arc4random()%7 +1;
+    int random = arc4random()%7 +1; //这个1，应该是整体从0到6加1
     NSString *randomString = [NSString stringWithFormat:@"%d.jpg",random];
     
     imageView.image = [UIImage imageNamed:randomString];

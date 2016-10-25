@@ -20,7 +20,7 @@
 @property (strong, nonatomic) FMDatabase *fmDatabase;
 @property (assign, nonatomic) NSInteger dataID;
 @property (strong, nonatomic) NoteObject *historyObject;
-@property (strong, nonatomic) UILabel *textViewPlaceholderLabel;
+//@property (strong, nonatomic) UILabel *textViewPlaceholderLabel;
 
 @end
 
@@ -53,20 +53,20 @@
     
     [self openDataBase];
     
-    self.textViewPlaceholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.contentTextView.frame.origin.x, self.contentTextView.frame.origin.y, 60, 17)];
+//    self.textViewPlaceholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.contentTextView.frame.origin.x, self.contentTextView.frame.origin.y, 60, 17)];
     
     //add上去貌似位置有bug，先不add
 //    [self.contentTextView addSubview:self.textViewPlaceholderLabel];
-    self.textViewPlaceholderLabel.backgroundColor = [UIColor clearColor];
+//    self.textViewPlaceholderLabel.backgroundColor = [UIColor clearColor];
     
     if(self.isShowHistoryObject) {
         self.titlleTextField.text = self.historyObject.title;
         self.contentTextView.text = self.historyObject.content;
         
-        self.textViewPlaceholderLabel.text = @"";
+//        self.textViewPlaceholderLabel.text = @"";
     }else{
         
-        self.textViewPlaceholderLabel.text = @"内容记录板";
+//        self.textViewPlaceholderLabel.text = @"内容记录板";
     }
                                                                    
     // Do any additional setup after loading the view from its nib.
@@ -121,10 +121,11 @@
     }];
     
     UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"保存"style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        
-        _dataID++;
+        //换随机数，避免因数据重复导致不能存数据
+        int random = arc4random()%10000000 +1;
+//        _dataID++;
         //    //1，添加，或者说是保存数据先
-            [self addDataToDatabaseWithDataId:self.dataID];
+            [self addDataToDatabaseWithDataId:random];
         NSLog(@"test note %d",_dataID);
         //局部数组接收
         NSArray *noteList = [NSArray array];
@@ -249,6 +250,7 @@
 //            BOOL isAdd = [_fmDatabase executeUpdate:@"INSERT INTO note VALUES(?,?,?)",[NSNumber numberWithInteger:dataId],_titlleTextField.text,_contentTextView.text];
             
             BOOL isAdd = [_fmDatabase executeUpdateWithFormat:@"INSERT INTO note VALUES(%ld,%@,%@)",(long)dataId,_titlleTextField.text,_contentTextView.text];
+            NSLog(@"test add %@_____%@",_titlleTextField.text,_contentTextView.text);
 
 
             
@@ -363,14 +365,14 @@
 - (void)textViewDidChange:(UITextView *)textView{
     if (_isShowHistoryObject){
         
-         _textViewPlaceholderLabel.text = @"";
+//         _textViewPlaceholderLabel.text = @"";
         
     }else{
         
         if (textView.text.length == 0){
-            _textViewPlaceholderLabel.text = @"内容记录板";
+//            _textViewPlaceholderLabel.text = @"内容记录板";
         }else{
-            _textViewPlaceholderLabel.text = @"";
+//            _textViewPlaceholderLabel.text = @"";
         }
     }
     
