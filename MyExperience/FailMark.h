@@ -33,4 +33,5 @@
 //15. 一个小时就关屏幕吧，否则就要浪费时间了
 //16. TCP/IP 详解 http://www.cnblogs.com/fengzanfeng/articles/1339347.html
 //17. 不妨来点音乐
+//18.http://www.jb51.net/article/83941.htm socket http://blog.csdn.net/potato512/article/details/44001683
 #pragma mark

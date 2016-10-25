@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *dataTableView;
 @property (copy, nonatomic) NSString *styleString;
 @property (strong, nonatomic) NSArray *notelist;
+@property (weak, nonatomic) IBOutlet UIView *shieldView;
+
 @end
 
 @implementation NewsViewController
@@ -35,6 +37,7 @@
     // Do any additional setup after loading the view from its nib.
     if ([self.styleString isEqualToString:@"新闻"]) {
         self.title =@"头条新闻";
+        self.shieldView.hidden = NO;
         
         [self setRightBarButton];
         
@@ -52,6 +55,7 @@
         
     }else if ([self.styleString isEqualToString:@"note"]) {
         self.title = @"笔记历史";
+        self.shieldView.hidden = YES;
         
         UIImageView *uiv = [[UIImageView alloc] initWithFrame:self.dataTableView.bounds];
         uiv.image = [UIImage imageNamed:@"tree"];
