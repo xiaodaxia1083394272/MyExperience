@@ -8,6 +8,8 @@
 
 #import "NewsViewController.h"
 #import "NoteViewController.h"
+#import "BaiduViewController.h"
+
 
 @interface NewsViewController ()<JuHeServiceDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
@@ -37,9 +39,10 @@
     // Do any additional setup after loading the view from its nib.
     if ([self.styleString isEqualToString:@"新闻"]) {
         self.title =@"头条新闻";
-        self.shieldView.hidden = NO;
+        self.shieldView.hidden = YES;
         
         [self setRightBarButton];
+        [self setLeftBarButton];
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.dataTableView.bounds];
         int random = arc4random()%7 +1;
@@ -66,7 +69,7 @@
     }
 }
 
-- (void)setRightBarButton{
+- (void)setLeftBarButton{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
     btn.frame = CGRectMake(0, 0, 100, 30);
@@ -91,9 +94,42 @@
     
     [btn addTarget:self action:@selector(clickCleanButton) forControlEvents:UIControlEventTouchUpInside];
     
+    self.navigationItem.leftBarButtonItems = @[spaceItem,rewardItem];
+}
+
+- (void)setRightBarButton{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    btn.frame = CGRectMake(0, 0, 100, 30);
+    
+    //    [btn setImage:[UIImage imageNamed:@"rightUp"] forState:UIControlStateNormal];
+    
+    [btn setTitle:@"百度一下" forState:UIControlStateNormal];
+    
+    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    
+    btn.titleLabel.font = [UIFont systemFontOfSize: 15.0];
+    
+    btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
+    [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
+    
+    UIBarButtonItem *rewardItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    
+    spaceItem.width = -15;
+    
+    [btn addTarget:self action:@selector(clickBaiDuButton) forControlEvents:UIControlEventTouchUpInside];
+    
     self.navigationItem.rightBarButtonItems = @[spaceItem,rewardItem];
 }
 
+- (void)clickBaiDuButton{
+    BaiduViewController *bc = [[BaiduViewController alloc] init];
+    [self.navigationController pushViewController:bc animated:YES];
+    
+}
 - (void)clickCleanButton{
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 //                       
@@ -222,7 +258,7 @@
 
     }else if ([self.styleString isEqualToString:@"note"]) {
         
-        NSLog(@"note count  %d",[self.notelist count]);
+        NSLog(@"note count  %lu",(unsigned long)[self.notelist count]);
 
         return [self.notelist count];
     }

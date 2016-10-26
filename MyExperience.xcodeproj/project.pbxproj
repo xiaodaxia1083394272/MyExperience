@@ -14,6 +14,8 @@
 		922927F51D7FB465007E38A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922927F41D7FB465007E38A9 /* Assets.xcassets */; };
 		922928031D7FB465007E38A9 /* MyExperienceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 922928021D7FB465007E38A9 /* MyExperienceTests.m */; };
 		9229280E1D7FB465007E38A9 /* MyExperienceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9229280D1D7FB465007E38A9 /* MyExperienceUITests.m */; };
+		922A249F1DC1095100EAC26C /* BaiduViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922A249D1DC1095100EAC26C /* BaiduViewController.m */; };
+		922A24A01DC1095100EAC26C /* BaiduViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922A249E1DC1095100EAC26C /* BaiduViewController.xib */; };
 		922AB6C11DAF1D820051DF7D /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 922AB6BF1DAF1D820051DF7D /* NewsTableViewCell.m */; };
 		922AB6C21DAF1D820051DF7D /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922AB6C01DAF1D820051DF7D /* NewsTableViewCell.xib */; };
 		922AB6CB1DAF321A0051DF7D /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922AB6C91DAF321A0051DF7D /* NewsDetailViewController.m */; };
@@ -102,6 +104,9 @@
 		922928091D7FB465007E38A9 /* MyExperienceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyExperienceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9229280D1D7FB465007E38A9 /* MyExperienceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyExperienceUITests.m; sourceTree = "<group>"; };
 		9229280F1D7FB465007E38A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		922A249C1DC1095100EAC26C /* BaiduViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduViewController.h; sourceTree = "<group>"; };
+		922A249D1DC1095100EAC26C /* BaiduViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiduViewController.m; sourceTree = "<group>"; };
+		922A249E1DC1095100EAC26C /* BaiduViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaiduViewController.xib; sourceTree = "<group>"; };
 		922AB6BE1DAF1D820051DF7D /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
 		922AB6BF1DAF1D820051DF7D /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
 		922AB6C01DAF1D820051DF7D /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
@@ -259,6 +264,7 @@
 				92416B951DB4711D000AEBFE /* FailMark.h */,
 				92F38CAA1DAD4CC500C44549 /* MJRefresh */,
 				92EF625D1DABE16500FDE5DE /* MainController */,
+				922A249B1DC108CA00EAC26C /* OtherController */,
 				923AEE241D98F60A006CC483 /* GetNetworkData */,
 				92ED1FB91D9438DA00290D11 /* WeiXingShare */,
 				924055C71D9191B400D77220 /* SqliteVideo */,
@@ -307,6 +313,16 @@
 				9229280F1D7FB465007E38A9 /* Info.plist */,
 			);
 			path = MyExperienceUITests;
+			sourceTree = "<group>";
+		};
+		922A249B1DC108CA00EAC26C /* OtherController */ = {
+			isa = PBXGroup;
+			children = (
+				922A249C1DC1095100EAC26C /* BaiduViewController.h */,
+				922A249D1DC1095100EAC26C /* BaiduViewController.m */,
+				922A249E1DC1095100EAC26C /* BaiduViewController.xib */,
+			);
+			name = OtherController;
 			sourceTree = "<group>";
 		};
 		922E4D1D1DADDA8400D6E718 /* WeatherNSObject */ = {
@@ -573,6 +589,7 @@
 				924055CF1D91939B00D77220 /* TestSQLViewController.xib in Resources */,
 				925F5DB71D8538CC00C0B699 /* QQViewController.xib in Resources */,
 				923AEE311D98F731006CC483 /* JuHeTableViewCell.xib in Resources */,
+				922A24A01DC1095100EAC26C /* BaiduViewController.xib in Resources */,
 				922AB6D11DAF43FB0051DF7D /* NewsUrlDetailViewController.xib in Resources */,
 				922927F31D7FB465007E38A9 /* Main.storyboard in Resources */,
 			);
@@ -647,6 +664,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				922A249F1DC1095100EAC26C /* BaiduViewController.m in Sources */,
 				925F5DBB1D855C7800C0B699 /* QQViewTableViewCell.m in Sources */,
 				922AB6CB1DAF321A0051DF7D /* NewsDetailViewController.m in Sources */,
 				924055CE1D91939B00D77220 /* TestSQLViewController.m in Sources */,
