@@ -13,7 +13,7 @@
 
 
 @interface JokeViewController ()<JuHeServiceDelegate,UITextViewDelegate,UIScrollViewDelegate>
-@property (strong, nonatomic) NSArray *dataList;
+@property (strong, nonatomic) NSMutableArray *dataList;
 @property (weak, nonatomic) IBOutlet UITableView *dataTableView;
 @property (strong, nonatomic) UITextView *textView;
 @property (assign,nonatomic) int page;
@@ -70,7 +70,15 @@
                 dataList:(NSArray *)dataList{
     if ([reason isEqualToString:@"Success"]){
         
-        _dataList = dataList;
+        //这段代码是针对分页的时候用的，所谓的分页，其实每次返回来的数据都是20条，只是请求的页面不同，数据内容是不同的而已，量没变，如果只是单纯的 self.dataList = dataList;那么每次新数据会覆盖掉旧数据，量没变，如果想变，那么就需要用addObjectsFromArray在原来的基础上增添。
+        
+        if ([self.dataList count] == 0 || _page == PAGE_START){
+            self.dataList = [NSMutableArray arrayWithArray:dataList];
+        }else {
+            [self.dataList addObjectsFromArray:dataList];
+        }
+        
+        
         [self.dataTableView reloadData];
 
         if ([dataList count] < COUNT_ONE_PAGE){
