@@ -23,6 +23,12 @@
 
 @implementation AppDelegate
 
+//在AppDelegate中增加，这个方法可以禁止横屏
+
+//- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+//{
+//    return UIInterfaceOrientationMaskPortrait;
+//}
 -(void)removeLun
 {
     [self.launchView removeFromSuperview];

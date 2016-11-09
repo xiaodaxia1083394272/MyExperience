@@ -51,6 +51,8 @@
 		925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925F5DBA1D855C7800C0B699 /* QQViewTableViewCell.xib */; };
 		92660D801DB121010023D1E2 /* NoteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 92660D7F1DB121010023D1E2 /* NoteObject.m */; };
 		92D5D0791DB50C7D000BF7BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92D5D0781DB50C7D000BF7BC /* LaunchScreen.storyboard */; };
+		92E73E431DC2064F0005E773 /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E73E411DC2064F0005E773 /* MediaViewController.m */; };
+		92E73E441DC2064F0005E773 /* MediaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E73E421DC2064F0005E773 /* MediaViewController.xib */; };
 		92E902F91D92793E00A07AC7 /* StudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E902F81D92793E00A07AC7 /* StudentModel.m */; };
 		92ED1FBF1D943AA400290D11 /* ShareContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED1FBE1D943AA400290D11 /* ShareContent.m */; };
 		92ED1FC21D943B0E00290D11 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED1FC11D943B0E00290D11 /* ShareView.m */; };
@@ -166,6 +168,9 @@
 		92660D7E1DB121010023D1E2 /* NoteObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteObject.h; sourceTree = "<group>"; };
 		92660D7F1DB121010023D1E2 /* NoteObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteObject.m; sourceTree = "<group>"; };
 		92D5D0781DB50C7D000BF7BC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92E73E401DC2064F0005E773 /* MediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaViewController.h; sourceTree = "<group>"; };
+		92E73E411DC2064F0005E773 /* MediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaViewController.m; sourceTree = "<group>"; };
+		92E73E421DC2064F0005E773 /* MediaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaViewController.xib; sourceTree = "<group>"; };
 		92E902F71D92793E00A07AC7 /* StudentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentModel.h; sourceTree = "<group>"; };
 		92E902F81D92793E00A07AC7 /* StudentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentModel.m; sourceTree = "<group>"; };
 		92ED1FBD1D943AA400290D11 /* ShareContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareContent.h; sourceTree = "<group>"; };
@@ -321,6 +326,9 @@
 				922A249C1DC1095100EAC26C /* BaiduViewController.h */,
 				922A249D1DC1095100EAC26C /* BaiduViewController.m */,
 				922A249E1DC1095100EAC26C /* BaiduViewController.xib */,
+				92E73E401DC2064F0005E773 /* MediaViewController.h */,
+				92E73E411DC2064F0005E773 /* MediaViewController.m */,
+				92E73E421DC2064F0005E773 /* MediaViewController.xib */,
 			);
 			name = OtherController;
 			sourceTree = "<group>";
@@ -576,6 +584,7 @@
 				92F38CA91DAD203200C44549 /* JokeTableViewCell.xib in Resources */,
 				922AB6CC1DAF321A0051DF7D /* NewsDetailViewController.xib in Resources */,
 				92EF626C1DABE26100FDE5DE /* WeatherViewController.xib in Resources */,
+				92E73E441DC2064F0005E773 /* MediaViewController.xib in Resources */,
 				922927F51D7FB465007E38A9 /* Assets.xcassets in Resources */,
 				922AB6C21DAF1D820051DF7D /* NewsTableViewCell.xib in Resources */,
 				92EF62671DABE21C00FDE5DE /* NewsViewController.xib in Resources */,
@@ -689,6 +698,7 @@
 				923DB9911D868A770093EC7F /* SqliteViewController.m in Sources */,
 				922E4D291DADDF1900D6E718 /* weatherFuture.m in Sources */,
 				92EF62611DABE20200FDE5DE /* JokeViewController.m in Sources */,
+				92E73E431DC2064F0005E773 /* MediaViewController.m in Sources */,
 				92ED1FBF1D943AA400290D11 /* ShareContent.m in Sources */,
 				92EF626B1DABE26100FDE5DE /* WeatherViewController.m in Sources */,
 				922AB6C11DAF1D820051DF7D /* NewsTableViewCell.m in Sources */,
