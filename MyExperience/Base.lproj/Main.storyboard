@@ -34,6 +34,7 @@
                         <segue destination="fQB-Y6-9wQ" kind="relationship" relationship="viewControllers" id="wA1-VC-LxA"/>
                         <segue destination="GMH-dZ-7Go" kind="relationship" relationship="viewControllers" id="msF-kA-zi5"/>
                         <segue destination="PhG-lH-hCM" kind="relationship" relationship="viewControllers" id="eXF-1d-ZB5"/>
+                        <segue destination="re9-iU-TFP" kind="relationship" relationship="viewControllers" id="gO6-MP-bzi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSk-10-dCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -44,7 +45,7 @@
         <scene sceneID="TRg-Ns-7px">
             <objects>
                 <navigationController id="GMH-dZ-7Go" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" badgeValue="轻松一刻" systemItem="featured" id="Y3q-np-L2h"/>
+                    <tabBarItem key="tabBarItem" badgeValue="段子" systemItem="featured" id="Y3q-np-L2h"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JZ0-ux-Ky5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -66,13 +67,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mhk-aQ-4gA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-536" y="1177"/>
+            <point key="canvasLocation" x="-42" y="1189"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FOT-Jr-1Z3">
             <objects>
                 <navigationController id="fQB-Y6-9wQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" badgeValue="新闻头条" systemItem="featured" id="vFE-wv-5in"/>
+                    <tabBarItem key="tabBarItem" badgeValue="新闻" systemItem="featured" id="vFE-wv-5in"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3DM-nW-GHK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,6 +82,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0p-lE-k7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-636" y="-267"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Ci-2m-29W">
+            <objects>
+                <navigationController id="re9-iU-TFP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" badgeValue="我的" systemItem="more" id="yql-w8-EQg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ft4-ta-525">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cz0-JS-LQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-559" y="1852"/>
         </scene>
     </scenes>
 </document>

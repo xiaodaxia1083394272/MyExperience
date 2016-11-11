@@ -14,6 +14,8 @@
 #import "NewsViewController.h"
 #import "WeatherViewController.h"
 #import "NoteViewController.h"
+#import "MineViewController.h"
+
 
 
 
@@ -89,6 +91,13 @@
         NoteViewController *novc = [[NoteViewController alloc] initWithHistoryObject:nil isShowHistoryObject:NO];
         
         fourNavigationController.viewControllers = @[novc];
+        
+        //设置第五个Controller
+        UINavigationController *fiveNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:4];
+        MineViewController *mvc = [[MineViewController alloc] init];
+        
+        fiveNavigationController.viewControllers = @[mvc];
+
 
         
     }

@@ -15,6 +15,11 @@
 		921BBB631DD5B70C006A4C20 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB621DD5B70C006A4C20 /* CoreTelephony.framework */; };
 		921BBB761DD5BDDE006A4C20 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB711DD5BDDE006A4C20 /* libWeChatSDK.a */; };
 		921BBB771DD5BDDE006A4C20 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 921BBB721DD5BDDE006A4C20 /* README.txt */; };
+		921BBB811DD61D36006A4C20 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921BBB7F1DD61D36006A4C20 /* MineViewController.m */; };
+		921BBB821DD61D36006A4C20 /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921BBB801DD61D36006A4C20 /* MineViewController.xib */; };
+		921BBB861DD624C7006A4C20 /* DiscoverHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921BBB831DD624C7006A4C20 /* DiscoverHomeCell.m */; };
+		921BBB871DD624C7006A4C20 /* DiscoverHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921BBB841DD624C7006A4C20 /* DiscoverHomeCell.xib */; };
+		921BBB8A1DD625E2006A4C20 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 921BBB891DD625E2006A4C20 /* UIColor+HexColor.m */; };
 		922927EA1D7FB465007E38A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927E91D7FB465007E38A9 /* main.m */; };
 		922927ED1D7FB465007E38A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927EC1D7FB465007E38A9 /* AppDelegate.m */; };
 		922927F01D7FB465007E38A9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927EF1D7FB465007E38A9 /* ViewController.m */; };
@@ -125,6 +130,14 @@
 		921BBB7B1DD5BDF3006A4C20 /* WechatAuthSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		921BBB7C1DD5BDF3006A4C20 /* WXApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		921BBB7D1DD5BDF3006A4C20 /* WXApiObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		921BBB7E1DD61D36006A4C20 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		921BBB7F1DD61D36006A4C20 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		921BBB801DD61D36006A4C20 /* MineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
+		921BBB831DD624C7006A4C20 /* DiscoverHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverHomeCell.m; sourceTree = "<group>"; };
+		921BBB841DD624C7006A4C20 /* DiscoverHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoverHomeCell.xib; sourceTree = "<group>"; };
+		921BBB851DD624C7006A4C20 /* DiscoverHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverHomeCell.h; sourceTree = "<group>"; };
+		921BBB881DD625E2006A4C20 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
+		921BBB891DD625E2006A4C20 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
 		922927E51D7FB465007E38A9 /* MyExperience.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExperience.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922927E91D7FB465007E38A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		922927EB1D7FB465007E38A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -386,6 +399,8 @@
 				92485F671D7FE0B50010B545 /* twoViewController.m */,
 				92485F691D8055970010B545 /* UIScrollView+MyExperienceRefresh.h */,
 				92485F6A1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m */,
+				921BBB881DD625E2006A4C20 /* UIColor+HexColor.h */,
+				921BBB891DD625E2006A4C20 /* UIColor+HexColor.m */,
 				92F1DB2B1D853660008B42E8 /* SimilarQQ */,
 				922927F41D7FB465007E38A9 /* Assets.xcassets */,
 				92D5D0781DB50C7D000BF7BC /* LaunchScreen.storyboard */,
@@ -544,6 +559,12 @@
 				92EF626F1DABE28F00FDE5DE /* NoteViewController.xib */,
 				92660D7E1DB121010023D1E2 /* NoteObject.h */,
 				92660D7F1DB121010023D1E2 /* NoteObject.m */,
+				921BBB851DD624C7006A4C20 /* DiscoverHomeCell.h */,
+				921BBB831DD624C7006A4C20 /* DiscoverHomeCell.m */,
+				921BBB841DD624C7006A4C20 /* DiscoverHomeCell.xib */,
+				921BBB7E1DD61D36006A4C20 /* MineViewController.h */,
+				921BBB7F1DD61D36006A4C20 /* MineViewController.m */,
+				921BBB801DD61D36006A4C20 /* MineViewController.xib */,
 				922E4D1D1DADDA8400D6E718 /* WeatherNSObject */,
 				922E4D301DAE6A4F00D6E718 /* New Group */,
 			);
@@ -695,6 +716,7 @@
 				92D5D0791DB50C7D000BF7BC /* LaunchScreen.storyboard in Resources */,
 				92EF62711DABE28F00FDE5DE /* NoteViewController.xib in Resources */,
 				923DB9921D868A770093EC7F /* SqliteViewController.xib in Resources */,
+				921BBB821DD61D36006A4C20 /* MineViewController.xib in Resources */,
 				925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */,
 				924055CF1D91939B00D77220 /* TestSQLViewController.xib in Resources */,
 				925F5DB71D8538CC00C0B699 /* QQViewController.xib in Resources */,
@@ -702,6 +724,7 @@
 				922A24A01DC1095100EAC26C /* BaiduViewController.xib in Resources */,
 				922AB6D11DAF43FB0051DF7D /* NewsUrlDetailViewController.xib in Resources */,
 				921BBB771DD5BDDE006A4C20 /* README.txt in Resources */,
+				921BBB871DD624C7006A4C20 /* DiscoverHomeCell.xib in Resources */,
 				922927F31D7FB465007E38A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -780,6 +803,7 @@
 				922AB6CB1DAF321A0051DF7D /* NewsDetailViewController.m in Sources */,
 				924055CE1D91939B00D77220 /* TestSQLViewController.m in Sources */,
 				9238D7901D82777C001D2919 /* DBManager.m in Sources */,
+				921BBB861DD624C7006A4C20 /* DiscoverHomeCell.m in Sources */,
 				92F38CA81DAD203200C44549 /* JokeTableViewCell.m in Sources */,
 				92E902F91D92793E00A07AC7 /* StudentModel.m in Sources */,
 				922927F01D7FB465007E38A9 /* ViewController.m in Sources */,
@@ -791,6 +815,7 @@
 				92EF62661DABE21C00FDE5DE /* NewsViewController.m in Sources */,
 				92ED1FC21D943B0E00290D11 /* ShareView.m in Sources */,
 				923AEE2C1D98F688006CC483 /* JuHeService.m in Sources */,
+				921BBB8A1DD625E2006A4C20 /* UIColor+HexColor.m in Sources */,
 				92EF62701DABE28F00FDE5DE /* NoteViewController.m in Sources */,
 				923DB9951D8693A40093EC7F /* LSPShop.m in Sources */,
 				925F5DB51D85386E00C0B699 /* QQViewController.m in Sources */,
@@ -800,6 +825,7 @@
 				923DB9911D868A770093EC7F /* SqliteViewController.m in Sources */,
 				922E4D291DADDF1900D6E718 /* weatherFuture.m in Sources */,
 				92EF62611DABE20200FDE5DE /* JokeViewController.m in Sources */,
+				921BBB811DD61D36006A4C20 /* MineViewController.m in Sources */,
 				92E73E431DC2064F0005E773 /* MediaViewController.m in Sources */,
 				92ED1FBF1D943AA400290D11 /* ShareContent.m in Sources */,
 				92EF626B1DABE26100FDE5DE /* WeatherViewController.m in Sources */,
