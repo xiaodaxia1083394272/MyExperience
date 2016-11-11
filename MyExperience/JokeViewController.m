@@ -11,6 +11,14 @@
 #import "JuHeService.h"
 #import "UIScrollView+MJRefresh.h"
 
+#import "WXApi.h"
+
+#import "WechatAuthSDK.h"
+
+#import "WXApiObject.h"
+
+
+
 
 @interface JokeViewController ()<JuHeServiceDelegate,UITextViewDelegate,UIScrollViewDelegate>
 @property (strong, nonatomic) NSMutableArray *dataList;
@@ -28,6 +36,35 @@
 #define PAGE_START  1
 #define COUNT_ONE_PAGE  20
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"WXShare" object:nil];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if(self) {
+        
+        // 接收分享回调通知
+        //监听通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderPayResult:) name:@"WXShare" object:nil];
+        
+        // 检查是否装了微信
+        if ([WXApi isWXAppInstalled])
+        {
+            
+        }
+    }
+    return self;
+}
+
+- (void)getOrderPayResult:(NSNotification *)notification
+{
+    // 注意通知内容类型的匹配
+    if (notification.object == 0)
+    {
+        NSLog(@"分享成功");
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,6 +74,8 @@
     
     //一开始就下拉刷新
     [self.dataTableView beginReload];
+    
+    [self setRightBarButton];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -49,6 +88,58 @@
 -(void)loadMoreData {
     self.page ++;
     [self queryData];
+}
+
+- (void)setRightBarButton{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    btn.frame = CGRectMake(0, 0, 100, 30);
+    
+    //    [btn setImage:[UIImage imageNamed:@"rightUp"] forState:UIControlStateNormal];
+    
+    [btn setTitle:@"分享" forState:UIControlStateNormal];
+    
+    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    
+    btn.titleLabel.font = [UIFont systemFontOfSize: 15.0];
+    
+    btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
+    [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
+    
+    UIBarButtonItem *rewardItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    
+    spaceItem.width = -15;
+    
+    [btn addTarget:self action:@selector(clickWXShareButton) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItems = @[spaceItem,rewardItem];
+}
+
+- (void)clickWXShareButton{
+    
+    /**
+     scene: 发送的目标场景,可以选择发送到会话(WXSceneSession)或者朋友圈(WXSceneTimeline),默认发送到会话.
+     1.分享或收藏的目标场景，通过修改scene场景值实现。
+     2.发送到聊天界面——WXSceneSession
+     3.发送到朋友圈——WXSceneTimeline
+     4.添加到微信收藏——WXSceneFavorite
+     */
+    
+    /** bText:
+     发送消息的类型.包括文本消息和多媒体消息两种.两者只能选择其一.不能同时发送文本和多媒体消息.
+     
+     */
+
+    //分享文字
+    SendMessageToWXReq * req = [[SendMessageToWXReq alloc] init];
+    req.text = @"分享的内容";
+    req.bText = YES;
+    req.scene = WXSceneSession;
+    [WXApi sendReq:req];
+    
 }
 
 
