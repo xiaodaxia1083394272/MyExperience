@@ -97,7 +97,7 @@
     
     //    [btn setImage:[UIImage imageNamed:@"rightUp"] forState:UIControlStateNormal];
     
-    [btn setTitle:@"分享" forState:UIControlStateNormal];
+    [btn setTitle:@"微信分享" forState:UIControlStateNormal];
     
     [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
@@ -133,11 +133,47 @@
      
      */
 
-    //分享文字
+    //1,分享文字
+//    SendMessageToWXReq * req = [[SendMessageToWXReq alloc] init];
+//    req.text = @"分享的内容";
+//    req.bText = YES;
+//    req.scene = WXSceneSession;
+//    [WXApi sendReq:req];
+    
+    //2.图片类型分享
+    /**  WXMediaMessage 多媒体分享的类
+     1. setThumbImage 设置缩略图
+     */
+//    WXMediaMessage * message = [WXMediaMessage message];
+//    [message setThumbImage:[UIImage imageNamed:@"black"]];
+//    
+//    WXImageObject * imageObject = [WXImageObject object];
+//    NSString * filePath = [[NSBundle mainBundle] pathForResource:@"seeall@1x" ofType:@"png"];
+//    imageObject.imageData = [NSData dataWithContentsOfFile:filePath];
+//    message.mediaObject = imageObject;
+//    
+//    SendMessageToWXReq * req = [[SendMessageToWXReq alloc] init];
+//    req.bText = NO;
+//    req.message = message;
+//    req.scene = WXSceneSession;
+//    [WXApi sendReq:req];
+    
+    //3.网页类型分享
+    WXMediaMessage * message = [WXMediaMessage message];
+    message.title = @"应用分享";
+    message.description = @"这是一个挺不错的APP，赶紧下载吧！";
+//    [message setThumbImage:[UIImage imageNamed:@"seeall@1x"]];
+    
+    WXWebpageObject * webpageObject = [WXWebpageObject object];
+    webpageObject.webpageUrl = @"http://itunes.apple.com/cn/app/id1167035979";
+    message.mediaObject = webpageObject;
+    
     SendMessageToWXReq * req = [[SendMessageToWXReq alloc] init];
-    req.text = @"分享的内容";
-    req.bText = YES;
+    req.bText = NO;
+    
+    req.message = message;
     req.scene = WXSceneSession;
+    
     [WXApi sendReq:req];
     
 }
