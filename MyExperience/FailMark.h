@@ -35,5 +35,7 @@
 //17. 不妨来点音乐
 //18.http://www.jb51.net/article/83941.htm socket http://blog.csdn.net/potato512/article/details/44001683
 //19.注意文件名前面的三角号
+//20.微信分享 http://www.cnblogs.com/mancong/p/5807924.html
+//21.客人需求优先
 //44.看一下（或者说学一下也行），特别是遇到非常难理解的，停下一会，对着眼前相对固定静止的事物，然后把刚才想的套进去，或许能悟到，或者能更好地理解，因为万物都逃不出上帝的规则。
 #pragma mark

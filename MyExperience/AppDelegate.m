@@ -36,6 +36,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     
+    [WXApi registerApp:@""];
+    
     // Override point for customization after application launch.
     [[RCIM sharedRCIM] initWithAppKey:@"uwd1c0sxdu5e1"];
     
@@ -92,6 +94,16 @@
     }
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation{
+    
+    return [WXApi handleOpenURL:url delegate:self];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

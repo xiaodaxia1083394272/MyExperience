@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921BBB561DD5846D006A4C20 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB511DD5846D006A4C20 /* libWeChatSDK.a */; };
+		921BBB571DD5846D006A4C20 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 921BBB521DD5846D006A4C20 /* README.txt */; };
 		922927EA1D7FB465007E38A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927E91D7FB465007E38A9 /* main.m */; };
 		922927ED1D7FB465007E38A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927EC1D7FB465007E38A9 /* AppDelegate.m */; };
 		922927F01D7FB465007E38A9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927EF1D7FB465007E38A9 /* ViewController.m */; };
@@ -91,6 +93,11 @@
 		07974E7DFC55A4E87EBD24E0 /* libPods-MyExperience.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyExperience.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BEA95645461DA10B7C3742 /* Pods-MyExperience.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExperience.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyExperience/Pods-MyExperience.release.xcconfig"; sourceTree = "<group>"; };
 		694A7693437C673C5134AB39 /* Pods-MyExperience.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExperience.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyExperience/Pods-MyExperience.debug.xcconfig"; sourceTree = "<group>"; };
+		921BBB511DD5846D006A4C20 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		921BBB521DD5846D006A4C20 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		921BBB531DD5846D006A4C20 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		921BBB541DD5846D006A4C20 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		921BBB551DD5846D006A4C20 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		922927E51D7FB465007E38A9 /* MyExperience.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExperience.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922927E91D7FB465007E38A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		922927EB1D7FB465007E38A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -203,6 +210,7 @@
 			files = (
 				9238D78D1D825F02001D2919 /* libsqlite3.0.tbd in Frameworks */,
 				9EC571120D3EB6DF31A1A54E /* libPods-MyExperience.a in Frameworks */,
+				921BBB561DD5846D006A4C20 /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,9 +249,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		921BBB501DD5846D006A4C20 /* OpenSDK1.7.4 */ = {
+			isa = PBXGroup;
+			children = (
+				921BBB511DD5846D006A4C20 /* libWeChatSDK.a */,
+				921BBB521DD5846D006A4C20 /* README.txt */,
+				921BBB531DD5846D006A4C20 /* WechatAuthSDK.h */,
+				921BBB541DD5846D006A4C20 /* WXApi.h */,
+				921BBB551DD5846D006A4C20 /* WXApiObject.h */,
+			);
+			name = OpenSDK1.7.4;
+			path = ../../Downloads/OpenSDK1.7.4;
+			sourceTree = "<group>";
+		};
 		922927DC1D7FB465007E38A9 = {
 			isa = PBXGroup;
 			children = (
+				921BBB501DD5846D006A4C20 /* OpenSDK1.7.4 */,
 				922927E71D7FB465007E38A9 /* MyExperience */,
 				922928011D7FB465007E38A9 /* MyExperienceTests */,
 				9229280C1D7FB465007E38A9 /* MyExperienceUITests */,
@@ -600,6 +622,7 @@
 				923AEE311D98F731006CC483 /* JuHeTableViewCell.xib in Resources */,
 				922A24A01DC1095100EAC26C /* BaiduViewController.xib in Resources */,
 				922AB6D11DAF43FB0051DF7D /* NewsUrlDetailViewController.xib in Resources */,
+				921BBB571DD5846D006A4C20 /* README.txt in Resources */,
 				922927F31D7FB465007E38A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
