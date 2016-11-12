@@ -183,11 +183,11 @@
 //        }
         if ([weakCell.valueLabel.text isEqualToString:@"给作者留言"]){
             
-            [[RCIM sharedRCIM] connectWithToken:@"gX/Qcv0DHDY/3NORzcT8KS+fk98IrGNYOwlaUzgjtrYhCmG+nHKTx7VTbf/2DWUbIeNsH9PjpidxI5hGK4eb2Q==" success:^(NSString *userId) {
+            [[RCIM sharedRCIM] connectWithToken:@"sR6mlx+RRJQXjvaF2xWo8y+fk98IrGNYOwlaUzgjtrYhCmG+nHKTx9zyOY3opCw+H6fG/uEX08u+5z4AxHYAbA==" success:^(NSString *userId) {
                 
                 dispatch_async(dispatch_get_main_queue(),^{
                    
-                    RCConversationViewController *cc = [[RCConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"test1"];
+                    RCConversationViewController *cc = [[RCConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"test2"];
                     [self.navigationController pushViewController:cc animated:YES];
                     
 
