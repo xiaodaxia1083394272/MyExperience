@@ -21,7 +21,6 @@
 		921BBB871DD624C7006A4C20 /* DiscoverHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921BBB841DD624C7006A4C20 /* DiscoverHomeCell.xib */; };
 		921BBB8A1DD625E2006A4C20 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 921BBB891DD625E2006A4C20 /* UIColor+HexColor.m */; };
 		922927EA1D7FB465007E38A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927E91D7FB465007E38A9 /* main.m */; };
-		922927ED1D7FB465007E38A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927EC1D7FB465007E38A9 /* AppDelegate.m */; };
 		922927F01D7FB465007E38A9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927EF1D7FB465007E38A9 /* ViewController.m */; };
 		922927F31D7FB465007E38A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922927F11D7FB465007E38A9 /* Main.storyboard */; };
 		922927F51D7FB465007E38A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922927F41D7FB465007E38A9 /* Assets.xcassets */; };
@@ -63,6 +62,10 @@
 		925F5DBB1D855C7800C0B699 /* QQViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 925F5DB91D855C7800C0B699 /* QQViewTableViewCell.m */; };
 		925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925F5DBA1D855C7800C0B699 /* QQViewTableViewCell.xib */; };
 		92660D801DB121010023D1E2 /* NoteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 92660D7F1DB121010023D1E2 /* NoteObject.m */; };
+		926ED1A61DD6DBA20030FE57 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926ED1A41DD6DBA20030FE57 /* ChatViewController.m */; };
+		926ED1A71DD6DBA20030FE57 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926ED1A51DD6DBA20030FE57 /* ChatViewController.xib */; };
+		926ED1AF1DD745D30030FE57 /* MyENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926ED1AE1DD745D30030FE57 /* MyENavigationController.m */; };
+		926ED1B11DD7493D0030FE57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 926ED1B01DD7493D0030FE57 /* AppDelegate.m */; };
 		92D5D0791DB50C7D000BF7BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92D5D0781DB50C7D000BF7BC /* LaunchScreen.storyboard */; };
 		92E73E431DC2064F0005E773 /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E73E411DC2064F0005E773 /* MediaViewController.m */; };
 		92E73E441DC2064F0005E773 /* MediaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E73E421DC2064F0005E773 /* MediaViewController.xib */; };
@@ -142,7 +145,6 @@
 		922927E51D7FB465007E38A9 /* MyExperience.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExperience.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922927E91D7FB465007E38A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		922927EB1D7FB465007E38A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		922927EC1D7FB465007E38A9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		922927EE1D7FB465007E38A9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		922927EF1D7FB465007E38A9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		922927F21D7FB465007E38A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -215,6 +217,12 @@
 		925F5DBA1D855C7800C0B699 /* QQViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQViewTableViewCell.xib; sourceTree = "<group>"; };
 		92660D7E1DB121010023D1E2 /* NoteObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteObject.h; sourceTree = "<group>"; };
 		92660D7F1DB121010023D1E2 /* NoteObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteObject.m; sourceTree = "<group>"; };
+		926ED1A31DD6DBA20030FE57 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		926ED1A41DD6DBA20030FE57 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		926ED1A51DD6DBA20030FE57 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		926ED1AD1DD745D30030FE57 /* MyENavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyENavigationController.h; sourceTree = "<group>"; };
+		926ED1AE1DD745D30030FE57 /* MyENavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyENavigationController.m; sourceTree = "<group>"; };
+		926ED1B01DD7493D0030FE57 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		92D5D0781DB50C7D000BF7BC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92E73E401DC2064F0005E773 /* MediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaViewController.h; sourceTree = "<group>"; };
 		92E73E411DC2064F0005E773 /* MediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaViewController.m; sourceTree = "<group>"; };
@@ -384,6 +392,8 @@
 			isa = PBXGroup;
 			children = (
 				92416B951DB4711D000AEBFE /* FailMark.h */,
+				926ED1AD1DD745D30030FE57 /* MyENavigationController.h */,
+				926ED1AE1DD745D30030FE57 /* MyENavigationController.m */,
 				92F38CAA1DAD4CC500C44549 /* MJRefresh */,
 				92EF625D1DABE16500FDE5DE /* MainController */,
 				922A249B1DC108CA00EAC26C /* OtherController */,
@@ -392,7 +402,7 @@
 				924055C71D9191B400D77220 /* SqliteVideo */,
 				923DB98D1D868A350093EC7F /* Sqlite3 */,
 				922927EB1D7FB465007E38A9 /* AppDelegate.h */,
-				922927EC1D7FB465007E38A9 /* AppDelegate.m */,
+				926ED1B01DD7493D0030FE57 /* AppDelegate.m */,
 				922927EE1D7FB465007E38A9 /* ViewController.h */,
 				922927EF1D7FB465007E38A9 /* ViewController.m */,
 				922927F11D7FB465007E38A9 /* Main.storyboard */,
@@ -570,6 +580,9 @@
 				921BBB7E1DD61D36006A4C20 /* MineViewController.h */,
 				921BBB7F1DD61D36006A4C20 /* MineViewController.m */,
 				921BBB801DD61D36006A4C20 /* MineViewController.xib */,
+				926ED1A31DD6DBA20030FE57 /* ChatViewController.h */,
+				926ED1A41DD6DBA20030FE57 /* ChatViewController.m */,
+				926ED1A51DD6DBA20030FE57 /* ChatViewController.xib */,
 				922E4D1D1DADDA8400D6E718 /* WeatherNSObject */,
 				922E4D301DAE6A4F00D6E718 /* New Group */,
 			);
@@ -722,6 +735,7 @@
 				92EF62711DABE28F00FDE5DE /* NoteViewController.xib in Resources */,
 				923DB9921D868A770093EC7F /* SqliteViewController.xib in Resources */,
 				921BBB821DD61D36006A4C20 /* MineViewController.xib in Resources */,
+				926ED1A71DD6DBA20030FE57 /* ChatViewController.xib in Resources */,
 				925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */,
 				924055CF1D91939B00D77220 /* TestSQLViewController.xib in Resources */,
 				925F5DB71D8538CC00C0B699 /* QQViewController.xib in Resources */,
@@ -814,9 +828,9 @@
 				922927F01D7FB465007E38A9 /* ViewController.m in Sources */,
 				92485F6B1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m in Sources */,
 				922AB6D01DAF43FB0051DF7D /* NewsUrlDetailViewController.m in Sources */,
-				922927ED1D7FB465007E38A9 /* AppDelegate.m in Sources */,
 				922E4D201DADDC6100D6E718 /* WeatherObject.m in Sources */,
 				922E4D2C1DADE09300D6E718 /* PAndM.m in Sources */,
+				926ED1AF1DD745D30030FE57 /* MyENavigationController.m in Sources */,
 				92EF62661DABE21C00FDE5DE /* NewsViewController.m in Sources */,
 				92ED1FC21D943B0E00290D11 /* ShareView.m in Sources */,
 				923AEE2C1D98F688006CC483 /* JuHeService.m in Sources */,
@@ -826,9 +840,11 @@
 				925F5DB51D85386E00C0B699 /* QQViewController.m in Sources */,
 				923AEE281D98F662006CC483 /* JuHeViewController.m in Sources */,
 				92660D801DB121010023D1E2 /* NoteObject.m in Sources */,
+				926ED1B11DD7493D0030FE57 /* AppDelegate.m in Sources */,
 				922AB6D51DAF96780051DF7D /* WeatherDateView.m in Sources */,
 				923DB9911D868A770093EC7F /* SqliteViewController.m in Sources */,
 				922E4D291DADDF1900D6E718 /* weatherFuture.m in Sources */,
+				926ED1A61DD6DBA20030FE57 /* ChatViewController.m in Sources */,
 				92EF62611DABE20200FDE5DE /* JokeViewController.m in Sources */,
 				921BBB811DD61D36006A4C20 /* MineViewController.m in Sources */,
 				92E73E431DC2064F0005E773 /* MediaViewController.m in Sources */,

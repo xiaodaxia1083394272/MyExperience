@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyExperience/JokeViewController.m"
-            timestampString = "500548352.678894"
+            filePath = "MyExperience/MyENavigationController.m"
+            timestampString = "500651577.457486"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-getOrderPayResult:"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-pushViewController:animated:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyExperience/AppDelegate.m"
-            timestampString = "500572115.23719"
+            filePath = "MyExperience/MyENavigationController.m"
+            timestampString = "500654470.606597"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "-onResp:"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-popViewControllerAnimated:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

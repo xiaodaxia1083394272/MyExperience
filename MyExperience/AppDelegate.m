@@ -16,11 +16,20 @@
 #import "NoteViewController.h"
 #import "MineViewController.h"
 
+#import "MyENavigationController.h"
+
+
 
 
 
 @interface AppDelegate ()                                                                                                                                                                              
 @property (strong, nonatomic) UIView *launchView;
+@property (strong, nonatomic) MyENavigationController *firstNavigationController;
+@property (strong, nonatomic) MyENavigationController *secondNavigationController;
+@property (strong, nonatomic) MyENavigationController *thirdNavigationController;
+@property (strong, nonatomic) MyENavigationController *fourNavigationController;
+@property (strong, nonatomic) MyENavigationController *fiveNavigationController;
+
 @end
 
 @implementation AppDelegate
@@ -66,37 +75,37 @@
         tabBarController.delegate = self;
         
         //设置第一个Controller
-        UINavigationController *firstNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:2];//这个viewControllers里装的是NavigationController而不是viewController吗？略神奇 其实我觉得应该是类似于实例化
+        self.firstNavigationController = (MyENavigationController *)[tabBarController.viewControllers objectAtIndex:2];//这个viewControllers里装的是NavigationController而不是viewController吗？略神奇 其实我觉得应该是类似于实例化
         
         //游戏规则
         //做过才能理解
         JokeViewController *jvc = [[JokeViewController alloc] init];
         
-        firstNavigationController.viewControllers = @[jvc];
+        self.firstNavigationController.viewControllers = @[jvc];
         //tabBarController里的viewcontrollers装的是navigationController；
         //navigationController里的viewControllers装的是viewcontroller
         
         //设置第二个Controller
-        UINavigationController *secondNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:1];
+        self.secondNavigationController = (MyENavigationController *)[tabBarController.viewControllers objectAtIndex:1];
         
         NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"新闻" noteList:nil];
-        secondNavigationController.viewControllers = @[nvc];
+        self.secondNavigationController.viewControllers = @[nvc];
         //设置第三个Controller
-        UINavigationController *thirdNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:0];
+        self.thirdNavigationController = (MyENavigationController *)[tabBarController.viewControllers objectAtIndex:0];
         WeatherViewController *wvc = [[WeatherViewController alloc] init];
-        thirdNavigationController.viewControllers = @[wvc];
+        self.thirdNavigationController.viewControllers = @[wvc];
         
         //设置第四个Controller
-        UINavigationController *fourNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:3];
+        self.fourNavigationController = (MyENavigationController *)[tabBarController.viewControllers objectAtIndex:3];
         NoteViewController *novc = [[NoteViewController alloc] initWithHistoryObject:nil isShowHistoryObject:NO];
         
-        fourNavigationController.viewControllers = @[novc];
+        self.fourNavigationController.viewControllers = @[novc];
         
         //设置第五个Controller
-        UINavigationController *fiveNavigationController = (UINavigationController *)[tabBarController.viewControllers objectAtIndex:4];
+        self.fiveNavigationController = (MyENavigationController *)[tabBarController.viewControllers objectAtIndex:4];
         MineViewController *mvc = [[MineViewController alloc] init];
         
-        fiveNavigationController.viewControllers = @[mvc];
+        self.fiveNavigationController.viewControllers = @[mvc];
 
 
         

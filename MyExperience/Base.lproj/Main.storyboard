@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--MyE Navigation Controller-->
         <scene sceneID="IbJ-MG-8F3">
             <objects>
-                <navigationController id="pj9-CP-8wt" sceneMemberID="viewController">
+                <navigationController id="pj9-CP-8wt" customClass="MyENavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" badgeValue="天气" systemItem="featured" id="zoB-tP-gS6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tMT-wK-q5H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="-1716" y="-54"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--MyE Navigation Controller-->
         <scene sceneID="TRg-Ns-7px">
             <objects>
-                <navigationController id="GMH-dZ-7Go" sceneMemberID="viewController">
+                <navigationController id="GMH-dZ-7Go" customClass="MyENavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" badgeValue="段子" systemItem="featured" id="Y3q-np-L2h"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JZ0-ux-Ky5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="-596" y="397"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--MyE Navigation Controller-->
         <scene sceneID="CqL-y5-NKv">
             <objects>
-                <navigationController id="PhG-lH-hCM" sceneMemberID="viewController">
+                <navigationController id="PhG-lH-hCM" customClass="MyENavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" badgeValue="笔记" systemItem="featured" id="Vub-pa-98o"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LNu-fw-DRY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="-42" y="1189"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--MyE Navigation Controller-->
         <scene sceneID="FOT-Jr-1Z3">
             <objects>
-                <navigationController id="fQB-Y6-9wQ" sceneMemberID="viewController">
+                <navigationController id="fQB-Y6-9wQ" customClass="MyENavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" badgeValue="新闻" systemItem="featured" id="vFE-wv-5in"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3DM-nW-GHK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="-636" y="-267"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--MyE Navigation Controller-->
         <scene sceneID="4Ci-2m-29W">
             <objects>
-                <navigationController id="re9-iU-TFP" sceneMemberID="viewController">
+                <navigationController id="re9-iU-TFP" customClass="MyENavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" badgeValue="我的" systemItem="more" id="yql-w8-EQg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ft4-ta-525">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

@@ -10,6 +10,10 @@
 #import "DiscoverHomeCell.h"
 #import "UIColor+HexColor.h"
 
+#import "ChatViewController.h"
+
+
+
 
 
 @interface MineViewController ()
@@ -81,7 +85,24 @@
 //        }
         if ([weakCell.valueLabel.text isEqualToString:@"给作者留言"]){
             
-            NSLog(@"1");
+            [[RCIM sharedRCIM] connectWithToken:@"gX/Qcv0DHDY/3NORzcT8KS+fk98IrGNYOwlaUzgjtrYhCmG+nHKTx7VTbf/2DWUbIeNsH9PjpidxI5hGK4eb2Q==" success:^(NSString *userId) {
+                
+                dispatch_async(dispatch_get_main_queue(),^{
+                   
+                    RCConversationViewController *cc = [[RCConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"test1"];
+                    [self.navigationController pushViewController:cc animated:YES];
+                    
+
+                });
+
+            } error:^(RCConnectErrorCode status) {
+            NSLog(@"status = %ld",(long)status);
+        } tokenIncorrect:^{
+            
+            NSLog(@"token 错误");
+        }];
+            
+           
         }else if ([weakCell.valueLabel.text isEqualToString:@"微信分享"]){
             
             NSLog(@"2");
