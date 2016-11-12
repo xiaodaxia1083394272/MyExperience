@@ -80,6 +80,7 @@
 		92F38CA81DAD203200C44549 /* JokeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F38CA61DAD203200C44549 /* JokeTableViewCell.m */; };
 		92F38CA91DAD203200C44549 /* JokeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F38CA71DAD203200C44549 /* JokeTableViewCell.xib */; };
 		92F38CAD1DAD4D2700C44549 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F38CAC1DAD4D2700C44549 /* UIScrollView+MJRefresh.m */; };
+		92F6850D1DD6AD700066DFA4 /* DDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F6850C1DD6AD700066DFA4 /* DDTableViewCell.m */; };
 		9EC571120D3EB6DF31A1A54E /* libPods-MyExperience.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07974E7DFC55A4E87EBD24E0 /* libPods-MyExperience.a */; };
 /* End PBXBuildFile section */
 
@@ -241,6 +242,8 @@
 		92F38CA71DAD203200C44549 /* JokeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JokeTableViewCell.xib; sourceTree = "<group>"; };
 		92F38CAB1DAD4D2700C44549 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
 		92F38CAC1DAD4D2700C44549 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		92F6850B1DD6AD700066DFA4 /* DDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTableViewCell.h; sourceTree = "<group>"; };
+		92F6850C1DD6AD700066DFA4 /* DDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,6 +404,8 @@
 				92485F6A1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m */,
 				921BBB881DD625E2006A4C20 /* UIColor+HexColor.h */,
 				921BBB891DD625E2006A4C20 /* UIColor+HexColor.m */,
+				92F6850B1DD6AD700066DFA4 /* DDTableViewCell.h */,
+				92F6850C1DD6AD700066DFA4 /* DDTableViewCell.m */,
 				92F1DB2B1D853660008B42E8 /* SimilarQQ */,
 				922927F41D7FB465007E38A9 /* Assets.xcassets */,
 				92D5D0781DB50C7D000BF7BC /* LaunchScreen.storyboard */,
@@ -827,6 +832,7 @@
 				92EF62611DABE20200FDE5DE /* JokeViewController.m in Sources */,
 				921BBB811DD61D36006A4C20 /* MineViewController.m in Sources */,
 				92E73E431DC2064F0005E773 /* MediaViewController.m in Sources */,
+				92F6850D1DD6AD700066DFA4 /* DDTableViewCell.m in Sources */,
 				92ED1FBF1D943AA400290D11 /* ShareContent.m in Sources */,
 				92EF626B1DABE26100FDE5DE /* WeatherViewController.m in Sources */,
 				922AB6C11DAF1D820051DF7D /* NewsTableViewCell.m in Sources */,
