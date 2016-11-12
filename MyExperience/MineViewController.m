@@ -24,7 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"个人中心";
-    _discoverList = [[NSArray alloc] initWithObjects:@"nihao",@"womeng", nil];
+    NSArray *oneArray = [NSArray arrayWithObjects:@"给作者留言", nil];
+    NSArray *twoArray = [NSArray arrayWithObjects:@"微信分享", nil];
+    _discoverList = [[NSArray alloc] initWithObjects:oneArray,twoArray, nil];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -64,8 +66,11 @@
     DiscoverHomeCell *cell = [DiscoverHomeCell cellWithTableView:tableView];
     BOOL isLast = (indexPath.row == [list count] - 1 ? YES : NO);
     
-//    [cell updateCell:discover.name  iconImageUrl:discover.imageUrl indexPath:indexPath isLast:isLast];
+    [cell updateCell:list[indexPath.row]  iconImageUrl:nil indexPath:indexPath isLast:isLast];
     
+    //防止循环引用
+    typeof(cell) __weak weakCell = cell;
+
     cell.option=^{
 //        NSURL *url = [NSURL URLWithString:discover.link];
 //        if ([GoSportUrlAnalysis isGoSportScheme:url]) {
@@ -74,6 +79,13 @@
 //            SportWebController *controller = [[SportWebController alloc] initWithUrlString:discover.link title:discover.name];
 //            [self.navigationController pushViewController:controller animated:NO];
 //        }
+        if ([weakCell.valueLabel.text isEqualToString:@"给作者留言"]){
+            
+            NSLog(@"1");
+        }else if ([weakCell.valueLabel.text isEqualToString:@"微信分享"]){
+            
+            NSLog(@"2");
+        }
     };
     
     return cell;

@@ -38,7 +38,7 @@
 
 + (id)createCell{
     DiscoverHomeCell *cell = (DiscoverHomeCell *)[super createCell];
-    cell.arrowImageView.image = [SportImage arrowRightImage];
+//    cell.arrowImageView.image = [SportImage arrowRightImage];
     return cell;
 }
 
@@ -54,13 +54,13 @@
     
     UIImage *image = nil;
     if (indexPath.row == 0 && isLast ) {
-        image = [SportImage otherCellBackground4Image];
+//        image = [SportImage otherCellBackground4Image];
     } else if (indexPath.row == 0) {
-        image = [SportImage otherCellBackground1Image];
+//        image = [SportImage otherCellBackground1Image];
     } else if (isLast) {
-        image = [SportImage otherCellBackground3Image];
+//        image = [SportImage otherCellBackground3Image];
     } else {
-        image = [SportImage otherCellBackground2Image];
+//        image = [SportImage otherCellBackground2Image];
     }
     
     UIImageView *bv = [[UIImageView alloc] initWithImage:image] ;

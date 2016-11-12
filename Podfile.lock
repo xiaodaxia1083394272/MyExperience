@@ -19,19 +19,24 @@ PODS:
   - FMDB/standard (2.6.2)
   - MJRefresh (3.1.10)
   - RongCloudIMKit (2.6.10)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
   - AFNetworking (= 3.1.0)
   - FMDB (~> 2.6.2)
   - MJRefresh (= 3.1.10)
   - RongCloudIMKit (= 2.6.10)
+  - SDWebImage (~> 3.8.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MJRefresh: bb72948c985914b0b5cecac573a2c69a8915fb02
   RongCloudIMKit: 6dd84b468701815012a0d8babd99cef3b19c000f
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 5dc92ad336b352e60a37cbe27d61c776bdbd511e
+PODFILE CHECKSUM: df6f0f9324a5729a10f693d2e826c7aaf0214295
 
 COCOAPODS: 1.0.1
