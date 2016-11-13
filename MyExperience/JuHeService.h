@@ -52,4 +52,9 @@
 + (void)queryJuheNewsDataWithDelegate:(id<JuHeServiceDelegate>)delegate
                                appkey:(NSString *)appKey
                                  type:(NSString *)type;
+
++ (void)queryIMTokenWithDelegate:(id<JuHeServiceDelegate>)delegate
+                          userId:(NSString *)userId
+                            name:(NSString *)name
+                      completion:(void (^)(NSString * token)) completion;
 @end

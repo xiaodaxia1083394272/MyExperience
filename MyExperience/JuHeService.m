@@ -9,12 +9,18 @@
 #import "JuHeService.h"
 #import "realTime.h"
 
+//为了用哈希计算
+#import <CommonCrypto/CommonDigest.h>
+
+
 @interface JuHeService()
 
 
 @end
 
 @implementation JuHeService
+
+
 
 + (void)queryJuheDataWithDelegate:(id<JuHeServiceDelegate>)delegate
                              Sort:(NSString *)sort
@@ -294,6 +300,166 @@
         
     });
 }
+
+/*使用下面方法需要导入 CommonCrypto/CommonDigest.h*/
+//  哈希计算
+- (NSString *) sha1:(NSString *)input
+{
+    NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding];
+    
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    
+    CC_SHA1(data.bytes, (unsigned)data.length, digest);
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH *2];
+    
+    for(int i=0; i<CC_SHA1_DIGEST_LENGTH; i++) {
+        [output appendFormat:@"%02x", digest[i]];
+    }
+    return output;
+}
+
+#define AppSecret  @"JuERjS0W9n"
+#define AppKey     @"uwd1c0sxdu5e1"
+
+//IM
++ (void)queryIMTokenWithDelegate:(id<JuHeServiceDelegate>)delegate
+                             userId:(NSString *)userId
+                             name:(NSString *)name
+                       completion:(void (^)(NSString * token)) completion {
+    
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+    
+            NSMutableDictionary *inputDic = [NSMutableDictionary dictionary];
+    
+            //随机数,无长度限制
+            NSString * nonce = [NSString stringWithFormat:@"%d",arc4random()];
+            //    以1970/01/01 GMT为基准时间，返回实例保存的时间与1970/01/01 GMT的时间间隔
+            NSDate *dateObc = [NSDate date];
+            NSString *timestamp = [NSString stringWithFormat:@"%d",(int)[dateObc timeIntervalSince1970]];
+    
+    
+    
+    
+//        将系统分配的 AppSecret、Nonce (随机数)、Timestamp (时间戳)三个字符串按先后顺序拼接成一个字符串并进行 SHA1哈希计算
+            NSString *signature = [[JuHeService shareManager] sha1:[NSString stringWithFormat:@"%@%@%@",AppSecret,nonce,timestamp]];//用sha1对签名进行加密,随你用什么方法,MD5...
+            [inputDic setValue:nonce forKey:@"Nonce"];
+            [inputDic setValue:timestamp forKey:@"Timestamp"];
+            [inputDic setValue:signature forKey:@"Signature"];
+            [inputDic setValue:userId forKey:@"useId"];
+            [inputDic setValue:name forKey:@"name"];
+            [inputDic setValue:@"https://www.baidu.com/img/baidu_jgylogo3.gif" forKey:@"portraitUri"];
+            [inputDic setValue:AppKey forKey:@"App-Key"];
+    
+            //        [[JuHeService shareManager]aFGetDataWithParameters:inputDic];
+            //创建HTTP连接管理对象
+            AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+            //
+            //    manager.responseSerializer = [AFHTTPResponse serializer];
+    
+    
+            [manager POST:@"https://api.cn.rong.io/user/getToken.json" parameters:inputDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+                //       NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+                
+                NSString *token = nil;
+
+                dispatch_async(dispatch_get_main_queue(),^{
+                    
+                    NSLog(@"%@",content);
+    
+                    completion(token);
+    
+    
+                });
+    
+    
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError *_Nonnull error){
+                NSLog(@"下载失败");
+                NSLog(@"%@",error.domain);
+                NSLog(@"testError__%ld",(long)error.code);
+                NSLog(@"test______%@",error.localizedFailureReason);
+            }];
+            
+        });
+    
+};
+//{
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+//        
+//        NSMutableDictionary *inputDic = [NSMutableDictionary dictionary];
+//        
+//        //随机数,无长度限制
+//        NSString * nonce = [NSString stringWithFormat:@"%d",arc4random()];
+//        //    以1970/01/01 GMT为基准时间，返回实例保存的时间与1970/01/01 GMT的时间间隔
+//        NSDate *dateObc = [NSDate date];
+//        NSString *timestamp = [NSString stringWithFormat:@"%d",(int)[dateObc timeIntervalSince1970]];
+//
+//        
+//
+
+        //    将系统分配的 AppSecret、Nonce (随机数)、Timestamp (时间戳)三个字符串按先后顺序拼接成一个字符串并进行 SHA1哈希计算
+//        NSString *signature = [[JuHeService shareManager] sha1:[NSString stringWithFormat:@"%@%@%@",AppSecret,nonce,timestamp]];//用sha1对签名进行加密,随你用什么方法,MD5...
+//        [inputDic setValue:nonce forKey:@"Nonce"];
+//        [inputDic setValue:timestamp forKey:@"Timestamp"];
+//        [inputDic setValue:signature forKey:@"Signature"];
+//        [inputDic setValue:userId forKey:@"useId"];
+//        [inputDic setValue:name forKey:@"name"];
+//        [inputDic setValue:portraitUri forKey:@"portraitUri"];
+//        [inputDic setValue:AppKey forKey:@"App-Key"];
+//        
+//        //        [[JuHeService shareManager]aFGetDataWithParameters:inputDic];
+//        //创建HTTP连接管理对象
+//        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//        
+//        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//        //
+//        //    manager.responseSerializer = [AFHTTPResponse serializer];
+//
+//        
+//        [manager POST:@"https://api.cn.rong.io/user/getToken.json" parameters:inputDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//            NSLog(@"下载成功");
+//            
+//            //       NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            //       NSDictionary *a = (NSDictionary *)responseObject;
+//            NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+//            NSString *reason = nil;
+//            reason = [content objectForKey:@"reason"];
+//            NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
+//            resultDic = [content objectForKey:@"result"];
+//            NSMutableArray *dataArray = [NSMutableArray array];
+//            dataArray = [resultDic objectForKey:@"data"];
+//            NSMutableArray *contentArray = [NSMutableArray array];
+//            for (NSDictionary *one in dataArray) {
+//                
+//                [contentArray addObject:[one objectForKey:@"content"]];
+//            }
+//            
+//            
+//            dispatch_async(dispatch_get_main_queue(),^{
+//                
+//                if (delegate && [delegate respondsToSelector:@selector(getDataWithReson:dataList:)]){
+//                    
+//                    [delegate getDataWithReson:reason dataList:contentArray];
+//                }
+//                
+//                
+//            });
+//            
+//            
+//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError *_Nonnull error){
+//            NSLog(@"下载失败");
+//            NSLog(@"%@",error.domain);
+//            NSLog(@"testError__%ld",(long)error.code);
+//            NSLog(@"test______%@",error.localizedFailureReason);
+//        }];
+//        
+//    });
+//}
 
 
 

@@ -18,11 +18,14 @@
 
 #import "MyENavigationController.h"
 
+#import "JuHeService.h"
 
 
 
 
-@interface AppDelegate ()                                                                                                                                                                              
+
+
+@interface AppDelegate ()<JuHeServiceDelegate>
 @property (strong, nonatomic) UIView *launchView;
 @property (strong, nonatomic) MyENavigationController *firstNavigationController;
 @property (strong, nonatomic) MyENavigationController *secondNavigationController;
@@ -51,6 +54,10 @@
     
     // Override point for customization after application launch.
     [[RCIM sharedRCIM] initWithAppKey:@"uwd1c0sxdu5e1"];
+    
+    [JuHeService queryIMTokenWithDelegate:self userId:@"test3" name:@"测试者3" completion:^(NSString *token){
+        
+    }];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

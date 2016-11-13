@@ -211,6 +211,14 @@
     return cell;
     
 }
+//断开与融云的连接
+//[[RCIM sharedRCIM] disconnect:YES]
+//断开是否接受远程推送
+//- (void)disconnect:(BOOL)isReceivePush;
+//登出
+//- (void)logout;
+
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
