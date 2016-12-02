@@ -41,7 +41,7 @@
         self.title =@"头条新闻";
         self.shieldView.hidden = YES;
         
-        [self setRightBarButton];
+//        [self setRightBarButton];
         [self setLeftBarButton];
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.dataTableView.bounds];
@@ -104,7 +104,7 @@
     
     //    [btn setImage:[UIImage imageNamed:@"rightUp"] forState:UIControlStateNormal];
     
-    [btn setTitle:@"百度一下" forState:UIControlStateNormal];
+    [btn setTitle:@"极客头条" forState:UIControlStateNormal];
     
     [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     

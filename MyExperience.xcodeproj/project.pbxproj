@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4718030C1DF105AC00519908 /* MENetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 4718030B1DF105AC00519908 /* MENetwork.m */; };
+		4718030F1DF10DEC00519908 /* MENetworkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4718030E1DF10DEC00519908 /* MENetworkResponse.m */; };
 		921BBB591DD5AF4D006A4C20 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB581DD5AF4D006A4C20 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		921BBB5B1DD5B25A006A4C20 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB5A1DD5B25A006A4C20 /* CFNetwork.framework */; };
 		921BBB5D1DD5B6B1006A4C20 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB5C1DD5B6B1006A4C20 /* libz.tbd */; };
@@ -20,6 +22,7 @@
 		921BBB861DD624C7006A4C20 /* DiscoverHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921BBB831DD624C7006A4C20 /* DiscoverHomeCell.m */; };
 		921BBB871DD624C7006A4C20 /* DiscoverHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921BBB841DD624C7006A4C20 /* DiscoverHomeCell.xib */; };
 		921BBB8A1DD625E2006A4C20 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 921BBB891DD625E2006A4C20 /* UIColor+HexColor.m */; };
+		92279B0B1DE045FC00B7587F /* IMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92279B0A1DE045FC00B7587F /* IMUser.m */; };
 		922927EA1D7FB465007E38A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927E91D7FB465007E38A9 /* main.m */; };
 		922927F01D7FB465007E38A9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922927EF1D7FB465007E38A9 /* ViewController.m */; };
 		922927F31D7FB465007E38A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922927F11D7FB465007E38A9 /* Main.storyboard */; };
@@ -107,6 +110,10 @@
 /* Begin PBXFileReference section */
 		07974E7DFC55A4E87EBD24E0 /* libPods-MyExperience.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyExperience.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BEA95645461DA10B7C3742 /* Pods-MyExperience.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExperience.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyExperience/Pods-MyExperience.release.xcconfig"; sourceTree = "<group>"; };
+		4718030A1DF105AC00519908 /* MENetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MENetwork.h; sourceTree = "<group>"; };
+		4718030B1DF105AC00519908 /* MENetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MENetwork.m; sourceTree = "<group>"; };
+		4718030D1DF10DEC00519908 /* MENetworkResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MENetworkResponse.h; sourceTree = "<group>"; };
+		4718030E1DF10DEC00519908 /* MENetworkResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MENetworkResponse.m; sourceTree = "<group>"; };
 		694A7693437C673C5134AB39 /* Pods-MyExperience.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExperience.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyExperience/Pods-MyExperience.debug.xcconfig"; sourceTree = "<group>"; };
 		921BBB581DD5AF4D006A4C20 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		921BBB5A1DD5B25A006A4C20 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -142,6 +149,9 @@
 		921BBB851DD624C7006A4C20 /* DiscoverHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverHomeCell.h; sourceTree = "<group>"; };
 		921BBB881DD625E2006A4C20 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
 		921BBB891DD625E2006A4C20 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
+		92279B091DE045FC00B7587F /* IMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUser.h; sourceTree = "<group>"; };
+		92279B0A1DE045FC00B7587F /* IMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMUser.m; sourceTree = "<group>"; };
+		92279B0C1DE04D2800B7587F /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		922927E51D7FB465007E38A9 /* MyExperience.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExperience.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922927E91D7FB465007E38A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		922927EB1D7FB465007E38A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -365,9 +375,19 @@
 			path = OpenSDK1.7.4;
 			sourceTree = "<group>";
 		};
+		92279B081DE045CC00B7587F /* CommonNSObject */ = {
+			isa = PBXGroup;
+			children = (
+				92279B091DE045FC00B7587F /* IMUser.h */,
+				92279B0A1DE045FC00B7587F /* IMUser.m */,
+			);
+			name = CommonNSObject;
+			sourceTree = "<group>";
+		};
 		922927DC1D7FB465007E38A9 = {
 			isa = PBXGroup;
 			children = (
+				92279B081DE045CC00B7587F /* CommonNSObject */,
 				921BBB701DD5BDDE006A4C20 /* OpenSDK1.7.4 */,
 				922927E71D7FB465007E38A9 /* MyExperience */,
 				922928011D7FB465007E38A9 /* MyExperienceTests */,
@@ -392,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				92416B951DB4711D000AEBFE /* FailMark.h */,
+				92279B0C1DE04D2800B7587F /* CommonDefine.h */,
 				926ED1AD1DD745D30030FE57 /* MyENavigationController.h */,
 				926ED1AE1DD745D30030FE57 /* MyENavigationController.m */,
 				92F38CAA1DAD4CC500C44549 /* MJRefresh */,
@@ -501,6 +522,10 @@
 				923AEE2D1D98F731006CC483 /* JuHeTableViewCell.h */,
 				923AEE2E1D98F731006CC483 /* JuHeTableViewCell.m */,
 				923AEE2F1D98F731006CC483 /* JuHeTableViewCell.xib */,
+				4718030A1DF105AC00519908 /* MENetwork.h */,
+				4718030B1DF105AC00519908 /* MENetwork.m */,
+				4718030D1DF10DEC00519908 /* MENetworkResponse.h */,
+				4718030E1DF10DEC00519908 /* MENetworkResponse.m */,
 			);
 			name = GetNetworkData;
 			sourceTree = "<group>";
@@ -820,6 +845,7 @@
 				922A249F1DC1095100EAC26C /* BaiduViewController.m in Sources */,
 				925F5DBB1D855C7800C0B699 /* QQViewTableViewCell.m in Sources */,
 				922AB6CB1DAF321A0051DF7D /* NewsDetailViewController.m in Sources */,
+				4718030F1DF10DEC00519908 /* MENetworkResponse.m in Sources */,
 				924055CE1D91939B00D77220 /* TestSQLViewController.m in Sources */,
 				9238D7901D82777C001D2919 /* DBManager.m in Sources */,
 				921BBB861DD624C7006A4C20 /* DiscoverHomeCell.m in Sources */,
@@ -829,10 +855,12 @@
 				92485F6B1D8055970010B545 /* UIScrollView+MyExperienceRefresh.m in Sources */,
 				922AB6D01DAF43FB0051DF7D /* NewsUrlDetailViewController.m in Sources */,
 				922E4D201DADDC6100D6E718 /* WeatherObject.m in Sources */,
+				4718030C1DF105AC00519908 /* MENetwork.m in Sources */,
 				922E4D2C1DADE09300D6E718 /* PAndM.m in Sources */,
 				926ED1AF1DD745D30030FE57 /* MyENavigationController.m in Sources */,
 				92EF62661DABE21C00FDE5DE /* NewsViewController.m in Sources */,
 				92ED1FC21D943B0E00290D11 /* ShareView.m in Sources */,
+				92279B0B1DE045FC00B7587F /* IMUser.m in Sources */,
 				923AEE2C1D98F688006CC483 /* JuHeService.m in Sources */,
 				921BBB8A1DD625E2006A4C20 /* UIColor+HexColor.m in Sources */,
 				92EF62701DABE28F00FDE5DE /* NoteViewController.m in Sources */,

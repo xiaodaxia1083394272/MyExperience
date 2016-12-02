@@ -19,6 +19,8 @@
 #import "MyENavigationController.h"
 
 #import "JuHeService.h"
+#import "IMUser.h"
+#import "CommonDefine.h"
 
 
 
@@ -49,15 +51,59 @@
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    
+//    //manager.requestSerializer = [AFPropertyListRequestSerializer serializer];
+//    //manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//    //manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    
+//    //manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    //manager.responseSerializer = [AFJSONResponseSerializer serializer];
+//    
+//    manager.requestSerializer.timeoutInterval = 30;
+//    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+//    
+//    [manager POST:@"https://api.cn.rong.io/user/getToken.json"  parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"success");
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"failure");
+//    }];
+//    
+//    
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.cn.rong.io/user/getToken.json"]];
+//    [request setHTTPMethod:@"POST"];
+//    [request setTimeoutInterval:60];
+//    [request setAllHTTPHeaderFields:nil];
+//    
+//    //NSString *bodyStr = @"access_token=xxxxx&status=微博内容";
+//    //NSData *bodyData = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
+//    //[request setHTTPBody:bodyData];
+//
+//    
+//    
+//    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        NSLog(@"123");
+//        
+//        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+//        
+//        NSLog(@"dic:%@",dict);
+//        
+//    }];
+//    [task resume];
+    
+//    return YES;
+    
     //注册微信
     [WXApi registerApp:@"wx4bf9f0896575b0e9"];
     
     // Override point for customization after application launch.
     [[RCIM sharedRCIM] initWithAppKey:@"uwd1c0sxdu5e1"];
     
-    [JuHeService queryIMTokenWithDelegate:self userId:@"test3" name:@"测试者3" completion:^(NSString *token){
-        
-    }];
+    //记住放在融云初始化的后面
+    
+    [self handleIMToken];
+    
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -119,6 +165,75 @@
     }
     
     return YES;
+}
+
+
+//判/取/存融云的token，id，名字值
+- (void) handleIMToken{
+    
+    NSUserDefaults *defaultsIM = [NSUserDefaults standardUserDefaults];
+//    [defaults setInteger:10 forKey:@"Age"];
+    
+//    UIImage *image =[UIImage imageNamed:@"somename"];
+//    NSData *imageData = UIImageJPEGRepresentation(image, 100);//把image归档为NSData
+//    [defaults setObject:imageData forKey:@"image"];
+    
+//    [defaults synchronize];
+    
+//    其中，方法synchronise是为了强制存储，其实并非必要，因为这个方法会在系统中默认调用，但是你确认需要马上就存储，这样做是可行的。
+    
+    [defaultsIM objectForKey:saveIMKey];
+    
+    if ([defaultsIM isKindOfClass:[IMUser class]]){
+        
+        NSLog(@"获取融云token成功");
+        
+    }else {
+        
+        [self saveIMUser];
+        
+
+    }
+    
+
+}
+
+- (void)saveIMUser{
+    
+   
+    IMUser *user = [[IMUser alloc] init];
+    int random = arc4random()%10000000 +1;
+    user.imUserId = [NSString stringWithFormat:@"user%d",random];
+    user.imUserName = [NSString stringWithFormat:@"用户%d",random];
+    
+    [JuHeService queryIMTokenWithDelegate:nil userId:user.imUserId name:user.imUserName completion:^(NSString *token){
+        
+        if([token isEqualToString:@""] == NO){
+            
+            user.imUserToken = token;
+            
+            user.imIsSave = YES;
+            
+            //将自定义的IMUser类型变为Nsdata类型，为了能让NsUserdefault存
+            NSData *userData = [NSKeyedArchiver archivedDataWithRootObject:user];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:userData forKey:saveIMKey];
+            
+            NSNotification * notification = [NSNotification notificationWithName:IMSave object:userData];
+        
+            
+//            [[NSNotificationCenter defaultCenter] postNotification:notification];
+            
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"test_name" object:userData userInfo:<#(nullable NSDictionary *)#>];
+            
+            
+        }else{
+            
+            user.imIsSave = NO;
+        }
+    }];
+    
 }
 
 //跳转处理

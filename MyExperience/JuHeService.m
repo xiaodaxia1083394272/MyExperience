@@ -303,7 +303,7 @@
 
 /*使用下面方法需要导入 CommonCrypto/CommonDigest.h*/
 //  哈希计算
-- (NSString *) sha1:(NSString *)input
++ (NSString *) sha1:(NSString *)input
 {
     NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -324,144 +324,190 @@
 
 //IM
 + (void)queryIMTokenWithDelegate:(id<JuHeServiceDelegate>)delegate
-                             userId:(NSString *)userId
-                             name:(NSString *)name
-                       completion:(void (^)(NSString * token)) completion {
+                          userId:(NSString *)userId
+                            name:(NSString *)name
+                      completion:(void (^)(NSString * token)) completion {
     
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+    //随机数,无长度限制
+    NSString * nonce = [NSString stringWithFormat:@"%d",arc4random()];
+    //    以1970/01/01 GMT为基准时间，返回实例保存的时间与1970/01/01 GMT的时间间隔
+    NSDate *dateObc = [NSDate date];
+    NSString *timestamp = [NSString stringWithFormat:@"%d",(int)[dateObc timeIntervalSince1970]];
     
-            NSMutableDictionary *inputDic = [NSMutableDictionary dictionary];
+    //        将系统分配的 AppSecret、Nonce (随机数)、Timestamp (时间戳)三个字符串按先后顺序拼接成一个字符串并进行 SHA1哈希计算
+//    NSString *signature = [JuHeService  sha1:[NSString stringWithFormat:@"%@%@%@",AppSecret,nonce,timestamp]];//用sha1对签名进行加密,随你用什么方法,MD5...
+    //POST 请求 请求参数放在请求内部（httpBody）
+    //设置请求
+    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] init];
+    //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.cn.rong.io/user/getToken.json"]];
+    [request setHTTPMethod:@"POST"];
+    [request setTimeoutInterval:60];
+    request.URL = [NSURL URLWithString:@"https://api.cn.rong.io/user/getToken.json"];
+    //    [request setAllHTTPHeaderFields:nil];
     
-            //随机数,无长度限制
-            NSString * nonce = [NSString stringWithFormat:@"%d",arc4random()];
-            //    以1970/01/01 GMT为基准时间，返回实例保存的时间与1970/01/01 GMT的时间间隔
-            NSDate *dateObc = [NSDate date];
-            NSString *timestamp = [NSString stringWithFormat:@"%d",(int)[dateObc timeIntervalSince1970]];
+    //配置http header
+    [request setValue:AppKey forHTTPHeaderField:@"App-Key"];
+    [request setValue:nonce forHTTPHeaderField:@"Nonce"];
+    [request setValue:timestamp forHTTPHeaderField:@"Timestamp"];
+    [request setValue:AppSecret forHTTPHeaderField:@"appSecret"];
+    //签名加密
+    [request setValue:[JuHeService sha1:[NSString stringWithFormat:@"%@%@%@",AppSecret,nonce,timestamp]] forHTTPHeaderField:@"Signature"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
+    //拼接参数
+    NSMutableDictionary * paramDic = [NSMutableDictionary dictionary];
+    [paramDic setObject:userId forKey:@"userId"];
+    [paramDic setObject:name forKey:@"name"];
+    [paramDic setObject:@"https://www.baidu.com/img/baidu_jgylogo3.gif" forKey:@"portraitUri"];
     
-    
-    
-//        将系统分配的 AppSecret、Nonce (随机数)、Timestamp (时间戳)三个字符串按先后顺序拼接成一个字符串并进行 SHA1哈希计算
-            NSString *signature = [[JuHeService shareManager] sha1:[NSString stringWithFormat:@"%@%@%@",AppSecret,nonce,timestamp]];//用sha1对签名进行加密,随你用什么方法,MD5...
-            [inputDic setValue:nonce forKey:@"Nonce"];
-            [inputDic setValue:timestamp forKey:@"Timestamp"];
-            [inputDic setValue:signature forKey:@"Signature"];
-            [inputDic setValue:userId forKey:@"useId"];
-            [inputDic setValue:name forKey:@"name"];
-            [inputDic setValue:@"https://www.baidu.com/img/baidu_jgylogo3.gif" forKey:@"portraitUri"];
-            [inputDic setValue:AppKey forKey:@"App-Key"];
-    
-            //        [[JuHeService shareManager]aFGetDataWithParameters:inputDic];
-            //创建HTTP连接管理对象
-            AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-            //
-            //    manager.responseSerializer = [AFHTTPResponse serializer];
-    
-    
-            [manager POST:@"https://api.cn.rong.io/user/getToken.json" parameters:inputDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-    
-                //       NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-                NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-                
-                NSString *token = nil;
-
-                dispatch_async(dispatch_get_main_queue(),^{
-                    
-                    NSLog(@"%@",content);
-    
-                    completion(token);
+    request.HTTPBody = [JuHeService  httpBodyFromParamDictionary:paramDic];
     
     
-                });
     
-    
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError *_Nonnull error){
-                NSLog(@"下载失败");
-                NSLog(@"%@",error.domain);
-                NSLog(@"testError__%ld",(long)error.code);
-                NSLog(@"test______%@",error.localizedFailureReason);
-            }];
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSDictionary *content = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSLog(@"45645dic:%@",content);
+        
+        NSString *token = [content objectForKey:@"token"];
+       
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            completion(token);
             
         });
-    
-};
-//{
+        
+
+        
+    }];
+    //5.执行任务
+    [task resume];
+}
+
+//+ (void)queryIMTokenWithDelegate:(id<JuHeServiceDelegate>)delegate
+//                             userId:(NSString *)userId
+//                             name:(NSString *)name
+//                       completion:(void (^)(NSString * token)) completion {
 //    
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
-//        
-//        NSMutableDictionary *inputDic = [NSMutableDictionary dictionary];
-//        
-//        //随机数,无长度限制
-//        NSString * nonce = [NSString stringWithFormat:@"%d",arc4random()];
-//        //    以1970/01/01 GMT为基准时间，返回实例保存的时间与1970/01/01 GMT的时间间隔
-//        NSDate *dateObc = [NSDate date];
-//        NSString *timestamp = [NSString stringWithFormat:@"%d",(int)[dateObc timeIntervalSince1970]];
-//
-//        
-//
-
-        //    将系统分配的 AppSecret、Nonce (随机数)、Timestamp (时间戳)三个字符串按先后顺序拼接成一个字符串并进行 SHA1哈希计算
-//        NSString *signature = [[JuHeService shareManager] sha1:[NSString stringWithFormat:@"%@%@%@",AppSecret,nonce,timestamp]];//用sha1对签名进行加密,随你用什么方法,MD5...
-//        [inputDic setValue:nonce forKey:@"Nonce"];
-//        [inputDic setValue:timestamp forKey:@"Timestamp"];
-//        [inputDic setValue:signature forKey:@"Signature"];
-//        [inputDic setValue:userId forKey:@"useId"];
-//        [inputDic setValue:name forKey:@"name"];
-//        [inputDic setValue:portraitUri forKey:@"portraitUri"];
-//        [inputDic setValue:AppKey forKey:@"App-Key"];
-//        
-//        //        [[JuHeService shareManager]aFGetDataWithParameters:inputDic];
-//        //创建HTTP连接管理对象
-//        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//        
-//        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//        //
-//        //    manager.responseSerializer = [AFHTTPResponse serializer];
-//
-//        
-//        [manager POST:@"https://api.cn.rong.io/user/getToken.json" parameters:inputDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//            NSLog(@"下载成功");
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+//    
+//            NSMutableDictionary *inputDic = [NSMutableDictionary dictionary];
+//    
+//            //随机数,无长度限制
+//            NSString * nonce = [NSString stringWithFormat:@"%d",arc4random()];
+//            //    以1970/01/01 GMT为基准时间，返回实例保存的时间与1970/01/01 GMT的时间间隔
+//            NSDate *dateObc = [NSDate date];
+//            NSString *timestamp = [NSString stringWithFormat:@"%d",(int)[dateObc timeIntervalSince1970]];
 //            
-//            //       NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-            //       NSDictionary *a = (NSDictionary *)responseObject;
-//            NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-//            NSString *reason = nil;
-//            reason = [content objectForKey:@"reason"];
-//            NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
-//            resultDic = [content objectForKey:@"result"];
-//            NSMutableArray *dataArray = [NSMutableArray array];
-//            dataArray = [resultDic objectForKey:@"data"];
-//            NSMutableArray *contentArray = [NSMutableArray array];
-//            for (NSDictionary *one in dataArray) {
+////        将系统分配的 AppSecret、Nonce (随机数)、Timestamp (时间戳)三个字符串按先后顺序拼接成一个字符串并进行 SHA1哈希计算
+//            NSString *signature = [JuHeService  sha1:[NSString stringWithFormat:@"%@%@%@",AppSecret,nonce,timestamp]];//用sha1对签名进行加密,随你用什么方法,MD5...
+//            [inputDic setValue:nonce forKey:@"Nonce"];
+//            [inputDic setValue:timestamp forKey:@"Timestamp"];
+//            [inputDic setValue:signature forKey:@"Signature"];
+//            [inputDic setValue:userId forKey:@"useId"];
+//            [inputDic setValue:name forKey:@"name"];
+//            [inputDic setValue:@"https://www.baidu.com/img/baidu_jgylogo3.gif" forKey:@"portraitUri"];
+//            [inputDic setValue:AppKey forKey:@"App-Key"];
+//    
+//            //        [[JuHeService shareManager]aFGetDataWithParameters:inputDic];
+//            //创建HTTP连接管理对象
+//            AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    
+//            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//            //
+            //    manager.responseSerializer = [AFHTTPResponse serializer];
+            
+            
+//            //传入json格式数据，不写则普通post
+//            manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//            //默认返回JSON类型（可以不写）
+//            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+            //设置返回类型
+//            manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+#pragma mark - 先用原生的网络请求
+    //POST 请求 请求参数放在请求内部（httpBody）
+    //设置请求
+//    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] init];
+////    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.cn.rong.io/user/getToken.json"]];
+//    [request setHTTPMethod:@"POST"];
+//    [request setTimeoutInterval:60];
+//            request.URL = [NSURL URLWithString:@"https://api.cn.rong.io/user/getToken.json"];
+////    [request setAllHTTPHeaderFields:nil];
+//    
+//    //配置http header
+//    [request setValue:AppKey forHTTPHeaderField:@"App-Key"];
+//    [request setValue:nonce forKey:@"Nonce"];
+//    [request setValue:timestamp forKey:@"Timestamp"];
+//    [request setValue:AppSecret forHTTPHeaderField:@"appSecret"];
+//    //签名加密
+//    [request setValue:[JuHeService sha1:[NSString stringWithFormat:@"%@%@%@",AppSecret,nonce,timestamp]] forHTTPHeaderField:@"Signature"];
+//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//    
+//    //拼接参数
+//    NSMutableDictionary * paramDic = [NSMutableDictionary dictionary];
+//    [paramDic setObject:userId forKey:@"userId"];
+//    [paramDic setObject:name forKey:@"name"];
+//    [paramDic setObject:@"https://www.baidu.com/img/baidu_jgylogo3.gif" forKey:@"portraitUri"];
+//    
+//    request.HTTPBody = [JuHeService  httpBodyFromParamDictionary:paramDic];
+//    
+//    
+//    
+//    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        NSLog(@"123");
+//        
+//        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+//        
+//        NSLog(@"dic:%@",dict);
+//        
+//    }];
+//  //5.执行任务
+//    [task resume];
+//            
+//            
+//            
+//       
+//            [manager POST:@"https://api.cn.rong.io/user/getToken.json" parameters:inputDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//    
+//                //       NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//                NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
 //                
-//                [contentArray addObject:[one objectForKey:@"content"]];
-//            }
-//            
-//            
-//            dispatch_async(dispatch_get_main_queue(),^{
-//                
-//                if (delegate && [delegate respondsToSelector:@selector(getDataWithReson:dataList:)]){
+//                NSString *token = nil;
+//
+//                dispatch_async(dispatch_get_main_queue(),^{
 //                    
-//                    [delegate getDataWithReson:reason dataList:contentArray];
-//                }
-//                
-//                
-//            });
-//            
-//            
-//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError *_Nonnull error){
-//            NSLog(@"下载失败");
-//            NSLog(@"%@",error.domain);
-//            NSLog(@"testError__%ld",(long)error.code);
-//            NSLog(@"test______%@",error.localizedFailureReason);
-//        }];
-//        
-//    });
-//}
+//                    NSLog(@"%@",content);
+//    
+//                    completion(token);
+//    
+//    
+//                });
+//    
+//    
+//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError *_Nonnull error){
+//                NSLog(@"下载失败");
+//                NSLog(@"%@",error.domain);
+//                NSLog(@"testError__%ld",(long)error.code);
+//                NSLog(@"test______%@",error.localizedFailureReason);
+//            }];
+            
+//        });
+//    
+//};
 
-
+//参数拼接
++ (NSData *)httpBodyFromParamDictionary:(NSDictionary *)param
+{
+    NSMutableString * data = [NSMutableString string];
+    for (NSString * key in param.allKeys) {
+        //其实关键是这一句，扩展有规定格式的字符串。
+        [data appendFormat:@"%@=%@&",key,param[key]];
+    }
+    //
+    return [[data substringToIndex:data.length-1] dataUsingEncoding:NSUTF8StringEncoding];
+}
 
 +(JuHeService *)shareManager{
     static JuHeService *jhs = nil;

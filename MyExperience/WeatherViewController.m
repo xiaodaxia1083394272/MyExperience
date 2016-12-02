@@ -11,6 +11,8 @@
 #import "WeatherDateView.h"
 #import "UIScrollView+MJRefresh.h"
 #import <CoreLocation/CoreLocation.h>
+#import "CommonDefine.h"
+#import "IMUser.h"
 
 @interface WeatherViewController ()<JuHeServiceDelegate,UIScrollViewDelegate,UITextViewDelegate,CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
@@ -45,6 +47,23 @@
 //    }
 //    return _locationManager;
 //}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:IMSave object:nil];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if(self) {
+        
+        // 接收分享回调通知
+        //监听通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(IMNotificationHandler) name:IMSave object:nil];
+        
+
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -17,6 +17,11 @@
 #import "WechatAuthSDK.h"
 
 #import "WXApiObject.h"
+#import "CommonDefine.h"
+
+#import "IMUser.h"
+
+#import "JuHeService.h"
 
 
 
@@ -26,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *dataTableView;
 @property (strong, nonatomic) NSArray *discoverList;
 
+@property (assign, nonatomic) BOOL imIsConnect;
+
 
 @end
 
@@ -33,6 +40,8 @@
 
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"WXShare" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:IMSave object:nil];
 }
 
 - (instancetype)init {
@@ -43,11 +52,15 @@
         //监听通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderPayResult:) name:@"WXShare" object:nil];
         
+        
         // 检查是否装了微信
         if ([WXApi isWXAppInstalled])
         {
             
         }
+        
+        //融云请求token状况通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveIMResult:) name:IMSave object:nil];
     }
     return self;
 }
@@ -61,12 +74,84 @@
     }
 }
 
+- (void)saveIMResult:(NSNotification *)notification{
+    
+//    notification.object
+    NSLog(@"理论上讲请求token成功");
+    
+    __weak __typeof(self) weakSelf = self;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"获取融云token成功，是否跳转聊天"preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        
+    }];
+    UIAlertAction *requestAction = [UIAlertAction actionWithTitle:@"是"style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        
+        [weakSelf saveIMUser];
+    }];
+    
+    [alertController addAction:cancelAction];
+
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
+- (void)jumpToIMConversation{
+    
+    if(_imIsConnect){
+        
+        RCConversationViewController *cc = [[RCConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"test2"];
+        [self.navigationController pushViewController:cc animated:YES];
+    }else{
+        
+        NSLog(@"连接融云对话不成功");
+    }
+    
+}
+
+//融云连接成功后，就不用多次连
+- (void)connectIM{
+    
+    self.imIsConnect = NO;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData * userData = [defaults objectForKey:saveIMKey];
+    
+    IMUser *imUser = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+    
+    
+    [[RCIM sharedRCIM] connectWithToken:imUser.imUserToken success:^(NSString *userId) {
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+
+            self.imIsConnect = YES;
+            
+        });
+        
+    } error:^(RCConnectErrorCode status) {
+        NSLog(@"status = %ld",(long)status);
+        
+        self.imIsConnect = NO;
+        
+    } tokenIncorrect:^{
+        
+        self.imIsConnect = NO;
+        NSLog(@"token 错误");
+    }];
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"个人中心";
+    
+    [self connectIM];
+    
     NSArray *oneArray = [NSArray arrayWithObjects:@"给作者留言", nil];
-    NSArray *twoArray = [NSArray arrayWithObjects:@"微信分享", nil];
+    NSArray *twoArray = [NSArray arrayWithObjects:@"微信分享",@"", nil];
     _discoverList = [[NSArray alloc] initWithObjects:oneArray,twoArray, nil];
     
     // Do any additional setup after loading the view from its nib.
@@ -183,33 +268,29 @@
 //        }
         if ([weakCell.valueLabel.text isEqualToString:@"给作者留言"]){
             
-            [[RCIM sharedRCIM] connectWithToken:@"sR6mlx+RRJQXjvaF2xWo8y+fk98IrGNYOwlaUzgjtrYhCmG+nHKTx9zyOY3opCw+H6fG/uEX08u+5z4AxHYAbA==" success:^(NSString *userId) {
-                
-                dispatch_async(dispatch_get_main_queue(),^{
-                   
-                    RCConversationViewController *cc = [[RCConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"test2"];
-                    [self.navigationController pushViewController:cc animated:YES];
-                    
-
-                });
-
-            } error:^(RCConnectErrorCode status) {
-            NSLog(@"status = %ld",(long)status);
-        } tokenIncorrect:^{
-            
-            NSLog(@"token 错误");
-        }];
-            
+            [self jumpToIMConversation];
            
         }else if ([weakCell.valueLabel.text isEqualToString:@"微信分享"]){
             
             [self WXShare];
             
+        }else if ([weakCell.valueLabel.text isEqualToString:@"调用短信"]){
+            
+            [self testCall];
         }
     };
     
     return cell;
     
+}
+
+- (void)testCall{
+    
+//    NSString *stringURL = @"sms:+12345678901";
+//    NSURL *url = [NSURL URLWithString:stringURL];
+//    [[UIApplication sharedApplication] openURL:url];
+    NSURL *url = [NSURL URLWithString:@"testurl"];
+    [[UIApplication sharedApplication] openURL:url];
 }
 //断开与融云的连接
 //[[RCIM sharedRCIM] disconnect:YES]
@@ -217,6 +298,77 @@
 //- (void)disconnect:(BOOL)isReceivePush;
 //登出
 //- (void)logout;
+#pragma mark - 融云处理
+- (void) handleIM{
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSData *userData = [userDefault objectForKey:saveIMKey];
+    
+    IMUser *imUser = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+    
+    if (imUser.imUserToken != nil && [imUser.imUserToken isEqualToString:@""] == NO){
+        
+        NSLog(@"融云已获得");
+    }else {
+        
+        [self IMAlert];
+    }
+    
+}
+
+-(void)IMAlert{
+    __weak __typeof(self) weakSelf = self;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"是否重新请求获取融云token"preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        
+    }];
+    UIAlertAction *requestAction = [UIAlertAction actionWithTitle:@"重试"style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        
+        [weakSelf saveIMUser];
+    }];
+    
+    [alertController addAction:cancelAction];
+    
+    [alertController addAction:requestAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)saveIMUser{
+    
+    
+    IMUser *user = [[IMUser alloc] init];
+    int random = arc4random()%10000000 +1;
+    user.imUserId = [NSString stringWithFormat:@"user%d",random];
+    user.imUserName = [NSString stringWithFormat:@"用户%d",random];
+    
+    [JuHeService queryIMTokenWithDelegate:nil userId:user.imUserId name:user.imUserName completion:^(NSString *token){
+        
+        if([token isEqualToString:@""] == NO){
+            
+            user.imUserToken = token;
+            
+            user.imIsSave = YES;
+            
+            //将自定义的IMUser类型变为Nsdata类型，为了能让NsUserdefault存
+            NSData *userData = [NSKeyedArchiver archivedDataWithRootObject:user];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:userData forKey:saveIMKey];
+            
+            NSNotification * notification = [NSNotification notificationWithName:IMSave object:user];
+            
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+            
+            
+        }else{
+            
+            user.imIsSave = NO;
+        }
+    }];
+    
+}
 
 
 

@@ -43,7 +43,7 @@
 //25.对眼前的事情走心。
 //26.不关乎学历，关键能做到事情
 //27.buildsetting  里面要加东西，可能要双击即可。
-//28.貌似加个专有名词更加好记。比如“必杀15分钟”,"黑火代码块“,"副将纸笔"，“副将面具”
+//28.貌似加个专有名词更加好记。比如“必杀15分钟”,"返回值代码块“,"副将纸笔"，“副将面具”
 //29.反推
 //30.代码块，复用，值回调
 //31.question mark override
@@ -53,5 +53,18 @@
 //35.xib里的继承更简单，直接在class里填
 //36.类没有self的概念吗？
 //37.代码块调用的时候要写类型，名字就不用写了。一般的都不用写
+//38.通知http://www.cnblogs.com/zmloveworld/p/5388810.html
+//39.NSuserDefaults https://my.oschina.net/u/1245365/blog/294449
+//40.面试http://www.2cto.com/kf/201510/446986.html
+//41.程序狗面试题https://github.com/ChenYilong/iOSInterviewQuestions
+//42.根本没有什么岁月静好，只是有人在替我们负重前行
+//43.脑动。
 //44.看一下（或者说学一下也行），特别是遇到非常难理解的，停下一会，对着眼前相对固定静止的事物，然后把刚才想的套进去，或许能悟到，或者能更好地理解，因为万物都逃不出上帝的规则。
+//45.iOS开发路线图http://www.cnblogs.com/tgycoder/p/5566892.html
+/*46.程序通过URL调用系统自带的应用http://www.cnblogs.com/foxmin/archive/2012/03/17/2402984.html
+ url调用一般应用http://www.cnblogs.com/foxmin/archive/2012/03/18/2404727.html
+ URL应用程序间传递数据http://www.cnblogs.com/foxmin/archive/2012/03/18/2405067.html
+ */
+/*47.特定含义：memory内存，host域名，terminate退出，port端口，scheme协议，absoluteString完整字符串
+ */
 #pragma mark

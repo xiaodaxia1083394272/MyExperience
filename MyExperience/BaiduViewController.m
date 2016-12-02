@@ -19,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
+    NSURL *url = [NSURL URLWithString:@"http://geek.csdn.net/news/detail/118070"];
     [self.dataWebView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 

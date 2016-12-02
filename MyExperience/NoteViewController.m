@@ -101,6 +101,9 @@
 
 - (void)clickNoteHistoryButton{
     
+    __weak __typeof(self) weakSelf = self;
+
+    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"是否保存当前的笔记呢？"preferredStyle:UIAlertControllerStyleAlert];
     //块的写法也比较特别，你说它是参数嘛，我们平时给参数也就单一 ，一种参数，但是用块传参，感觉就像把类型和内容一起传过去，怪？
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
@@ -109,13 +112,13 @@
         //    //2，查询数据，并把查询到的数据传过去
         //局部数组接收
         NSArray *noteList = [NSArray array];
-        noteList = [self searchDatabaseData];
+        noteList = [weakSelf searchDatabaseData];
         
         //加这句的意思是，感觉块里面好像都是子线程执行的，并且直接在子线程里面执行，反正跳转的时候，动画不起作用，所以加了个回归主线程才执行操作的GCD，这样跳转能自然一点
 //        dispatch_async(dispatch_get_main_queue(),^{
         
             NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note" noteList:noteList];
-            [self.navigationController pushViewController:nvc animated:YES];
+            [weakSelf.navigationController pushViewController:nvc animated:YES];
 //        });
 
     }];
@@ -125,17 +128,17 @@
         int random = arc4random()%10000000 +1;
 //        _dataID++;
         //    //1，添加，或者说是保存数据先
-            [self addDataToDatabaseWithDataId:random];
+            [weakSelf addDataToDatabaseWithDataId:random];
         NSLog(@"test note %d",_dataID);
         //局部数组接收
         NSArray *noteList = [NSArray array];
-        noteList = [self searchDatabaseData];
+        noteList = [weakSelf searchDatabaseData];
         
 //        dispatch_async(dispatch_get_main_queue(),^{
 
             NewsViewController *nvc = [[NewsViewController alloc] initWithStyle:@"note" noteList:noteList];
         NSLog(@"note cout %d",[noteList count]);
-            [self.navigationController pushViewController:nvc animated:YES];
+            [weakSelf.navigationController pushViewController:nvc animated:YES];
             
 //        });
     }];
