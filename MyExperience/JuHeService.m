@@ -21,7 +21,26 @@
 @implementation JuHeService
 
 
+#pragma mark - 创建请求者
++(AFHTTPSessionManager *)manager
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    // 超时时间
+    manager.requestSerializer.timeoutInterval = 30;
+    
+    // 声明上传的是json格式的参数，需要你和后台约定好，不然会出现后台无法获取到你上传的参数问题
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer]; // 上传普通格式
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer]; // 上传JSON格式
+    
+    // 声明获取到的数据格式
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer]; // AFN不会解析,数据是data，需要自己解析
+    //    manager.responseSerializer = [AFJSONResponseSerializer serializer]; // AFN会JSON解析返回的数据
+    // 个人建议还是自己解析的比较好，有时接口返回的数据不合格会报3840错误，大致是AFN无法解析返回来的数据
+    return manager;
+}
 
+
+//Joke
 + (void)queryJuheDataWithDelegate:(id<JuHeServiceDelegate>)delegate
                              Sort:(NSString *)sort
                              page:(int)page
@@ -41,45 +60,68 @@
 //        [[JuHeService shareManager]aFGetDataWithParameters:inputDic];
         //创建HTTP连接管理对象
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.requestSerializer.timeoutInterval = 5;
         
-        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        //
-        //    manager.responseSerializer = [AFHTTPResponse serializer];
+        //上传普通格式
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        //上传Json格式
+        // manager.responseSerializer = [AFJSONRequestSerializer serializer];
         
-        
+        // 声明获取到的数据格式
+//        manager.responseSerializer = [AFHTTPResponseSerializer serializer]; // AFN不会解析,数据是data，需要自己解析
+            manager.responseSerializer = [AFJSONResponseSerializer serializer]; // AFN会JSON解析返回的数据
+        // 个人建议还是自己解析的比较好，有时接口返回的数据不合格会报3840错误，大致是AFN无法解析返回来的数据
         
         //GET 方法获取服务器的数据
         //GET 通过get方法
         //p1: 参数传入一个URL对象
         
-        [manager GET:@"http://japi.juhe.cn/joke/content/list.from" parameters:inputDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+
+        
+        [manager GET:@"http://japi.juhe.cn/joke/content/list.from" parameters:inputDic progress:^(NSProgress * _Nonnull downloadProgress){
+            
+            //这里可以获取到目前数据请求的进度
+        }
+             success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSLog(@"下载成功");
             
-            //       NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-            //       NSDictionary *a = (NSDictionary *)responseObject;
-            NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            NSString *reason = nil;
-            reason = [content objectForKey:@"reason"];
-            NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
-            resultDic = [content objectForKey:@"result"];
-            NSMutableArray *dataArray = [NSMutableArray array];
-            dataArray = [resultDic objectForKey:@"data"];
-            NSMutableArray *contentArray = [NSMutableArray array];
-            for (NSDictionary *one in dataArray) {
-                
-                [contentArray addObject:[one objectForKey:@"content"]];
-            }
-            
-            
-            dispatch_async(dispatch_get_main_queue(),^{
-               
-                if (delegate && [delegate respondsToSelector:@selector(getDataWithReson:dataList:)]){
-                    
-                    [delegate getDataWithReson:reason dataList:contentArray];
-                }
-                
+                 if (responseObject){
+                     
+                     NSLog(@"test __%@",responseObject);
+                     
+                     //          NSDictionary *content = (NSDictionary *)responseObject;
+                     
+                     NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+                     
+                     NSString *reason = nil;
+                     reason = [content objectForKey:@"reason"];
+                     NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
+                     resultDic = [content objectForKey:@"result"];
+                     NSMutableArray *dataArray = [NSMutableArray array];
+                     dataArray = [resultDic objectForKey:@"data"];
+                     NSMutableArray *contentArray = [NSMutableArray array];
+                     for (NSDictionary *one in dataArray) {
+                         
+                         [contentArray addObject:[one objectForKey:@"content"]];
+                     }
+                     
+                     
+                     dispatch_async(dispatch_get_main_queue(),^{
+                         
+                         if (delegate && [delegate respondsToSelector:@selector(getDataWithReson:dataList:)]){
+                             
+                             [delegate getDataWithReson:reason dataList:contentArray];
+                         }
+                         
+                         
+                     });
+                 } else {
+                     
+//                     success(@{@"msg":@"暂无数据"}, NO);
+                     
+                 }
 
-            });
             
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError *_Nonnull error){
@@ -87,6 +129,9 @@
             NSLog(@"%@",error.domain);
             NSLog(@"testError__%ld",(long)error.code);
             NSLog(@"test______%@",error.localizedFailureReason);
+            
+//            // 请求失败
+//            fail(error);
         }];
     
     });
@@ -322,12 +367,14 @@
 #define AppSecret  @"JuERjS0W9n"
 #define AppKey     @"uwd1c0sxdu5e1"
 
+
 //IM
 + (void)queryIMTokenWithDelegate:(id<JuHeServiceDelegate>)delegate
                           userId:(NSString *)userId
                             name:(NSString *)name
                       completion:(void (^)(NSString * token)) completion {
     
+                          
     //随机数,无长度限制
     NSString * nonce = [NSString stringWithFormat:@"%d",arc4random()];
     //    以1970/01/01 GMT为基准时间，返回实例保存的时间与1970/01/01 GMT的时间间隔
@@ -350,6 +397,18 @@
     [request setValue:nonce forHTTPHeaderField:@"Nonce"];
     [request setValue:timestamp forHTTPHeaderField:@"Timestamp"];
     [request setValue:AppSecret forHTTPHeaderField:@"appSecret"];
+    
+   
+    /*子类afnetworking做到这一步呢是这样的
+     
+     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+     [sessionManager.requestSerializer setValue:AppKey forHTTPHeaderField:@"appkey"];
+    都封装进manager里了，其他的还有比如
+     _sessionManager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+     _sessionManager.requestSerializer.timeoutInterval = 10;
+     _sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+     _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];等
+     */
     //签名加密
     [request setValue:[JuHeService sha1:[NSString stringWithFormat:@"%@%@%@",AppSecret,nonce,timestamp]] forHTTPHeaderField:@"Signature"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -361,7 +420,6 @@
     [paramDic setObject:@"https://www.baidu.com/img/baidu_jgylogo3.gif" forKey:@"portraitUri"];
     
     request.HTTPBody = [JuHeService  httpBodyFromParamDictionary:paramDic];
-    
     
     
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -385,117 +443,6 @@
     [task resume];
 }
 
-//+ (void)queryIMTokenWithDelegate:(id<JuHeServiceDelegate>)delegate
-//                             userId:(NSString *)userId
-//                             name:(NSString *)name
-//                       completion:(void (^)(NSString * token)) completion {
-//    
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
-//    
-//            NSMutableDictionary *inputDic = [NSMutableDictionary dictionary];
-//    
-//            //随机数,无长度限制
-//            NSString * nonce = [NSString stringWithFormat:@"%d",arc4random()];
-//            //    以1970/01/01 GMT为基准时间，返回实例保存的时间与1970/01/01 GMT的时间间隔
-//            NSDate *dateObc = [NSDate date];
-//            NSString *timestamp = [NSString stringWithFormat:@"%d",(int)[dateObc timeIntervalSince1970]];
-//            
-////        将系统分配的 AppSecret、Nonce (随机数)、Timestamp (时间戳)三个字符串按先后顺序拼接成一个字符串并进行 SHA1哈希计算
-//            NSString *signature = [JuHeService  sha1:[NSString stringWithFormat:@"%@%@%@",AppSecret,nonce,timestamp]];//用sha1对签名进行加密,随你用什么方法,MD5...
-//            [inputDic setValue:nonce forKey:@"Nonce"];
-//            [inputDic setValue:timestamp forKey:@"Timestamp"];
-//            [inputDic setValue:signature forKey:@"Signature"];
-//            [inputDic setValue:userId forKey:@"useId"];
-//            [inputDic setValue:name forKey:@"name"];
-//            [inputDic setValue:@"https://www.baidu.com/img/baidu_jgylogo3.gif" forKey:@"portraitUri"];
-//            [inputDic setValue:AppKey forKey:@"App-Key"];
-//    
-//            //        [[JuHeService shareManager]aFGetDataWithParameters:inputDic];
-//            //创建HTTP连接管理对象
-//            AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    
-//            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//            //
-            //    manager.responseSerializer = [AFHTTPResponse serializer];
-            
-            
-//            //传入json格式数据，不写则普通post
-//            manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//            //默认返回JSON类型（可以不写）
-//            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-            //设置返回类型
-//            manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    
-#pragma mark - 先用原生的网络请求
-    //POST 请求 请求参数放在请求内部（httpBody）
-    //设置请求
-//    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] init];
-////    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.cn.rong.io/user/getToken.json"]];
-//    [request setHTTPMethod:@"POST"];
-//    [request setTimeoutInterval:60];
-//            request.URL = [NSURL URLWithString:@"https://api.cn.rong.io/user/getToken.json"];
-////    [request setAllHTTPHeaderFields:nil];
-//    
-//    //配置http header
-//    [request setValue:AppKey forHTTPHeaderField:@"App-Key"];
-//    [request setValue:nonce forKey:@"Nonce"];
-//    [request setValue:timestamp forKey:@"Timestamp"];
-//    [request setValue:AppSecret forHTTPHeaderField:@"appSecret"];
-//    //签名加密
-//    [request setValue:[JuHeService sha1:[NSString stringWithFormat:@"%@%@%@",AppSecret,nonce,timestamp]] forHTTPHeaderField:@"Signature"];
-//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//    
-//    //拼接参数
-//    NSMutableDictionary * paramDic = [NSMutableDictionary dictionary];
-//    [paramDic setObject:userId forKey:@"userId"];
-//    [paramDic setObject:name forKey:@"name"];
-//    [paramDic setObject:@"https://www.baidu.com/img/baidu_jgylogo3.gif" forKey:@"portraitUri"];
-//    
-//    request.HTTPBody = [JuHeService  httpBodyFromParamDictionary:paramDic];
-//    
-//    
-//    
-//    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//        NSLog(@"123");
-//        
-//        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-//        
-//        NSLog(@"dic:%@",dict);
-//        
-//    }];
-//  //5.执行任务
-//    [task resume];
-//            
-//            
-//            
-//       
-//            [manager POST:@"https://api.cn.rong.io/user/getToken.json" parameters:inputDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//    
-//                //       NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-//                NSDictionary *content = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-//                
-//                NSString *token = nil;
-//
-//                dispatch_async(dispatch_get_main_queue(),^{
-//                    
-//                    NSLog(@"%@",content);
-//    
-//                    completion(token);
-//    
-//    
-//                });
-//    
-//    
-//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError *_Nonnull error){
-//                NSLog(@"下载失败");
-//                NSLog(@"%@",error.domain);
-//                NSLog(@"testError__%ld",(long)error.code);
-//                NSLog(@"test______%@",error.localizedFailureReason);
-//            }];
-            
-//        });
-//    
-//};
 
 //参数拼接
 + (NSData *)httpBodyFromParamDictionary:(NSDictionary *)param
@@ -509,19 +456,7 @@
     return [[data substringToIndex:data.length-1] dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-+(JuHeService *)shareManager{
-    static JuHeService *jhs = nil;
-    
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        
-        jhs = [[JuHeService alloc] init];
-        
-    });
-    
-    return jhs;
-}
+
 
 - (NSDictionary *)aFGetDataWithParameters:(NSDictionary *)parameters {
     
@@ -615,12 +550,105 @@
     }];
 }
 
-- (void)a {
-    //session
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFHTTPSessionManager *manage = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:config];
+#pragma mark - download 
+
+- (void)downLoadWithUrlString:(NSString *)urlString
+{
+    // 1.创建管理者对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    // 2.设置请求的URL地址
+    NSURL *url = [NSURL URLWithString:urlString];
+    // 3.创建请求对象
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    // 4.下载任务
+    NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        // 下载进度
+        NSLog(@"当前下载进度为:%lf", 1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        // 下载地址
+        NSLog(@"默认下载地址%@",targetPath);
+        // 设置下载路径,通过沙盒获取缓存地址,最后返回NSURL对象
+        NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject];
+        return [NSURL fileURLWithPath:filePath]; // 返回的是文件存放在本地沙盒的地址
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        // 下载完成调用的方法
+        NSLog(@"%@---%@", response, filePath);
+    }];
+    // 5.启动下载任务
+    [task resume];
+}
+
+#pragma mark - upLoad
+
+- (void)uploadWithUser:(NSString *)userId UrlString:(NSString *)urlString upImg:(UIImage *)upImg
+{
+    // 创建管理者对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    // 参数
+    NSDictionary *param = @{@"user_id":userId};
+    [manager POST:urlString parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        /******** 1.上传已经获取到的img *******/
+        // 把图片转换成data
+        NSData *data = UIImagePNGRepresentation(upImg);
+        // 拼接数据到请求题中
+        [formData appendPartWithFileData:data name:@"file" fileName:@"123.png" mimeType:@"image/png"];
+        /******** 2.通过路径上传沙盒或系统相册里的图片 *****/
+        //        [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"文件地址"] name:@"file" fileName:@"1234.png" mimeType:@"application/octet-stream" error:nil];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        // 打印上传进度
+        NSLog(@"%lf",1.0 *uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //请求成功
+        NSLog(@"请求成功：%@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //请求失败
+        NSLog(@"请求失败：%@",error);
+    }];
+}
+
+#pragma mark - 网络监听
+
+- (void)AFNetworkStatus{
     
+    //1.创建网络监测者
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
     
+    /*枚举里面四个状态  分别对应 未知 无网络 数据 WiFi
+     typedef NS_ENUM(NSInteger, AFNetworkReachabilityStatus) {
+     AFNetworkReachabilityStatusUnknown          = -1,      未知
+     AFNetworkReachabilityStatusNotReachable     = 0,       无网络
+     AFNetworkReachabilityStatusReachableViaWWAN = 1,       蜂窝数据网络
+     AFNetworkReachabilityStatusReachableViaWiFi = 2,       WiFi
+     };
+     */
+    
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        //这里是监测到网络改变的block  可以写成switch方便
+        //在里面可以随便写事件
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"未知网络状态");
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                NSLog(@"无网络");
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                NSLog(@"蜂窝数据网");
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"WiFi网络");
+                
+                break;
+                
+            default:
+                break;
+        }
+        
+    }] ;
 }
 
 @end

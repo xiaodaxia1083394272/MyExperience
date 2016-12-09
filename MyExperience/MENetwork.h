@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MENetworkResponse.h"
+
 
 //typedef void(^MENetworkResponseHandler)(MENetworkResponse *response);
 

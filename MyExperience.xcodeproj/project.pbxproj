@@ -114,6 +114,7 @@
 		4718030B1DF105AC00519908 /* MENetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MENetwork.m; sourceTree = "<group>"; };
 		4718030D1DF10DEC00519908 /* MENetworkResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MENetworkResponse.h; sourceTree = "<group>"; };
 		4718030E1DF10DEC00519908 /* MENetworkResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MENetworkResponse.m; sourceTree = "<group>"; };
+		471803101DF1167800519908 /* FailMarkShouldSolve.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FailMarkShouldSolve.h; sourceTree = "<group>"; };
 		694A7693437C673C5134AB39 /* Pods-MyExperience.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExperience.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyExperience/Pods-MyExperience.debug.xcconfig"; sourceTree = "<group>"; };
 		921BBB581DD5AF4D006A4C20 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		921BBB5A1DD5B25A006A4C20 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -412,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				92416B951DB4711D000AEBFE /* FailMark.h */,
+				471803101DF1167800519908 /* FailMarkShouldSolve.h */,
 				92279B0C1DE04D2800B7587F /* CommonDefine.h */,
 				926ED1AD1DD745D30030FE57 /* MyENavigationController.h */,
 				926ED1AE1DD745D30030FE57 /* MyENavigationController.m */,
