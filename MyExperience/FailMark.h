@@ -12,6 +12,8 @@
 
 #endif /* FailMark_h */
 //http://www.runoob.com/   http://www.w3school.com.cn/
+//首先要有比较清晰的基础认识，才能应对变化，直接应对变化，很容易乱头绪?&相似不同&有什么区别呢
+
 //0.证书信息   用户电子邮件地址：1083394272@qq.com 常用名称：xiaodaxia 请求是：存到磁盘
 
 //1.博客的话，有时只看大概的思路即可，因为内容的话可能是错的
@@ -83,7 +85,8 @@
 //53.有一个关于wsdl2objc比较好的http://www.knowsky.com/883067.html
 //54.在类似target里面配置总的话，直接在后面双击就可以输入了
 //55.q不最小化不会弹出来
-//首先要有比较清晰的基础认识，才能应对变化，直接应对变化，很容易乱头绪
 //56.站长工具
 //57.office工具拉窄会看不到工具栏的
+//58.OS开发之Objective-C与JavaScript交互操作，有点像命令行控制
+//59.解释wsdl比较好的博客http://blog.csdn.net/etttttss/article/details/17303315
 #pragma mark

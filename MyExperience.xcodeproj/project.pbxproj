@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4718030C1DF105AC00519908 /* MENetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 4718030B1DF105AC00519908 /* MENetwork.m */; };
 		4718030F1DF10DEC00519908 /* MENetworkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4718030E1DF10DEC00519908 /* MENetworkResponse.m */; };
+		471F5A691DFA3CEE00BE72FE /* TestJSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471F5A671DFA3CEE00BE72FE /* TestJSViewController.m */; };
+		471F5A6A1DFA3CEE00BE72FE /* TestJSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471F5A681DFA3CEE00BE72FE /* TestJSViewController.xib */; };
 		921BBB591DD5AF4D006A4C20 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB581DD5AF4D006A4C20 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		921BBB5B1DD5B25A006A4C20 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB5A1DD5B25A006A4C20 /* CFNetwork.framework */; };
 		921BBB5D1DD5B6B1006A4C20 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB5C1DD5B6B1006A4C20 /* libz.tbd */; };
@@ -115,6 +117,9 @@
 		4718030D1DF10DEC00519908 /* MENetworkResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MENetworkResponse.h; sourceTree = "<group>"; };
 		4718030E1DF10DEC00519908 /* MENetworkResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MENetworkResponse.m; sourceTree = "<group>"; };
 		471803101DF1167800519908 /* FailMarkShouldSolve.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FailMarkShouldSolve.h; sourceTree = "<group>"; };
+		471F5A661DFA3CEE00BE72FE /* TestJSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestJSViewController.h; sourceTree = "<group>"; };
+		471F5A671DFA3CEE00BE72FE /* TestJSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestJSViewController.m; sourceTree = "<group>"; };
+		471F5A681DFA3CEE00BE72FE /* TestJSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestJSViewController.xib; sourceTree = "<group>"; };
 		694A7693437C673C5134AB39 /* Pods-MyExperience.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExperience.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyExperience/Pods-MyExperience.debug.xcconfig"; sourceTree = "<group>"; };
 		921BBB581DD5AF4D006A4C20 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		921BBB5A1DD5B25A006A4C20 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -299,6 +304,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		471F5A651DFA3CC100BE72FE /* TestController */ = {
+			isa = PBXGroup;
+			children = (
+				471F5A661DFA3CEE00BE72FE /* TestJSViewController.h */,
+				471F5A671DFA3CEE00BE72FE /* TestJSViewController.m */,
+				471F5A681DFA3CEE00BE72FE /* TestJSViewController.xib */,
+			);
+			name = TestController;
+			sourceTree = "<group>";
+		};
 		6519211FC2E9BC9CEABCCCAA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +432,7 @@
 				92279B0C1DE04D2800B7587F /* CommonDefine.h */,
 				926ED1AD1DD745D30030FE57 /* MyENavigationController.h */,
 				926ED1AE1DD745D30030FE57 /* MyENavigationController.m */,
+				471F5A651DFA3CC100BE72FE /* TestController */,
 				92F38CAA1DAD4CC500C44549 /* MJRefresh */,
 				92EF625D1DABE16500FDE5DE /* MainController */,
 				922A249B1DC108CA00EAC26C /* OtherController */,
@@ -765,6 +781,7 @@
 				926ED1A71DD6DBA20030FE57 /* ChatViewController.xib in Resources */,
 				925F5DBC1D855C7800C0B699 /* QQViewTableViewCell.xib in Resources */,
 				924055CF1D91939B00D77220 /* TestSQLViewController.xib in Resources */,
+				471F5A6A1DFA3CEE00BE72FE /* TestJSViewController.xib in Resources */,
 				925F5DB71D8538CC00C0B699 /* QQViewController.xib in Resources */,
 				923AEE311D98F731006CC483 /* JuHeTableViewCell.xib in Resources */,
 				922A24A01DC1095100EAC26C /* BaiduViewController.xib in Resources */,
@@ -847,6 +864,7 @@
 				922A249F1DC1095100EAC26C /* BaiduViewController.m in Sources */,
 				925F5DBB1D855C7800C0B699 /* QQViewTableViewCell.m in Sources */,
 				922AB6CB1DAF321A0051DF7D /* NewsDetailViewController.m in Sources */,
+				471F5A691DFA3CEE00BE72FE /* TestJSViewController.m in Sources */,
 				4718030F1DF10DEC00519908 /* MENetworkResponse.m in Sources */,
 				924055CE1D91939B00D77220 /* TestSQLViewController.m in Sources */,
 				9238D7901D82777C001D2919 /* DBManager.m in Sources */,

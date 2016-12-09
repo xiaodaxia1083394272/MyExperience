@@ -10,74 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyExperience/JuHeService.m"
-            timestampString = "502468491.132528"
+            timestampString = "502939251.224373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "+queryJuheDataWithDelegate:Sort:page:pageSize:time:appKey:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__72+[JuHeService queryJuheDataWithDelegate:Sort:page:pageSize:time:appKey:]_block_invoke_3"
-                  moduleName = "MyExperience"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qiuhaodong_macmini/Desktop/MyExperience/MyExperience/JuHeService.m"
-                  timestampString = "502468510.053321"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "134"
-                  endingLineNumber = "134"
-                  offsetFromSymbolStart = "1473">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.69"
-                  moduleName = "MyExperience"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qiuhaodong_macmini/Desktop/MyExperience/MyExperience/JuHeService.m"
-                  timestampString = "502468510.056893"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "134"
-                  endingLineNumber = "134"
-                  offsetFromSymbolStart = "51">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.70"
-                  moduleName = "MyExperience"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qiuhaodong_macmini/Desktop/MyExperience/MyExperience/JuHeService.m"
-                  timestampString = "502468510.059713"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "134"
-                  endingLineNumber = "134"
-                  offsetFromSymbolStart = "29">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyExperience/JuHeService.m"
-            timestampString = "502468498.803862"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "+queryJuheDataWithDelegate:Sort:page:pageSize:time:appKey:"
             landmarkType = "7">
          </BreakpointContent>
@@ -89,11 +26,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyExperience/JuHeService.m"
-            timestampString = "502599057.16214"
+            timestampString = "502939251.224373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "611"
-            endingLineNumber = "611"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "+queryJuheDataWithDelegate:Sort:page:pageSize:time:appKey:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyExperience/JuHeService.m"
+            timestampString = "502939251.224373"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "430"
+            endingLineNumber = "430"
             landmarkName = "+queryIMTokenWithDelegate:userId:name:completion:"
             landmarkType = "7">
          </BreakpointContent>
