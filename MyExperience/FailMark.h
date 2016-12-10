@@ -12,7 +12,7 @@
 
 #endif /* FailMark_h */
 //http://www.runoob.com/   http://www.w3school.com.cn/
-//首先要有比较清晰的基础认识，才能应对变化，直接应对变化，很容易乱头绪?&相似不同&有什么区别呢
+//首先要有比较清晰的基础认识，才能应对变化，直接应对变化，很容易乱头绪?&相似不同&有什么区别呢(chuli)&形象(jiyi)
 
 //0.证书信息   用户电子邮件地址：1083394272@qq.com 常用名称：xiaodaxia 请求是：存到磁盘
 
@@ -89,4 +89,7 @@
 //57.office工具拉窄会看不到工具栏的
 //58.OS开发之Objective-C与JavaScript交互操作，有点像命令行控制
 //59.解释wsdl比较好的博客http://blog.csdn.net/etttttss/article/details/17303315
+//60.soap的part定义了传参的消息类型和返参的消息类型，其他通俗一点就是给个名字标识符给它，能找到传返参
+//61.生活懂得做减法
+//62.痛点
 #pragma mark
