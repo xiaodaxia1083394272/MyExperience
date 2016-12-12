@@ -92,4 +92,6 @@
 //60.soap的part定义了传参的消息类型和返参的消息类型，其他通俗一点就是给个名字标识符给它，能找到传返参
 //61.生活懂得做减法
 //62.痛点
+//63.ios 禁止ARChttp://blog.csdn.net/amazingrace/article/details/19834157
+
 #pragma mark
