@@ -93,5 +93,8 @@
 //61.生活懂得做减法
 //62.痛点
 //63.ios 禁止ARChttp://blog.csdn.net/amazingrace/article/details/19834157
+//64.终端输入uname -m 可以看到i386, 表明内核是32位的  如果输出是 x86_64 就是64位的
+//64.碎肉冻
+//65.貌似如果不是在AppStore里下载的，比如说是在谷歌浏览器里下载的，很有可能识别安装不了，要在Safari那里下载，或者在“下载”哪里安装
 
 #pragma mark
