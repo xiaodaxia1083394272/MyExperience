@@ -9,45 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyExperience/JuHeService.m"
-            timestampString = "502939251.224373"
+            filePath = "MyExperience/VideoViewController.m"
+            timestampString = "503504550.559955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "+queryJuheDataWithDelegate:Sort:page:pageSize:time:appKey:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyExperience/JuHeService.m"
-            timestampString = "502939251.224373"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "+queryJuheDataWithDelegate:Sort:page:pageSize:time:appKey:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyExperience/JuHeService.m"
-            timestampString = "502939251.224373"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "430"
-            endingLineNumber = "430"
-            landmarkName = "+queryIMTokenWithDelegate:userId:name:completion:"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-videoReady"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

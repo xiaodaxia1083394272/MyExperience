@@ -11,6 +11,8 @@
 		4718030F1DF10DEC00519908 /* MENetworkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4718030E1DF10DEC00519908 /* MENetworkResponse.m */; };
 		471F5A691DFA3CEE00BE72FE /* TestJSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471F5A671DFA3CEE00BE72FE /* TestJSViewController.m */; };
 		471F5A6A1DFA3CEE00BE72FE /* TestJSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471F5A681DFA3CEE00BE72FE /* TestJSViewController.xib */; };
+		475CB0391E0271F600E758E4 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 475CB0371E0271F600E758E4 /* VideoViewController.m */; };
+		475CB03A1E0271F600E758E4 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 475CB0381E0271F600E758E4 /* VideoViewController.xib */; };
 		921BBB591DD5AF4D006A4C20 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB581DD5AF4D006A4C20 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		921BBB5B1DD5B25A006A4C20 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB5A1DD5B25A006A4C20 /* CFNetwork.framework */; };
 		921BBB5D1DD5B6B1006A4C20 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 921BBB5C1DD5B6B1006A4C20 /* libz.tbd */; };
@@ -120,6 +122,10 @@
 		471F5A661DFA3CEE00BE72FE /* TestJSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestJSViewController.h; sourceTree = "<group>"; };
 		471F5A671DFA3CEE00BE72FE /* TestJSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestJSViewController.m; sourceTree = "<group>"; };
 		471F5A681DFA3CEE00BE72FE /* TestJSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestJSViewController.xib; sourceTree = "<group>"; };
+		475CB0361E0271F600E758E4 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		475CB0371E0271F600E758E4 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		475CB0381E0271F600E758E4 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
+		4760184A1E06414A0006C8A3 /* MyDiscoverMyRules.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDiscoverMyRules.h; sourceTree = "<group>"; };
 		694A7693437C673C5134AB39 /* Pods-MyExperience.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExperience.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyExperience/Pods-MyExperience.debug.xcconfig"; sourceTree = "<group>"; };
 		921BBB581DD5AF4D006A4C20 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		921BBB5A1DD5B25A006A4C20 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -428,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				92416B951DB4711D000AEBFE /* FailMark.h */,
+				4760184A1E06414A0006C8A3 /* MyDiscoverMyRules.h */,
 				471803101DF1167800519908 /* FailMarkShouldSolve.h */,
 				92279B0C1DE04D2800B7587F /* CommonDefine.h */,
 				926ED1AD1DD745D30030FE57 /* MyENavigationController.h */,
@@ -626,6 +633,9 @@
 				926ED1A31DD6DBA20030FE57 /* ChatViewController.h */,
 				926ED1A41DD6DBA20030FE57 /* ChatViewController.m */,
 				926ED1A51DD6DBA20030FE57 /* ChatViewController.xib */,
+				475CB0361E0271F600E758E4 /* VideoViewController.h */,
+				475CB0371E0271F600E758E4 /* VideoViewController.m */,
+				475CB0381E0271F600E758E4 /* VideoViewController.xib */,
 				922E4D1D1DADDA8400D6E718 /* WeatherNSObject */,
 				922E4D301DAE6A4F00D6E718 /* New Group */,
 			);
@@ -764,6 +774,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475CB03A1E0271F600E758E4 /* VideoViewController.xib in Resources */,
 				92F38CA91DAD203200C44549 /* JokeTableViewCell.xib in Resources */,
 				922AB6CC1DAF321A0051DF7D /* NewsDetailViewController.xib in Resources */,
 				92EF626C1DABE26100FDE5DE /* WeatherViewController.xib in Resources */,
@@ -899,6 +910,7 @@
 				92F6850D1DD6AD700066DFA4 /* DDTableViewCell.m in Sources */,
 				92ED1FBF1D943AA400290D11 /* ShareContent.m in Sources */,
 				92EF626B1DABE26100FDE5DE /* WeatherViewController.m in Sources */,
+				475CB0391E0271F600E758E4 /* VideoViewController.m in Sources */,
 				922AB6C11DAF1D820051DF7D /* NewsTableViewCell.m in Sources */,
 				924055CA1D91920500D77220 /* SQLManager.m in Sources */,
 				922E4D331DAE6A6A00D6E718 /* NewObject.m in Sources */,

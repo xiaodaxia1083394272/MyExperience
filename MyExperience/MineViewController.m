@@ -23,6 +23,9 @@
 
 #import "JuHeService.h"
 
+#import "VideoViewController.h"
+
+
 
 
 
@@ -150,7 +153,7 @@
     
     [self connectIM];
     
-    NSArray *oneArray = [NSArray arrayWithObjects:@"给作者留言", nil];
+    NSArray *oneArray = [NSArray arrayWithObjects:@"给作者留言",@"video", nil];
     NSArray *twoArray = [NSArray arrayWithObjects:@"微信分享",@"", nil];
     _discoverList = [[NSArray alloc] initWithObjects:oneArray,twoArray, nil];
     
@@ -277,6 +280,11 @@
         }else if ([weakCell.valueLabel.text isEqualToString:@"调用短信"]){
             
             [self testCall];
+        }else if ([weakCell.valueLabel.text isEqualToString:@"video"]) {
+            
+            VideoViewController *vvc = [[VideoViewController alloc] init];
+            [self.navigationController pushViewController:vvc animated:YES];
+            
         }
     };
     
