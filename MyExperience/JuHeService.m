@@ -68,8 +68,8 @@
         // manager.responseSerializer = [AFJSONRequestSerializer serializer];
         
         // 声明获取到的数据格式
-//        manager.responseSerializer = [AFHTTPResponseSerializer serializer]; // AFN不会解析,数据是data，需要自己解析
-            manager.responseSerializer = [AFJSONResponseSerializer serializer]; // AFN会JSON解析返回的数据
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer]; // AFN不会解析,数据是data，需要自己解析
+//            manager.responseSerializer = [AFJSONResponseSerializer serializer]; // AFN会JSON解析返回的数据
         // 个人建议还是自己解析的比较好，有时接口返回的数据不合格会报3840错误，大致是AFN无法解析返回来的数据
         
         //GET 方法获取服务器的数据
