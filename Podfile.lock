@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - CocoaAsyncSocket (7.5.0):
+    - CocoaAsyncSocket/GCD (= 7.5.0)
+  - CocoaAsyncSocket/GCD (7.5.0)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
@@ -25,6 +28,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (= 3.1.0)
+  - CocoaAsyncSocket (~> 7.5.0)
   - FMDB (~> 2.6.2)
   - MJRefresh (= 3.1.10)
   - RongCloudIMKit (= 2.6.10)
@@ -32,11 +36,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  CocoaAsyncSocket: 3baeb1ddd969f81cf9fca81053ae49ef2d1cbbfa
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MJRefresh: bb72948c985914b0b5cecac573a2c69a8915fb02
   RongCloudIMKit: 6dd84b468701815012a0d8babd99cef3b19c000f
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: df6f0f9324a5729a10f693d2e826c7aaf0214295
+PODFILE CHECKSUM: 5cd9f6775c68a2ba5dd9da51cbae3d95cfa2a368
 
 COCOAPODS: 1.0.1
