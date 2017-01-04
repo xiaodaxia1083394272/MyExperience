@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"MyWorld";
-    
     [self setupRightTopButton];
 }
 - (IBAction)clickNetButton:(id)sender {
